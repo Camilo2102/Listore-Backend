@@ -11,9 +11,13 @@ import java.util.Map;
 @ControllerAdvice
 public class ErrorHandler {
 
+    /**
+     * En caso de obtener un error en algun punto o generado por el usuario para mostrar informacion se ejecuta este envio de mensje
+     * @param ex exepcion generada en alguna ruta
+     * @return Response entyty con los datos del error y el estado
+     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, String>> handleException(Exception ex) {
-        // Manejo de excepciones aquí
         Map<String, String> errorResponse = new HashMap<>();
         errorResponse.put("error", "Error in the application");
         errorResponse.put("message", ex.getMessage());

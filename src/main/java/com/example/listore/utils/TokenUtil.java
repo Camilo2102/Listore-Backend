@@ -24,21 +24,38 @@ public class TokenUtil {
     private static Algorithm algorithm;
     private static Map<String, RSAKey> keys;
 
+    /**
+     *
+     * @param payload data que va a ser almacenada en el jwt
+     * @return jwt creado a partir de la data y el algoritmo establecido
+     */
     public static String generateToken(Map<String, String> payload) {
         return JWT.create().withPayload(payload).withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME)).sign(algorithm);
     }
 
+    /**
+     *
+     * @param token token recibido del usuario
+     * @return estado de la validacion del token
+     */
     public static boolean validateToken(String token) {
         JWTVerifier jwt = JWT.require(algorithm).build();
         DecodedJWT decodedJWT = jwt.verify(token);
         return false;
     }
 
+    /**
+     * Se encarga de inicializar los valores necesarios para crear el alghoritmo de encripcion
+     */
     public static void initializeTokenUtil() {
         Map<String, RSAKey> keys = generateRSAKey();
         algorithm = Algorithm.RSA256((RSAPublicKey) keys.get("public"), (RSAPrivateKey) keys.get("private"));
     }
 
+    /**
+     * Genera las claves rsa necesarias para generar el algoritmo de encripcion
+     * @return claves rsa
+     */
 
     private static Map<String, RSAKey> generateRSAKey() {
         Map<String, RSAKey> keys = new HashMap<>();
