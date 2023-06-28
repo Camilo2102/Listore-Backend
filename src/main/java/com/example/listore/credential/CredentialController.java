@@ -39,7 +39,6 @@ public class CredentialController {
     @PostMapping(BASEURL + "/login")
     public Map<String, String> login(@RequestBody Credential credential) throws Exception {
         Map<String, String> response = new HashMap<>();
-        response.put("status", "Unauthorized");
 
         Optional<Credential> credentialFound = credentialService.findByUserAndMail(credential.getMail());
 
@@ -55,6 +54,8 @@ public class CredentialController {
                 response.put("status", "Authorized");
                 response.put("token", token);
             }
+        } else {
+            throw new Exception("Unauthorized");
         }
 
         return response;
