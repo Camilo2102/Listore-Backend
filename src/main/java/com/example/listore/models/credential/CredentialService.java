@@ -1,10 +1,9 @@
-package com.example.listore.credential;
+package com.example.listore.models.credential;
 
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.models.CRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.listore.credential;
+package com.example.listore.models.credential;
 
 import com.example.listore.models.GeneralModel;
 import jakarta.persistence.Column;
@@ -26,6 +26,8 @@ public class Credential extends GeneralModel {
     private String password;
     @Column(nullable = false, length = 12, unique = true)
     private String user;
+
+    private String prueba;
 
     @Override
     public String toString() {

@@ -1,4 +1,4 @@
-package com.example.listore.credential;
+package com.example.listore.models.credential;
 
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.constants.StatusConstants;
@@ -25,7 +25,9 @@ public class CredentialController implements CRUDController<Credential> {
 
     @Override
     public List<Credential> getAll() throws Exception {
-        throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
+
+        return credentialService.getAll();
+        //throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
     }
 
     @Override

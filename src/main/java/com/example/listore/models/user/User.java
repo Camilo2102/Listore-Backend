@@ -1,4 +1,4 @@
-package com.example.listore.user;
+package com.example.listore.models.user;
 
 import com.example.listore.models.GeneralModel;
 import jakarta.persistence.Column;

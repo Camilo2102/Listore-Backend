@@ -1,4 +1,4 @@
-package com.example.listore.credential;
+package com.example.listore.models.credential;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
