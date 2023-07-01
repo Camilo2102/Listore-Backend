@@ -23,7 +23,7 @@ public class UserService implements CRUDService<User> {
 
     @Override
     public List<User> getAll() throws Exception {
-        return null;
+        return (List<User>) userRepository.findAll();
     }
 
     @Override

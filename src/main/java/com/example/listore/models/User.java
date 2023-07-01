@@ -1,5 +1,6 @@
 package com.example.listore.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -23,6 +24,7 @@ public class User extends GeneralModel  {
 
     @OneToOne
     @JoinColumn(name = "credential_id")
+    @JsonIgnore
     private Credential credential;
 
     public User(User user) {

@@ -24,6 +24,7 @@ public class ListoreConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         initializeAuthRoute(registry);
+        initializeUserRoute(registry);
     }
 
 
@@ -32,19 +33,16 @@ public class ListoreConfig implements WebMvcConfigurer {
      * @param registry recibe el registru para asignarle los parametros de la ruta
      */
     private void initializeAuthRoute(InterceptorRegistry registry) {
-        TokenHandler tokenHandler = generateTokenHandlerWithPermissions(new char[]{'A', 'B'});
-        registry.addInterceptor(tokenHandler).addPathPatterns("/**").excludePathPatterns("/auth/login");
+        this.tokenHandler.addToPermissionListByPath("auth", new char[]{'A', 'B'});
+        registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns("/auth/login");
     }
 
-    /**
-     * Genera el token handler segurn los permisos ingresados
-     * @param permissions un arreglo de caracteres con los permisos del usaurio
-     * @return el token hanlder preparado para validar los permisos
-     */
-    private TokenHandler generateTokenHandlerWithPermissions(char[] permissions){
-        tokenHandler.setPermissions(permissions);
-        return tokenHandler.copyTokenHandler();
+    private void initializeUserRoute(InterceptorRegistry registry) {
+        this.tokenHandler.addToPermissionListByPath("user", new char[]{'X', 'Z'});
+        registry.addInterceptor(tokenHandler).addPathPatterns("/user/**");
     }
+
+
 
 
     /**
