@@ -62,8 +62,8 @@ public class TokenHandler implements HandlerInterceptor {
      * @throws Exception error en caso de no encontrarlo en el sistema
      */
     private boolean isValidInUserList(String id, char role) throws Exception {
-        Optional<User> userFind = userService.findById(id);
-        return userFind.isPresent() && userFind.get().getRole() == role;
+        User userFind = userService.findById(id);
+        return userFind.getRole() == role;
     }
 
     /**

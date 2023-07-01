@@ -26,36 +26,21 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/auth")
 @Transactional
-public class CredentialController implements CRUDController<Credential> {
+public class CredentialController extends GeneralController<Credential> {
 
     private final CredentialService credentialService;
     private final UserService userService;
     @Autowired
     public CredentialController(CredentialService credentialService, UserService userService) {
+        super(credentialService);
         this.credentialService = credentialService;
         this.userService = userService;
     }
 
-    @Override
-    public List<Credential> getAll() throws Exception {
-        return credentialService.getAll();
-    }
 
     @Override
-    public long getAllCount() {
-        return credentialService.count();
-    }
-
-    @Override
-    public List<Credential> getAll(int pageNumber, int pageSize) throws Exception {
-        Pageable page = PageRequest.of(pageNumber, pageSize);
-        return credentialService.getAllPageable(page);
-    }
-
-    @Override
-    public Credential insert(Credential credential) throws Exception {
-        Credential credentialEncrypted = credentialWithEncryptedPassword(credential);
-        return credentialService.save(credentialEncrypted);
+    public Credential create(Credential credential) throws Exception {
+       throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
     }
 
     @Override
@@ -71,10 +56,6 @@ public class CredentialController implements CRUDController<Credential> {
         return credential;
     }
 
-    @Override
-    public Map<String, String> delete(String id) throws Exception {
-        throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
-    }
 
     @PostMapping("/login")
     public Map<String, String> login(@RequestBody Credential credential) throws Exception {

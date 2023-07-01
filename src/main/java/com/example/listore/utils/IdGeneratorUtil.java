@@ -2,7 +2,7 @@ package com.example.listore.utils;
 
 import java.util.UUID;
 
-public class IdGenerator {
+public class IdGeneratorUtil {
 
     /**
      * Genera id unicos

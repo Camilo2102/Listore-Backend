@@ -1,8 +1,7 @@
 package com.example.listore.models;
 
-import com.example.listore.utils.IdGenerator;
+import com.example.listore.utils.IdGeneratorUtil;
 import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -28,6 +27,6 @@ public class GeneralModel {
     private LocalDateTime updatedAt;
 
     public GeneralModel() {
-        this.id = IdGenerator.generateUUID();
+        this.id = IdGeneratorUtil.generateUUID();
     }
 }

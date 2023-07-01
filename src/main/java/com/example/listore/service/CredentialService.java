@@ -15,7 +15,7 @@ import java.util.Optional;
 
 //Definir anotacion @Service para poder usar el autowired
 @Service("CredentialService")
-public class CredentialService implements CRUDService<Credential>{
+public class CredentialService extends GeneralService<Credential>{
 
     //Al crear una interface es necesario implementarla, en este caso la anotacion autowired se encarga de inicalizarla
 
@@ -23,42 +23,8 @@ public class CredentialService implements CRUDService<Credential>{
 
     @Autowired
     public CredentialService(CredentialRepository credentialRepository) {
+        super(credentialRepository);
         this.credentialRepository = credentialRepository;
-    }
-
-    @Override
-    public List<Credential> getAll() throws Exception {
-        return (List<Credential>) credentialRepository.findAll();
-    }
-
-    @Override
-    public List<Credential> getAllPageable(Pageable page) throws Exception {
-        return credentialRepository.findAll(page);
-    }
-
-    @Override
-    public Optional<Credential> findById(String id) throws Exception {
-        return credentialRepository.findById(id);
-    }
-
-    @Override
-    public Credential save(Credential credential) throws Exception {
-        try {
-            return credentialRepository.save(credential);
-        }catch (Exception e) {
-            throw new Exception(MessageConstants.DUPLICATED_MESSAGE);
-        }
-
-    }
-
-    @Override
-    public void delete(String id) throws Exception {
-        credentialRepository.deleteById(id);
-    }
-
-    @Override
-    public long count() {
-        return credentialRepository.count();
     }
 
     public Optional<Credential> findByUserAndMail(String identifier){

@@ -27,10 +27,10 @@ public interface CRUDService<T> {
     /**
      * Obtiene un registro por el id dado
      * @param id id por el cual buscar el registro
-     * @return estado opcional de la busqueda en la base de datos
+     * @return estado de la busqueda en la base de datos
      * @throws Exception en caso de obtener un registro nulo
      */
-    public Optional<T> findById(String id) throws Exception;
+    public T findById(String id) throws Exception;
 
     /**
      * Guarde el registro

@@ -1,7 +1,10 @@
 package com.example.listore.config;
 
 import com.example.listore.interceptores.TokenHandler;
+import com.example.listore.models.Credential;
+import com.example.listore.service.GeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -23,8 +26,8 @@ public class ListoreConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        initializeAuthRoute(registry);
-        initializeUserRoute(registry);
+        //initializeAuthRoute(registry);
+        //initializeUserRoute(registry);
     }
 
 
@@ -41,8 +44,6 @@ public class ListoreConfig implements WebMvcConfigurer {
         this.tokenHandler.addToPermissionListByPath("user", new char[]{'X', 'Z'});
         registry.addInterceptor(tokenHandler).addPathPatterns("/user/**");
     }
-
-
 
 
     /**
