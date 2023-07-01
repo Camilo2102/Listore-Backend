@@ -69,7 +69,7 @@ public class CredentialController implements CRUDController<Credential> {
     }
 
     @Override
-    public Map<String, String> delete(int id) throws Exception {
+    public Map<String, String> delete(String id) throws Exception {
         throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
     }
 

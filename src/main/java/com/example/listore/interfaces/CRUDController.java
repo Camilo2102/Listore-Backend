@@ -63,6 +63,6 @@ public interface CRUDController<T> {
      * @throws Exception en caso de no ser necesario agregar thorws new exeption para controlar su uso
      */
     @DeleteMapping("/delete")
-    public Map<String, String> delete(@RequestParam("id") int id) throws Exception;
+    public Map<String, String> delete(@RequestParam("id") String id) throws Exception;
 
 }
