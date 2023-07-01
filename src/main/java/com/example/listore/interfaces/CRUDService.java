@@ -1,5 +1,7 @@
-package com.example.listore.models;
+package com.example.listore.interfaces;
 
+import com.example.listore.models.Credential;
+import jakarta.persistence.EntityManager;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -25,10 +27,10 @@ public interface CRUDService<T> {
     /**
      * Obtiene un registro por el id dado
      * @param id id por el cual buscar el registro
-     * @return estado opcional de la busqueda en la base de datos
+     * @return estado de la busqueda en la base de datos
      * @throws Exception en caso de obtener un registro nulo
      */
-    public Optional<T> findById(String id) throws Exception;
+    public T findById(String id) throws Exception;
 
     /**
      * Guarde el registro
@@ -37,6 +39,8 @@ public interface CRUDService<T> {
      * @throws Exception exepcion en caso de un fallo al ingresar
      */
     public T save(T t) throws Exception;
+
+
 
     /**
      * ELimina el registro

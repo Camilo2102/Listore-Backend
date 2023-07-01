@@ -1,9 +1,11 @@
-package com.example.listore.models;
+package com.example.listore.interfaces;
 
+import com.example.listore.constants.RoutesConstants;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Interface que genera los metodos basicos del crud y sus respectivas rutas
@@ -11,13 +13,12 @@ import java.util.Map;
  */
 @RestController
 public interface CRUDController<T> {
-
     /**
      * Ruta para obtener todos los registros de una tabla
      * @return lista con todos los registros
      * @throws Exception en caso de no ser necesario agregar thorws new exeption para controlar su uso
      */
-    @GetMapping("/getAll")
+    @GetMapping(RoutesConstants.GET_ALL_ROUTE)
     public List<T> getAll() throws Exception;
 
     /**
@@ -25,7 +26,7 @@ public interface CRUDController<T> {
      * @return el total de registros
      * @throws Exception en caso de no ser necesario agregar thorws new exeption para controlar su uso
      */
-    @GetMapping("/getAllCount")
+    @GetMapping(RoutesConstants.GET_ALL_COUNT_ROUTE)
     public long getAllCount() throws Exception;
 
     /**
@@ -35,8 +36,18 @@ public interface CRUDController<T> {
      * @return Lista con los datos de la pagina ingresada y el numero de datos escogido
      * @throws Exception en caso de no ser necesario agregar thorws new exeption para controlar su uso
      */
-    @GetMapping("/getAllByPage")
+    @GetMapping(RoutesConstants.GET_ALL_BY_PAGE_ROUTE)
     public List<T> getAll(@RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws Exception;
+
+
+    /**
+     * Obtiene un elemento por id
+     * @param id id del elemento a buscar
+     * @return el elemento encontrado
+     * @throws Exception en caso de no encutnrar un elemento fallará
+     */
+    @GetMapping(RoutesConstants.GET_BY_ID_ROUTE)
+    public T getByID(@RequestParam("id") String id) throws Exception;
 
     /**
      * ruta para ungresar un nuevo registro
@@ -44,8 +55,8 @@ public interface CRUDController<T> {
      * @return el objeto creado
      * @throws Exception en caso de no ser necesario agregar thorws new exeption para controlar su uso
      */
-    @PostMapping("/insert")
-    public T insert(@RequestBody T t) throws Exception;
+    @PostMapping(RoutesConstants.CREATE_ROUTE)
+    public T create(@RequestBody T t) throws Exception;
 
     /**
      * ruta para actualizar un registro
@@ -53,7 +64,7 @@ public interface CRUDController<T> {
      * @return el objeto actualziado
      * @throws Exception n caso de no ser necesario agregar thorws new exeption para controlar su uso
      */
-    @PutMapping("/update")
+    @PutMapping(RoutesConstants.UPDATE_ROUTE)
     public T update(@RequestBody T t) throws Exception;
 
     /**
@@ -62,7 +73,7 @@ public interface CRUDController<T> {
      * @return un map(json) con el mensaje de que fue realizado con exito la eliminación
      * @throws Exception en caso de no ser necesario agregar thorws new exeption para controlar su uso
      */
-    @DeleteMapping("/delete")
-    public Map<String, String> delete(@RequestParam("id") int id) throws Exception;
+    @DeleteMapping(RoutesConstants.DELETE_ROUTE)
+    public Map<String, String> delete(@RequestParam("id") String id) throws Exception;
 
 }

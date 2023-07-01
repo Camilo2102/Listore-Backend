@@ -1,6 +1,5 @@
-package com.example.listore.models.inventory;
+package com.example.listore.models;
 
-import com.example.listore.models.GeneralModel;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;

@@ -3,8 +3,8 @@ package com.example.listore.utils;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -38,10 +38,10 @@ public class TokenUtil {
      * @param token token recibido del usuario
      * @return estado de la validacion del token
      */
-    public static boolean validateToken(String token) {
+    public static Map<String, Claim> validateToken(String token) {
         JWTVerifier jwt = JWT.require(algorithm).build();
         DecodedJWT decodedJWT = jwt.verify(token);
-        return false;
+        return decodedJWT.getClaims();
     }
 
     /**
