@@ -15,15 +15,16 @@ import java.util.Optional;
 
 //Definir anotacion @Service para poder usar el autowired
 @Service("CredentialService")
-@Transactional
 public class CredentialService implements CRUDService<Credential>{
 
     //Al crear una interface es necesario implementarla, en este caso la anotacion autowired se encarga de inicalizarla
-    @Autowired
-    private CredentialRepository credentialRepository;
+
+    private final CredentialRepository credentialRepository;
 
     @Autowired
-    private EntityManager entityManager;
+    public CredentialService(CredentialRepository credentialRepository) {
+        this.credentialRepository = credentialRepository;
+    }
 
     @Override
     public List<Credential> getAll() throws Exception {
@@ -49,13 +50,6 @@ public class CredentialService implements CRUDService<Credential>{
         }
 
     }
-
-    public Credential saveWithTransaction(Credential credential) {
-        entityManager.persist(credential);
-        return credential;
-    }
-
-
 
     @Override
     public void delete(String id) throws Exception {

@@ -1,4 +1,4 @@
-package com.example.listore.security;
+package com.example.listore.utils;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 

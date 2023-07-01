@@ -7,9 +7,10 @@ import com.example.listore.interfaces.CRUDController;
 import com.example.listore.models.Credential;
 import com.example.listore.models.User;
 import com.example.listore.service.CredentialService;
-import com.example.listore.security.EncryptUtil;
-import com.example.listore.security.TokenUtil;
+import com.example.listore.utils.EncryptUtil;
+import com.example.listore.utils.TokenUtil;
 import com.example.listore.service.UserService;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -24,14 +25,16 @@ import java.util.Optional;
 //ANotacion necesaria para decir que es un controlador y llamar las rutas
 @RestController
 @RequestMapping("/auth")
+@Transactional
 public class CredentialController implements CRUDController<Credential> {
 
+    private final CredentialService credentialService;
+    private final UserService userService;
     @Autowired
-    private CredentialService credentialService;
-
-    @Autowired
-    private UserService userService;
-
+    public CredentialController(CredentialService credentialService, UserService userService) {
+        this.credentialService = credentialService;
+        this.userService = userService;
+    }
 
     @Override
     public List<Credential> getAll() throws Exception {
@@ -61,7 +64,7 @@ public class CredentialController implements CRUDController<Credential> {
         return credentialService.save(credentialEncrypted);
     }
 
-    private Credential credentialWithEncryptedPassword(Credential credential){
+    private Credential credentialWithEncryptedPassword(Credential credential) {
         String hashedPassword = EncryptUtil.encryptValue(credential.getPassword());
         credential.setPassword(hashedPassword);
 
@@ -82,9 +85,12 @@ public class CredentialController implements CRUDController<Credential> {
         if (credentialFound.isPresent()) {
             boolean state = EncryptUtil.checkValues(credential.getPassword(), credentialFound.get().getPassword());
             if (state) {
+                Credential credentialData = credentialFound.get();
+                User user = userService.getByCredential(credentialData);
+
                 Map<String, String> userData = new HashMap<>();
-                userData.put("user", credentialFound.get().getUserName());
-                userData.put("id", credentialFound.get().getId());
+                userData.put("id", user.getId());
+                userData.put("role", String.valueOf(user.getRole()));
 
                 String token = TokenUtil.generateToken(userData);
 
@@ -100,19 +106,18 @@ public class CredentialController implements CRUDController<Credential> {
 
 
     @PostMapping("/register")
-    @Transactional
     public Map<String, String> register(@RequestBody RegisterUserDTO registerUserDTO) throws Exception {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", MessageConstants.FAILED_MESSAGE);
+
         Credential encryptedCredential = credentialWithEncryptedPassword(registerUserDTO.getCredential());
-        Credential createdCredential = credentialService.saveWithTransaction(encryptedCredential);
+        Credential createdCredential = credentialService.save(encryptedCredential);
 
         User createdUser = new User(registerUserDTO.getUser());
         createdUser.setCredential(createdCredential);
+        createdUser = userService.save(createdUser);
 
-        createdUser = userService.saveWithTransaction(createdUser);
-
-        Map<String, String> response = new HashMap<>();
         response.put("message", MessageConstants.SUCCESS_MESSAGE);
-
         return response;
     }
 }

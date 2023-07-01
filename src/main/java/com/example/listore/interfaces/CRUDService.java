@@ -1,6 +1,7 @@
 package com.example.listore.interfaces;
 
 import com.example.listore.models.Credential;
+import jakarta.persistence.EntityManager;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -39,13 +40,6 @@ public interface CRUDService<T> {
      */
     public T save(T t) throws Exception;
 
-    /**
-     * Guarda el registro usando una transaccion
-     * @param t el objeto a guardar con transaccion
-     * @return el objeto guardado
-     * @throws Exception error al crear el objeto
-     */
-    public T saveWithTransaction(T t) throws Exception;
 
 
     /**

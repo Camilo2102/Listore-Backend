@@ -1,6 +1,7 @@
 package com.example.listore.service;
 
 import com.example.listore.interfaces.CRUDService;
+import com.example.listore.models.Credential;
 import com.example.listore.models.User;
 import com.example.listore.repository.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -13,12 +14,13 @@ import java.util.Optional;
 
 @Service("UserService")
 public class UserService implements CRUDService<User> {
+    private final UserRepository userRepository;
 
     @Autowired
-    UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-    @Autowired
-    private EntityManager entityManager;
     @Override
     public List<User> getAll() throws Exception {
         return null;
@@ -31,18 +33,12 @@ public class UserService implements CRUDService<User> {
 
     @Override
     public Optional<User> findById(String id) throws Exception {
-        return Optional.empty();
+        return userRepository.findById(id);
     }
 
     @Override
     public User save(User user) throws Exception {
         return userRepository.save(user);
-    }
-
-    @Override
-    public User saveWithTransaction(User user) throws Exception {
-        entityManager.persist(user);
-        return user;
     }
 
     @Override
@@ -53,5 +49,9 @@ public class UserService implements CRUDService<User> {
     @Override
     public long count() {
         return 0;
+    }
+
+    public User getByCredential(Credential credential) {
+        return userRepository.findByCredential(credential);
     }
 }
