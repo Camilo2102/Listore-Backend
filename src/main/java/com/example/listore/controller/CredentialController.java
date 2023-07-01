@@ -1,10 +1,16 @@
-package com.example.listore.models.credential;
+package com.example.listore.controller;
 
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.constants.StatusConstants;
-import com.example.listore.models.CRUDController;
-import com.example.listore.utils.EncryptUtil;
-import com.example.listore.utils.TokenUtil;
+import com.example.listore.dto.RegisterUserDTO;
+import com.example.listore.interfaces.CRUDController;
+import com.example.listore.models.Credential;
+import com.example.listore.models.User;
+import com.example.listore.service.CredentialService;
+import com.example.listore.security.EncryptUtil;
+import com.example.listore.security.TokenUtil;
+import com.example.listore.service.UserService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -23,11 +29,13 @@ public class CredentialController implements CRUDController<Credential> {
     @Autowired
     private CredentialService credentialService;
 
+    @Autowired
+    private UserService userService;
+
+
     @Override
     public List<Credential> getAll() throws Exception {
-
         return credentialService.getAll();
-        //throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
     }
 
     @Override
@@ -40,8 +48,6 @@ public class CredentialController implements CRUDController<Credential> {
         Pageable page = PageRequest.of(pageNumber, pageSize);
         return credentialService.getAllPageable(page);
     }
-
-
 
     @Override
     public Credential insert(Credential credential) throws Exception {
@@ -77,7 +83,7 @@ public class CredentialController implements CRUDController<Credential> {
             boolean state = EncryptUtil.checkValues(credential.getPassword(), credentialFound.get().getPassword());
             if (state) {
                 Map<String, String> userData = new HashMap<>();
-                userData.put("user", credentialFound.get().getUser());
+                userData.put("user", credentialFound.get().getUserName());
                 userData.put("id", credentialFound.get().getId());
 
                 String token = TokenUtil.generateToken(userData);
@@ -88,6 +94,24 @@ public class CredentialController implements CRUDController<Credential> {
         } else {
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
+
+        return response;
+    }
+
+
+    @PostMapping("/register")
+    @Transactional
+    public Map<String, String> register(@RequestBody RegisterUserDTO registerUserDTO) throws Exception {
+        Credential encryptedCredential = credentialWithEncryptedPassword(registerUserDTO.getCredential());
+        Credential createdCredential = credentialService.saveWithTransaction(encryptedCredential);
+
+        User createdUser = new User(registerUserDTO.getUser());
+        createdUser.setCredential(createdCredential);
+
+        createdUser = userService.saveWithTransaction(createdUser);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", MessageConstants.SUCCESS_MESSAGE);
 
         return response;
     }

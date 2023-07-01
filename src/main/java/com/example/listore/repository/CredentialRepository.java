@@ -1,5 +1,6 @@
-package com.example.listore.models.credential;
+package com.example.listore.repository;
 
+import com.example.listore.models.Credential;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,7 @@ import java.util.Optional;
 public interface CredentialRepository extends CrudRepository<Credential, String> {
 
     public List<Credential> findAll(Pageable page);
-    public Optional<Credential> findByUserOrMail(String user, String mail);
+    public Optional<Credential> findByUserNameOrMail(String user, String mail);
 
     public void deleteById(String id);
 }

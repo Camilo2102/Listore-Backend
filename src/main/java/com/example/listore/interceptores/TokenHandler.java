@@ -1,6 +1,6 @@
 package com.example.listore.interceptores;
 
-import com.example.listore.utils.TokenUtil;
+import com.example.listore.security.TokenUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;

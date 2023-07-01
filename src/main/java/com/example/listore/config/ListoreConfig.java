@@ -20,7 +20,7 @@ public class ListoreConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**");
+        //registry.addInterceptor(tokenHandler).addPathPatterns("/**").excludePathPatterns("/auth/login");
     }
 
 

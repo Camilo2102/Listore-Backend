@@ -1,23 +1,19 @@
-package com.example.listore.models.credential;
+package com.example.listore.models;
 
-import com.example.listore.models.GeneralModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-
-import java.sql.Timestamp;
 
 //Entity indica que va a ser una tabla en la base de datos
 //Getter y Setter genera getters y setters automaticamente
 @Entity
-@Getter()
-@Setter()
+@Getter
+@Setter
+@NoArgsConstructor
 public class Credential extends GeneralModel {
 
     @Column(nullable = false, length = 60, unique = true)
@@ -25,16 +21,14 @@ public class Credential extends GeneralModel {
     @Column(nullable = false)
     private String password;
     @Column(nullable = false, length = 12, unique = true)
-    private String user;
-
-    private String prueba;
+    private String userName;
 
     @Override
     public String toString() {
         return "Credential{" +
                 "mail='" + mail + '\'' +
                 ", password='" + password + '\'' +
-                ", user='" + user + '\'' +
+                ", user='" + userName + '\'' +
                 '}';
     }
 }

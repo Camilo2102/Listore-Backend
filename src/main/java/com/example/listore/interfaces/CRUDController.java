@@ -1,4 +1,4 @@
-package com.example.listore.models;
+package com.example.listore.interfaces;
 
 import org.springframework.web.bind.annotation.*;
 
