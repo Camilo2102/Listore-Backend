@@ -37,17 +37,21 @@ public class TokenHandler implements HandlerInterceptor {
         String route = RequestUtil.getPartFromURI(request.getRequestURI(), 1);
         char[] permissions = permissionsListByRoute.get(route);
 
-        Map<String, Claim> payload = TokenUtil.validateToken(token);
+        Map<String, Claim> payload;
+        try {
+            payload = TokenUtil.validateToken(token);
+            char role = payload.get("role").asString().charAt(0);
+            String id = payload.get("id").asString();
 
-        char role = payload.get("role").asString().charAt(0);
-        String id = payload.get("id").asString();
-
-        if (isValidInPermissionList(role, permissions) && isValidInUserList(id, role)) {
-            return true;
+            if (isValidInPermissionList(role, permissions) && isValidInUserList(id, role)) {
+                return true;
+            }
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, MessageConstants.UNAUTHORIZED_TOKEN);
+            return false;
+        }catch (Exception e) {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, MessageConstants.UNAUTHORIZED_TOKEN);
+            return false;
         }
-
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, MessageConstants.UNAUTHORIZED_TOKEN);
-        return false;
     }
 
 

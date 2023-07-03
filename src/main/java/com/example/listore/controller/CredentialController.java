@@ -3,24 +3,22 @@ package com.example.listore.controller;
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.constants.StatusConstants;
 import com.example.listore.dto.RegisterUserDTO;
-import com.example.listore.interfaces.CRUDController;
 import com.example.listore.models.Credential;
 import com.example.listore.models.User;
 import com.example.listore.service.CredentialService;
 import com.example.listore.utils.EncryptUtil;
 import com.example.listore.utils.TokenUtil;
 import com.example.listore.service.UserService;
-import jakarta.persistence.EntityManager;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
 
 //ANotacion necesaria para decir que es un controlador y llamar las rutas
 @RestController
@@ -37,10 +35,28 @@ public class CredentialController extends GeneralController<Credential> {
         this.userService = userService;
     }
 
+    @Override
+    @Hidden
+    public List<Credential> getAll() throws Exception {
+        throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
+    }
 
     @Override
-    public Credential create(Credential credential) throws Exception {
-       throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
+    @Hidden
+    public long getAllCount() throws Exception {
+        throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
+    }
+
+    @Override
+    @Hidden
+    public Credential getByID(String id) throws Exception {
+        throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
+    }
+
+    @Override
+    @Hidden
+    public List<Credential> getAll(int pageNumber, int pageSize) throws Exception {
+        throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
     }
 
     @Override
