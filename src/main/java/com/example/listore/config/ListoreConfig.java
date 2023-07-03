@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Component
+@EnableWebMvc
 public class ListoreConfig implements WebMvcConfigurer {
 
     private final TokenHandler tokenHandler;
@@ -57,4 +59,6 @@ public class ListoreConfig implements WebMvcConfigurer {
                 .allowedMethods("PUT", "DELETE", "POST", "GET")
                 .allowCredentials(true).maxAge(3600);
     }
+
+
 }
