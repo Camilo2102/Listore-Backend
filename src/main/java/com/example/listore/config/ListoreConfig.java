@@ -26,8 +26,8 @@ public class ListoreConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //initializeAuthRoute(registry);
-        //initializeUserRoute(registry);
+        initializeAuthRoute(registry);
+        initializeUserRoute(registry);
     }
 
 
