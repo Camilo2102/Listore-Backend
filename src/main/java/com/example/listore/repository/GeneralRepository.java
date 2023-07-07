@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * Repositorio general que permite las peticiones basicas del crud
  * @param <T> clase que debe extender de general model, debe ser una entity
+ *           t
  */
 @Repository
 public interface GeneralRepository<T extends GeneralModel> extends CrudRepository<T, String> {

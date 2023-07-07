@@ -60,6 +60,12 @@ public class CredentialController extends GeneralController<Credential> {
     }
 
     @Override
+    @Hidden
+    public Credential create(Credential credential) throws Exception {
+        throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
+    }
+
+    @Override
     public Credential update(Credential credential) throws Exception {
         Credential credentialEncrypted = credentialWithEncryptedPassword(credential);
         return credentialService.save(credentialEncrypted);

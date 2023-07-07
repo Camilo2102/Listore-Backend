@@ -26,4 +26,6 @@ public class UserService extends GeneralService<User> {
     public User getByCredential(Credential credential) {
         return userRepository.findByCredential(credential);
     }
+
+
 }

@@ -39,7 +39,7 @@ public class ListoreConfig implements WebMvcConfigurer {
      */
     private void initializeAuthRoute(InterceptorRegistry registry) {
         this.tokenHandler.addToPermissionListByPath("auth", new char[]{'A', 'B'});
-        registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns("/auth/login");
+        registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns("/auth/login").excludePathPatterns("/auth/register");
     }
 
     private void initializeUserRoute(InterceptorRegistry registry) {
