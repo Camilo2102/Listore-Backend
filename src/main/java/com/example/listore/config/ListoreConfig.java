@@ -55,9 +55,11 @@ public class ListoreConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000/")
+                .allowedOrigins("http://localhost:3000") // Quita la barra diagonal al final del origen
                 .allowedMethods("PUT", "DELETE", "POST", "GET")
-                .allowCredentials(true).maxAge(3600);
+                .allowCredentials(true)
+                .maxAge(3600)
+                .exposedHeaders("Authorization");
     }
 
 

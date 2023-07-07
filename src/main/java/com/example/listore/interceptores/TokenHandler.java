@@ -32,7 +32,7 @@ public class TokenHandler implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String token = request.getHeader("authorization");
+        String token = request.getHeader("Authorization");
 
         String route = RequestUtil.getPartFromURI(request.getRequestURI(), 1);
         char[] permissions = permissionsListByRoute.get(route);
