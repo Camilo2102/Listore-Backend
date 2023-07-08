@@ -1,4 +1,4 @@
-package com.example.listore.interceptores;
+package com.example.listore.interceptors;
 
 import com.auth0.jwt.interfaces.Claim;
 import com.example.listore.constants.MessageConstants;
@@ -8,14 +8,12 @@ import com.example.listore.utils.RequestUtil;
 import com.example.listore.utils.TokenUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 
 @Component
@@ -67,7 +65,7 @@ public class TokenHandler implements HandlerInterceptor {
      */
     private boolean isValidInUserList(String id, char role) throws Exception {
         User userFind = userService.findById(id);
-        return userFind.getRole() == role;
+        return userFind.getRole().charAt(0) == role;
     }
 
     /**

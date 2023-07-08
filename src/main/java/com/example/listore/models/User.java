@@ -1,13 +1,12 @@
 package com.example.listore.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Check;
 
 @Entity
 @Getter
@@ -17,20 +16,24 @@ public class User extends GeneralModel  {
 
     @Column(nullable = false, length = 60)
     private String name;
-    @Column(nullable = false, length = 60)
-    private String lastName;
+
     @Column(nullable = false, length = 1)
-    private char role;
+    private String role;
 
     @OneToOne
     @JoinColumn(name = "credential_id")
     @JsonIgnore
     private Credential credential;
 
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    @JsonIgnore
+    private Company company;
+
     public User(User user) {
         this.name = user.name;
-        this.lastName = user.lastName;
         this.credential = user.credential;
         this.role = user.role;
+        this.company = user.company;
     }
 }

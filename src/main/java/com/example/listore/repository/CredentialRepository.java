@@ -12,8 +12,6 @@ import java.util.Optional;
 // extiende de CRUDRepository, en los parametros se pone el modelo, y en el siguiente parametro el tipo del id
 public interface CredentialRepository extends GeneralRepository<Credential> {
 
-    public List<Credential> findAll(Pageable page);
     public Optional<Credential> findByUserNameOrMail(String user, String mail);
 
-    public void deleteById(String id);
 }

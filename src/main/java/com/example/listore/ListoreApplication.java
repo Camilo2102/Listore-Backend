@@ -1,10 +1,13 @@
 package com.example.listore;
 
+import com.example.listore.models.triggers.TriggerCreator;
 import com.example.listore.utils.TokenUtil;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,11 +21,26 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 contact = @Contact(url = "http://listore.com", name = "Listore", email = "listore@mail.com")
         )
 )
-public class ListoreApplication {
+public class ListoreApplication implements CommandLineRunner {
+
+    private final TriggerCreator triggerCreator;
+
+    @Autowired
+    public ListoreApplication(TriggerCreator triggerCreator) {
+        this.triggerCreator = triggerCreator;
+    }
 
     public static void main(String[] args) {
-        TokenUtil.initializeTokenUtil();
         SpringApplication.run(ListoreApplication.class, args);
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+        triggerCreator.initializeTriggers();
+        initializeValues();
+    }
+
+    private void initializeValues() {
+        TokenUtil.initializeTokenUtil();
+    }
 }

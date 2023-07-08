@@ -3,8 +3,10 @@ package com.example.listore.controller;
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.constants.StatusConstants;
 import com.example.listore.dto.RegisterUserDTO;
+import com.example.listore.models.Company;
 import com.example.listore.models.Credential;
 import com.example.listore.models.User;
+import com.example.listore.service.CompanyService;
 import com.example.listore.service.CredentialService;
 import com.example.listore.utils.EncryptUtil;
 import com.example.listore.utils.TokenUtil;
@@ -28,11 +30,13 @@ public class CredentialController extends GeneralController<Credential> {
 
     private final CredentialService credentialService;
     private final UserService userService;
+    private final CompanyService companyService;
     @Autowired
-    public CredentialController(CredentialService credentialService, UserService userService) {
+    public CredentialController(CredentialService credentialService, UserService userService, CompanyService companyService) {
         super(credentialService);
         this.credentialService = credentialService;
         this.userService = userService;
+        this.companyService = companyService;
     }
 
     @Override
@@ -99,26 +103,29 @@ public class CredentialController extends GeneralController<Credential> {
 
                 response.put(StatusConstants.STATUS, StatusConstants.AUTHORIZED);
                 response.put("token", token);
+                return response;
             }
+            throw new Exception(StatusConstants.UNAUTHORIZED);
         } else {
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
-
-        return response;
     }
 
 
     @PostMapping("/register")
     public Map<String, String> register(@RequestBody RegisterUserDTO registerUserDTO) throws Exception {
         Map<String, String> response = new HashMap<>();
-        response.put("message", MessageConstants.FAILED_MESSAGE);
 
         Credential encryptedCredential = credentialWithEncryptedPassword(registerUserDTO.getCredential());
         Credential createdCredential = credentialService.save(encryptedCredential);
 
+        Company createdCompany = companyService.save(registerUserDTO.getCompany());
+
         User createdUser = new User(registerUserDTO.getUser());
         createdUser.setCredential(createdCredential);
-        createdUser = userService.save(createdUser);
+        createdUser.setCompany(createdCompany);
+
+        userService.save(createdUser);
 
         response.put("message", MessageConstants.SUCCESS_MESSAGE);
         return response;

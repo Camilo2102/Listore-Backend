@@ -1,4 +1,4 @@
-package com.example.listore.interceptores;
+package com.example.listore.interceptors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,10 +1,7 @@
 package com.example.listore.config;
 
-import com.example.listore.interceptores.TokenHandler;
-import com.example.listore.models.Credential;
-import com.example.listore.service.GeneralService;
+import com.example.listore.interceptors.TokenHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -38,12 +35,11 @@ public class ListoreConfig implements WebMvcConfigurer {
      * @param registry recibe el registru para asignarle los parametros de la ruta
      */
     private void initializeAuthRoute(InterceptorRegistry registry) {
-        this.tokenHandler.addToPermissionListByPath("auth", new char[]{'A', 'B'});
         registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns("/auth/login").excludePathPatterns("/auth/register");
     }
 
     private void initializeUserRoute(InterceptorRegistry registry) {
-        this.tokenHandler.addToPermissionListByPath("user", new char[]{'X', 'Z'});
+        this.tokenHandler.addToPermissionListByPath("user", new char[]{'C', 'M'});
         registry.addInterceptor(tokenHandler).addPathPatterns("/user/**");
     }
 
@@ -55,11 +51,11 @@ public class ListoreConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // Quita la barra diagonal al final del origen
-                .allowedMethods("PUT", "DELETE", "POST", "GET")
+                .allowedOrigins("http://localhost:3000")
+                .allowedMethods("PUT", "DELETE", "POST", "GET", "OPTIONS")
+                .allowedHeaders("Authorization", "Content-Type")
                 .allowCredentials(true)
-                .maxAge(3600)
-                .exposedHeaders("Authorization");
+                .maxAge(3600);
     }
 
 
