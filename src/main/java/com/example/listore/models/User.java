@@ -20,6 +20,9 @@ public class User extends GeneralModel  {
     @Column(nullable = false, length = 1)
     private String role;
 
+    @Column(nullable = false, length = 1)
+    private String active;
+
     @OneToOne
     @JoinColumn(name = "credential_id")
     @JsonIgnore

@@ -16,6 +16,7 @@ public class TriggerCreator {
 
     public void initializeTriggers() {
         createCheckRoleTrigger();
+        createCheckStatusTrigger();
     }
 
     private void createCheckRoleTrigger() {
@@ -23,7 +24,16 @@ public class TriggerCreator {
             String sql = "CREATE TRIGGER `check_role` BEFORE INSERT ON user FOR EACH ROW IF NEW.role NOT IN ('C', 'M', 'D', 'P', 'G') THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El valor del role debe ser C, M, D, P o G'; END IF;";
             jdbcTemplate.execute(sql);
         }catch (Exception e) {
-            System.out.println("Trigger ya creado");
+            System.out.println("Trigger de rol ya creado");
+        }
+    }
+
+    private void createCheckStatusTrigger() {
+        try {
+            String sql = "CREATE TRIGGER `check_status` BEFORE INSERT ON user FOR EACH ROW IF NEW.active NOT IN ('S', 'N') THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El valor del est ado debe se S, N'; END IF;";
+            jdbcTemplate.execute(sql);
+        }catch (Exception e) {
+            System.out.println("Trigger de status ya creado");
         }
     }
 }
