@@ -9,17 +9,7 @@ import lombok.Setter;
 @Entity
 public class Inventory extends GeneralModel {
 
-    private String edad;
 
-    private  String cedula;
-
-    @Override
-    public String toString() {
-        return "Inventory{" +
-                "edad='" + edad + '\'' +
-                ", cedula='" + cedula + '\'' +
-                '}';
-    }
 
 
 

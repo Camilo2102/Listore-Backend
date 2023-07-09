@@ -33,6 +33,10 @@ public class UserController extends GeneralController<User> {
     @PostMapping("/getByFilters")
     public List<User> getAllByCompany(@RequestBody UserFilterDTO userFilterDTO, @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws Exception {
         Pageable page = PageRequest.of(pageNumber, pageSize);
-        return userService.getAllByFilter(userFilterDTO, page);
+        List<User> users =  userService.getAllByFilter(userFilterDTO, page);
+        users.forEach(user -> {
+            user.getCredential().setPassword("");
+        });
+        return users;
     }
 }

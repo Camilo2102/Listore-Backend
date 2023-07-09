@@ -14,7 +14,7 @@ import java.util.List;
 public interface UserRepository extends GeneralRepository<User> {
 
     @Query("SELECT U FROM User AS U WHERE U.role NOT IN('C') " +
-            "AND U.name LIKE %:#{#userFilterDTO.name}% " +
+            "AND U.name LIKE  %:#{#userFilterDTO.name}% " +
             "AND U.role LIKE %:#{#userFilterDTO.role}% " +
             "AND U.company.id LIKE %:#{#userFilterDTO.companyId}% ")
     List<User> findByFilter(

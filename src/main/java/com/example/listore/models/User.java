@@ -25,12 +25,10 @@ public class User extends GeneralModel  {
 
     @OneToOne
     @JoinColumn(name = "credential_id")
-    @JsonIgnore
     private Credential credential;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
-    @JsonIgnore
     private Company company;
 
     public User(User user) {

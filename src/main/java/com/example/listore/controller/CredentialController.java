@@ -3,6 +3,7 @@ package com.example.listore.controller;
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.constants.StatusConstants;
 import com.example.listore.dto.RegisterUserDTO;
+import com.example.listore.dto.RegisterWorkerDTO;
 import com.example.listore.models.Company;
 import com.example.listore.models.Credential;
 import com.example.listore.models.User;
@@ -103,6 +104,7 @@ public class CredentialController extends GeneralController<Credential> {
 
                 response.put(StatusConstants.STATUS, StatusConstants.AUTHORIZED);
                 response.put("token", token);
+                response.put("company", user.getCompany().getId());
                 return response;
             }
             throw new Exception(StatusConstants.UNAUTHORIZED);
@@ -126,6 +128,24 @@ public class CredentialController extends GeneralController<Credential> {
         createdUser.setCompany(createdCompany);
 
         userService.save(createdUser);
+
+        response.put("message", MessageConstants.SUCCESS_MESSAGE);
+        return response;
+    }
+
+    @PostMapping("/registerUser")
+    public Map<String, String> registerUser(@RequestBody User user) throws Exception {
+        Map<String, String> response = new HashMap<>();
+
+        Credential encryptedCredential = credentialWithEncryptedPassword(user.getCredential());
+        Credential createdCredential = credentialService.save(encryptedCredential);
+
+        Company company = companyService.findById(user.getCompany().getId());
+
+        user.setCredential(createdCredential);
+        user.setCompany(company);
+
+        userService.save(user);
 
         response.put("message", MessageConstants.SUCCESS_MESSAGE);
         return response;

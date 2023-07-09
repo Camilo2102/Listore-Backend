@@ -81,6 +81,7 @@ public class TokenHandler implements HandlerInterceptor {
      * @return el estado de la comprobacion con los permisos
      */
     private boolean isValidInPermissionList(char role, char[] permissions) {
+        if(permissions == null) return true;
         for (char permission : permissions) {
             if (role == permission) {
                 return true;

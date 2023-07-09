@@ -3,11 +3,13 @@ package com.example.listore.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 public class Company extends GeneralModel {
     @Column(nullable = false, length = 80)
     private String name;
