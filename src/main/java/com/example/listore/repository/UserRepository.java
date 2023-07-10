@@ -11,9 +11,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends GeneralRepository<User> {
+public interface UserRepository extends GeneralRepository<User, UserFilterDTO> {
 
-    @Query("SELECT U FROM User AS U WHERE U.role NOT IN('C') " +
+    @Query("SELECT U FROM User AS U WHERE U.role NOT IN('C', 'M') AND U.active NOT IN ('N')" +
             "AND U.name LIKE  %:#{#userFilterDTO.name}% " +
             "AND U.role LIKE %:#{#userFilterDTO.role}% " +
             "AND U.company.id LIKE %:#{#userFilterDTO.companyId}% ")
@@ -22,7 +22,13 @@ public interface UserRepository extends GeneralRepository<User> {
             Pageable page
     );
 
-
+    @Query("SELECT count(U) FROM User AS U WHERE U.role NOT IN('C', 'M') AND U.active NOT IN ('N')" +
+            "AND U.name LIKE  %:#{#userFilterDTO.name}% " +
+            "AND U.role LIKE %:#{#userFilterDTO.role}% " +
+            "AND U.company.id LIKE %:#{#userFilterDTO.companyId}% ")
+    long countByFilter(
+            @Param("userFilterDTO") UserFilterDTO userFilterDTO
+    );
 
     @Query("SELECT u FROM User u WHERE u.credential = :credential")
     public User findByCredential(@Param("credential") Credential credential);

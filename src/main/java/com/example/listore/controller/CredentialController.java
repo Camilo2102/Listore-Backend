@@ -2,6 +2,7 @@ package com.example.listore.controller;
 
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.constants.StatusConstants;
+import com.example.listore.dto.CredentialFilterDTO;
 import com.example.listore.dto.RegisterUserDTO;
 import com.example.listore.dto.RegisterWorkerDTO;
 import com.example.listore.models.Company;
@@ -27,7 +28,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/auth")
 @Transactional
-public class CredentialController extends GeneralController<Credential> {
+public class CredentialController extends GeneralController<Credential, CredentialFilterDTO> {
 
     private final CredentialService credentialService;
     private final UserService userService;
@@ -113,6 +114,10 @@ public class CredentialController extends GeneralController<Credential> {
         }
     }
 
+    @GetMapping("/validateCredential")
+    public boolean validateUserName(@RequestParam("credential") String credential) {
+        return credentialService.findByUserAndMail(credential).isPresent();
+    }
 
     @PostMapping("/register")
     public Map<String, String> register(@RequestBody RegisterUserDTO registerUserDTO) throws Exception {
@@ -123,11 +128,11 @@ public class CredentialController extends GeneralController<Credential> {
 
         Company createdCompany = companyService.save(registerUserDTO.getCompany());
 
-        User createdUser = new User(registerUserDTO.getUser());
-        createdUser.setCredential(createdCredential);
-        createdUser.setCompany(createdCompany);
+        User user = registerUserDTO.getUser();
+        user.setCredential(createdCredential);
+        user.setCompany(createdCompany);
 
-        userService.save(createdUser);
+        userService.save(user);
 
         response.put("message", MessageConstants.SUCCESS_MESSAGE);
         return response;
@@ -147,6 +152,17 @@ public class CredentialController extends GeneralController<Credential> {
 
         userService.save(user);
 
+        response.put("message", MessageConstants.SUCCESS_MESSAGE);
+        return response;
+    }
+
+    @DeleteMapping("/disableUser")
+    public Map<String, String> deleteUser(@RequestParam("id") String id) throws Exception {
+        User findUser = userService.findById(id);
+        findUser.setActive("N");
+        userService.save(findUser);
+
+        Map<String, String> response = new HashMap<>();
         response.put("message", MessageConstants.SUCCESS_MESSAGE);
         return response;
     }

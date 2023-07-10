@@ -3,6 +3,7 @@ package com.example.listore.service;
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.interfaces.CRUDService;
 import com.example.listore.models.GeneralModel;
+import com.example.listore.models.User;
 import com.example.listore.repository.GeneralRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -16,15 +17,15 @@ import java.util.Optional;
  * @param <T> Clase que extienda de general model y que sea una entity para poder establecer el repositorio
  */
 @Service
-public abstract class GeneralService<T extends GeneralModel> implements CRUDService<T> {
+public abstract class GeneralService<T extends GeneralModel, K> implements CRUDService<T, K> {
 
     /**
      * Repositorio general, para tener los datos basicos del crud
      */
-    protected final GeneralRepository<T> generalRepository;
+    protected final GeneralRepository<T, K> generalRepository;
 
     @Autowired
-    public GeneralService(GeneralRepository<T> generalRepository) {
+    public GeneralService(GeneralRepository<T, K> generalRepository) {
         this.generalRepository = generalRepository;
     }
 
@@ -46,6 +47,27 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
     @Override
     public List<T> getAllPageable(Pageable page) throws Exception {
         return generalRepository.findAll(page);
+    }
+
+    /**
+     * Obtiene todos los registros segun el filtro
+     * @param k el filtro a aplicar
+     * @param page la cantidad de registros
+     * @return la lista de los filtrso
+     */
+    @Override
+    public List<T> getAllByFilter(K k, Pageable page) {
+        return generalRepository.findByFilter(k, page);
+    }
+
+    /**
+     * Obtiene la cantidad de registros apra un filtro
+     * @param k el filtro a aplicar
+     * @return el nuymero ed registrsos del filtro
+     */
+    @Override
+    public long countByFilter(K k) {
+        return generalRepository.countByFilter(k);
     }
 
     /**

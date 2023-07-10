@@ -12,7 +12,7 @@ import java.util.Optional;
  * @param <T> Clase a la cual se le va a generar el crud
  */
 @RestController
-public interface CRUDController<T> {
+public interface CRUDController<T, K> {
     /**
      * Ruta para obtener todos los registros de una tabla
      * @return lista con todos los registros
@@ -39,6 +39,25 @@ public interface CRUDController<T> {
     @GetMapping(RoutesConstants.GET_ALL_BY_PAGE_ROUTE)
     public List<T> getAll(@RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws Exception;
 
+    /**
+     * RUta que permite obtener todos los registros paginados y con el filtro arreglado
+     * @param k el filtro a aplicar
+     * @param pageNumber el nuimero de la pagina
+     * @param pageSize el tamaño de la pagina
+     * @return la lista con los datos
+     * @throws Exception tira execpcion en lugar de no ser implementado
+     */
+    @PostMapping(RoutesConstants.GET_ALL_BY_FILTERS)
+    public List<T> getAllByFilters(@RequestBody K k, @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws Exception;
+
+    /**
+     * RUta que permite obtener la cantidad de  registros paginados y con el filtro arreglado
+     * @param k el filtro a aplicar
+     * @return la cantidad de registros
+     * @throws Exception tira execpcion en lugar de no ser implementado
+     */
+    @PostMapping(RoutesConstants.COUNT_ALL_BY_FILTERS)
+    public long countAllByFilters(@RequestBody K k) throws Exception;
 
     /**
      * Obtiene un elemento por id

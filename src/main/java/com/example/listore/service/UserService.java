@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("UserService")
-public class UserService extends GeneralService<User> {
+public class UserService extends GeneralService<User, UserFilterDTO> {
     private final UserRepository userRepository;
 
     @Autowired
@@ -24,8 +24,4 @@ public class UserService extends GeneralService<User> {
         return userRepository.findByCredential(credential);
     }
 
-
-    public List<User> getAllByFilter(UserFilterDTO userFilterDTO, Pageable page) {
-        return userRepository.findByFilter(userFilterDTO, page);
-    }
 }

@@ -1,13 +1,15 @@
 package com.example.listore.interfaces;
 
+import com.example.listore.dto.UserFilterDTO;
 import com.example.listore.models.Credential;
+import com.example.listore.models.User;
 import jakarta.persistence.EntityManager;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface CRUDService<T> {
+public interface CRUDService<T, K> {
 
     /**
      * Obtener todos los registros
@@ -40,6 +42,20 @@ public interface CRUDService<T> {
      */
     public T save(T t) throws Exception;
 
+    /**
+     * Obtiene los registros que segun el filtro que se aplica
+     * @param k el filtro a aplicar
+     * @param page la cantidad de registros
+     * @return los registros filtrados
+     */
+    public List<T> getAllByFilter(K k, Pageable page);
+
+    /**
+     * Obtiene la cantidad de registros que se tienen segun el filtro aplicado
+     * @param k el filtro a aplicar
+     * @return la cantidad de registros
+     */
+    public long countByFilter(K k);
 
 
     /**

@@ -3,6 +3,7 @@ package com.example.listore.repository;
 import com.example.listore.models.Credential;
 import com.example.listore.models.GeneralModel;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,11 @@ import java.util.List;
  *           t
  */
 @Repository
-public interface GeneralRepository<T extends GeneralModel> extends CrudRepository<T, String> {
+public interface GeneralRepository<T extends GeneralModel, K> extends CrudRepository<T, String> {
+
+    @Query("select 1")
+    public List<T> findByFilter(K k, Pageable page);
+    @Query("select 1")
+    public long countByFilter(K k);
     public List<T> findAll(Pageable page);
 }

@@ -1,6 +1,7 @@
 package com.example.listore.service;
 
 import com.example.listore.constants.MessageConstants;
+import com.example.listore.dto.CredentialFilterDTO;
 import com.example.listore.interfaces.CRUDService;
 import com.example.listore.models.Credential;
 import com.example.listore.repository.CredentialRepository;
@@ -15,7 +16,7 @@ import java.util.Optional;
 
 //Definir anotacion @Service para poder usar el autowired
 @Service("CredentialService")
-public class CredentialService extends GeneralService<Credential>{
+public class CredentialService extends GeneralService<Credential, CredentialFilterDTO>{
 
     //Al crear una interface es necesario implementarla, en este caso la anotacion autowired se encarga de inicalizarla
 

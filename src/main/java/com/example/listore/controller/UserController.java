@@ -20,23 +20,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 @Transactional
-public class UserController extends GeneralController<User> {
+public class UserController extends GeneralController<User, UserFilterDTO> {
     private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
         super(userService);
         this.userService = userService;
-    }
-
-
-    @PostMapping("/getByFilters")
-    public List<User> getAllByCompany(@RequestBody UserFilterDTO userFilterDTO, @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws Exception {
-        Pageable page = PageRequest.of(pageNumber, pageSize);
-        List<User> users =  userService.getAllByFilter(userFilterDTO, page);
-        users.forEach(user -> {
-            user.getCredential().setPassword("");
-        });
-        return users;
     }
 }

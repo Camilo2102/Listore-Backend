@@ -1,5 +1,6 @@
 package com.example.listore.controller;
 
+import com.example.listore.dto.CompanyFilterDTO;
 import com.example.listore.models.Company;
 import com.example.listore.service.CompanyService;
 import com.example.listore.utils.EncryptUtil;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/company")
 @Transactional
-public class CompanyController extends GeneralController<Company> {
+public class CompanyController extends GeneralController<Company, CompanyFilterDTO> {
 
     private final CompanyService companyService;
 

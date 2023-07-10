@@ -17,12 +17,12 @@ import java.util.Map;
  * Controlador general que provee al controllador la funcionalidad basicad el crud, y las rutas establecidas en el crudController, en caso de necesitar personalizar el metodo usar @Override
  * @param <T>
  */
-public abstract class GeneralController <T extends GeneralModel> implements CRUDController<T> {
+public abstract class GeneralController <T extends GeneralModel, K> implements CRUDController<T, K> {
 
-    protected final GeneralService<T> generalService;
+    protected final GeneralService<T, K> generalService;
 
     @Autowired
-    public GeneralController(GeneralService<T> generalService) {
+    public GeneralController(GeneralService<T, K> generalService) {
         this.generalService = generalService;
     }
 
@@ -71,6 +71,31 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
     public List<T> getAll(int pageNumber, int pageSize) throws Exception {
         Pageable page = PageRequest.of(pageNumber, pageSize);
         return generalService.getAllPageable(page);
+    }
+
+    /**
+     * Permite btener todos los registros segun el filtro aplicado
+     * @param k el filtro a aplicar
+     * @param pageNumber el nuimero de la pagina
+     * @param pageSize el tamaño de la pagina
+     * @return los registros segun el filtro
+     * @throws Exception en caso de no ser implementado
+     */
+    @Override
+    public List<T> getAllByFilters(K k, int pageNumber, int pageSize) throws Exception {
+        Pageable page = PageRequest.of(pageNumber, pageSize);
+        return generalService.getAllByFilter(k, page);
+    }
+
+    /**
+     * Cuenta los registros segun el filtro
+     * @param k el filtro a aplicar
+     * @return el nuimero de registrso con ese filtro
+     * @throws Exception en caso de no ser implementado
+     */
+    @Override
+    public long countAllByFilters(K k) throws Exception {
+        return generalService.countByFilter(k);
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.example.listore.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -20,6 +21,7 @@ public class Credential extends GeneralModel {
     @Column(nullable = false, length = 60, unique = true)
     private String mail;
     @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @Column(nullable = false, length = 12, unique = true)
     private String userName;
