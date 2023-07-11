@@ -8,8 +8,10 @@ import com.example.listore.dto.RegisterWorkerDTO;
 import com.example.listore.models.Company;
 import com.example.listore.models.Credential;
 import com.example.listore.models.User;
+import com.example.listore.models.utils.Email;
 import com.example.listore.service.CompanyService;
 import com.example.listore.service.CredentialService;
+import com.example.listore.utils.EmailUtil;
 import com.example.listore.utils.EncryptUtil;
 import com.example.listore.utils.TokenUtil;
 import com.example.listore.service.UserService;
@@ -131,6 +133,9 @@ public class CredentialController extends GeneralController<Credential, Credenti
         User user = registerUserDTO.getUser();
         user.setCredential(createdCredential);
         user.setCompany(createdCompany);
+
+        Email email = new Email(createdCredential.getMail(), "Cambio de contraseña", "http://localhost:3000");
+        EmailUtil.sendEmail(email);
 
         userService.save(user);
 
