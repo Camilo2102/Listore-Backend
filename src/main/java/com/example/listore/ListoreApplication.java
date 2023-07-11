@@ -1,6 +1,7 @@
 package com.example.listore;
 
 import com.example.listore.models.triggers.TriggerCreator;
+import com.example.listore.utils.EmailUtil;
 import com.example.listore.utils.TokenUtil;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -45,5 +46,6 @@ public class ListoreApplication implements CommandLineRunner {
 
     private void initializeValues() {
         TokenUtil.initializeTokenUtil();
+        EmailUtil.initializeEmailUtil();
     }
 }
