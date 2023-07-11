@@ -20,7 +20,7 @@ public class Credential extends GeneralModel {
 
     @Column(nullable = false, length = 60, unique = true)
     private String mail;
-    @Column(nullable = false)
+    @Column(nullable = true)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @Column(nullable = false, length = 12, unique = true)
