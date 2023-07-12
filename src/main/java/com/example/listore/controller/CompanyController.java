@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/company")
 @Transactional
-public class CompanyController extends GeneralController<Company, CompanyFilterDTO> {
+public class CompanyController extends GeneralController<Company> {
 
     private final CompanyService companyService;
 

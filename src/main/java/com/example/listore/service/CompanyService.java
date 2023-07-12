@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("CompanyService")
-public class CompanyService extends GeneralService<Company, CompanyFilterDTO> {
+public class CompanyService extends GeneralService<Company> {
 
     private final CompanyRepository companyRepository;
 

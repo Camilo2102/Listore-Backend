@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/inventory")
 @Transactional
-public class InventoryController extends GeneralController<Inventory, InventoryFilterDTO>{
+public class InventoryController extends GeneralController<Inventory>{
 
     private final InventoryService inventoryService;
     public InventoryController(InventoryService inventoryService) {

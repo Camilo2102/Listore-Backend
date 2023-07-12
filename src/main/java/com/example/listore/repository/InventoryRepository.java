@@ -10,22 +10,22 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface InventoryRepository extends GeneralRepository<Inventory, InventoryFilterDTO>{
+public interface InventoryRepository extends GeneralRepository<Inventory>{
 
 
     @Query("SELECT I FROM Inventory AS I " +
-            "WHERE I.category LIKE %:#{#inventoryFilterDTO.category}% " +
-            "AND I.description LIKE %:#{#inventoryFilterDTO.description}% " +
-            "AND I.name LIKE %:#{#inventoryFilterDTO.name}%")
-    List<Inventory> findByFilter(@Param("inventoryFilterDTO") InventoryFilterDTO inventoryFilterDTO, Pageable page);
+            "WHERE I.category LIKE %:#{#inventory.category}% " +
+            "AND I.description LIKE %:#{#inventory.description}% " +
+            "AND I.name LIKE %:#{#inventory.name}%")
+    List<Inventory> findByFilter(@Param("inventory") Inventory inventory, Pageable page);
 
     @Override
     @Query("SELECT count(I) FROM Inventory AS I " +
-            "WHERE I.category LIKE %:#{#inventoryFilterDTO.category}% " +
-            "AND I.description LIKE %:#{#inventoryFilterDTO.description}% " +
-            "AND I.name LIKE %:#{#inventoryFilterDTO.name}%")
+            "WHERE I.category LIKE %:#{#inventory.category}% " +
+            "AND I.description LIKE %:#{#inventory.description}% " +
+            "AND I.name LIKE %:#{#inventory.name}%")
     long countByFilter(
-            @Param("inventoryFilterDTO") InventoryFilterDTO inventoryFilterDTO);
+            @Param("inventory") Inventory inventory);
 
 
 }

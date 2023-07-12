@@ -17,15 +17,15 @@ import java.util.Optional;
  * @param <T> Clase que extienda de general model y que sea una entity para poder establecer el repositorio
  */
 @Service
-public abstract class GeneralService<T extends GeneralModel, K> implements CRUDService<T, K> {
+public abstract class GeneralService<T extends GeneralModel> implements CRUDService<T> {
 
     /**
      * Repositorio general, para tener los datos basicos del crud
      */
-    protected final GeneralRepository<T, K> generalRepository;
+    protected final GeneralRepository<T> generalRepository;
 
     @Autowired
-    public GeneralService(GeneralRepository<T, K> generalRepository) {
+    public GeneralService(GeneralRepository<T> generalRepository) {
         this.generalRepository = generalRepository;
     }
 
@@ -51,23 +51,23 @@ public abstract class GeneralService<T extends GeneralModel, K> implements CRUDS
 
     /**
      * Obtiene todos los registros segun el filtro
-     * @param k el filtro a aplicar
+     * @param t el filtro a aplicar
      * @param page la cantidad de registros
      * @return la lista de los filtrso
      */
     @Override
-    public List<T> getAllByFilter(K k, Pageable page) {
-        return generalRepository.findByFilter(k, page);
+    public List<T> getAllByFilter(T t, Pageable page) {
+        return generalRepository.findByFilter(t, page);
     }
 
     /**
      * Obtiene la cantidad de registros apra un filtro
-     * @param k el filtro a aplicar
+     * @param t el filtro a aplicar
      * @return el nuymero ed registrsos del filtro
      */
     @Override
-    public long countByFilter(K k) {
-        return generalRepository.countByFilter(k);
+    public long countByFilter(T t) {
+        return generalRepository.countByFilter(t);
     }
 
     /**

@@ -17,12 +17,12 @@ import java.util.Map;
  * Controlador general que provee al controllador la funcionalidad basicad el crud, y las rutas establecidas en el crudController, en caso de necesitar personalizar el metodo usar @Override
  * @param <T>
  */
-public abstract class GeneralController <T extends GeneralModel, K> implements CRUDController<T, K> {
+public abstract class GeneralController <T extends GeneralModel> implements CRUDController<T> {
 
-    protected final GeneralService<T, K> generalService;
+    protected final GeneralService<T> generalService;
 
     @Autowired
-    public GeneralController(GeneralService<T, K> generalService) {
+    public GeneralController(GeneralService<T> generalService) {
         this.generalService = generalService;
     }
 
@@ -82,9 +82,9 @@ public abstract class GeneralController <T extends GeneralModel, K> implements C
      * @throws Exception en caso de no ser implementado
      */
     @Override
-    public List<T> getAllByFilters(K k, int pageNumber, int pageSize) throws Exception {
+    public List<T> getAllByFilters(T t, int pageNumber, int pageSize) throws Exception {
         Pageable page = PageRequest.of(pageNumber, pageSize);
-        return generalService.getAllByFilter(k, page);
+        return generalService.getAllByFilter(t, page);
     }
 
     /**
@@ -94,8 +94,8 @@ public abstract class GeneralController <T extends GeneralModel, K> implements C
      * @throws Exception en caso de no ser implementado
      */
     @Override
-    public long countAllByFilters(K k) throws Exception {
-        return generalService.countByFilter(k);
+    public long countAllByFilters(T t) throws Exception {
+        return generalService.countByFilter(t);
     }
 
     /**

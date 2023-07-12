@@ -30,7 +30,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/auth")
 @Transactional
-public class CredentialController extends GeneralController<Credential, CredentialFilterDTO> {
+public class CredentialController extends GeneralController<Credential> {
 
     private final CredentialService credentialService;
     private final UserService userService;

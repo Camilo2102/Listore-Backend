@@ -5,5 +5,5 @@ import com.example.listore.models.Company;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CompanyRepository extends GeneralRepository<Company, CompanyFilterDTO> {
+public interface CompanyRepository extends GeneralRepository<Company> {
 }

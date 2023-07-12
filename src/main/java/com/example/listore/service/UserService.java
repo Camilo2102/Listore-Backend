@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("UserService")
-public class UserService extends GeneralService<User, UserFilterDTO> {
+public class UserService extends GeneralService<User> {
     private final UserRepository userRepository;
 
     @Autowired

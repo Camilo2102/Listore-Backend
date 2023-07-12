@@ -11,23 +11,23 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends GeneralRepository<User, UserFilterDTO> {
+public interface UserRepository extends GeneralRepository<User> {
 
     @Query("SELECT U FROM User AS U WHERE U.role NOT IN('C', 'M') AND U.active NOT IN ('N')" +
-            "AND U.name LIKE  %:#{#userFilterDTO.name}% " +
-            "AND U.role LIKE %:#{#userFilterDTO.role}% " +
-            "AND U.company.id LIKE %:#{#userFilterDTO.companyId}% ")
+            "AND U.name LIKE  %:#{#user.name}% " +
+            "AND U.role LIKE %:#{#user.role}% " +
+            "AND U.company.id LIKE %:#{#user.company.id}% ")
     List<User> findByFilter(
-            @Param("userFilterDTO") UserFilterDTO userFilterDTO,
+            @Param("user") User user,
             Pageable page
     );
 
-    @Query("SELECT count(U) FROM User AS U WHERE U.role NOT IN('C', 'M') AND U.active NOT IN ('N')" +
-            "AND U.name LIKE  %:#{#userFilterDTO.name}% " +
-            "AND U.role LIKE %:#{#userFilterDTO.role}% " +
-            "AND U.company.id LIKE %:#{#userFilterDTO.companyId}% ")
+    @Query("SELECT U FROM User AS U WHERE U.role NOT IN('C', 'M') AND U.active NOT IN ('N')" +
+            "AND U.name LIKE  %:#{#user.name}% " +
+            "AND U.role LIKE %:#{#user.role}% " +
+            "AND U.company.id LIKE %:#{#user.company.id}% ")
     long countByFilter(
-            @Param("userFilterDTO") UserFilterDTO userFilterDTO
+            @Param("user") User user
     );
 
     @Query("SELECT u FROM User u WHERE u.credential = :credential")

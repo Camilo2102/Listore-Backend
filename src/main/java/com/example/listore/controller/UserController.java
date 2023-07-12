@@ -20,7 +20,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 @Transactional
-public class UserController extends GeneralController<User, UserFilterDTO> {
+public class UserController extends GeneralController<User> {
     private final UserService userService;
 
     @Autowired

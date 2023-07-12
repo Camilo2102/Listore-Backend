@@ -16,7 +16,7 @@ import java.util.Optional;
 
 //Definir anotacion @Service para poder usar el autowired
 @Service("CredentialService")
-public class CredentialService extends GeneralService<Credential, CredentialFilterDTO>{
+public class CredentialService extends GeneralService<Credential>{
 
     //Al crear una interface es necesario implementarla, en este caso la anotacion autowired se encarga de inicalizarla
 

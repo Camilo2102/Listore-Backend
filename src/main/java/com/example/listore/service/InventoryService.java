@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("InventoryService")
-public class InventoryService extends GeneralService<Inventory, InventoryFilterDTO> {
+public class InventoryService extends GeneralService<Inventory> {
 
     private final InventoryRepository inventoryRepository;
     @Autowired
