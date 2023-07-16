@@ -23,15 +23,20 @@ public class Credential extends GeneralModel {
     @Column(nullable = true)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+    @Column(nullable = true)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String code;
     @Column(nullable = false, length = 12, unique = true)
     private String userName;
+
 
     @Override
     public String toString() {
         return "Credential{" +
                 "mail='" + mail + '\'' +
                 ", password='" + password + '\'' +
-                ", user='" + userName + '\'' +
+                ", code='" + code + '\'' +
+                ", userName='" + userName + '\'' +
                 '}';
     }
 }

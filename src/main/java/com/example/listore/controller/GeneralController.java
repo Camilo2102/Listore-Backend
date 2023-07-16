@@ -75,7 +75,7 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
 
     /**
      * Permite btener todos los registros segun el filtro aplicado
-     * @param k el filtro a aplicar
+     * @param t el filtro a aplicar
      * @param pageNumber el nuimero de la pagina
      * @param pageSize el tamaño de la pagina
      * @return los registros segun el filtro
@@ -89,7 +89,7 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
 
     /**
      * Cuenta los registros segun el filtro
-     * @param k el filtro a aplicar
+     * @param t el filtro a aplicar
      * @return el nuimero de registrso con ese filtro
      * @throws Exception en caso de no ser implementado
      */
@@ -120,7 +120,7 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
     @Override
     public T update(T t) throws Exception {
         T tFound = generalService.findById(t.getId());
-        return generalService.save(tFound);
+        return generalService.save(t);
     }
 
     /**

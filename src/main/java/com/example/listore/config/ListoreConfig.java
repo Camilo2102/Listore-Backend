@@ -35,7 +35,13 @@ public class ListoreConfig implements WebMvcConfigurer {
      * @param registry recibe el registru para asignarle los parametros de la ruta
      */
     private void initializeAuthRoute(InterceptorRegistry registry) {
-        registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns("/auth/login", "/auth/register", "/auth/validateCredential");
+        registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns(
+                "/auth/login",
+                "/auth/register",
+                "/auth/validateCredential",
+                "/auth/enableUser",
+                "/auth/recoverPassword"
+        );
     }
 
     private void initializeUserRoute(InterceptorRegistry registry) {

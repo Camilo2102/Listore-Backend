@@ -22,7 +22,7 @@ public interface UserRepository extends GeneralRepository<User> {
             Pageable page
     );
 
-    @Query("SELECT U FROM User AS U WHERE U.role NOT IN('C', 'M') AND U.active NOT IN ('N')" +
+    @Query("SELECT COUNT(U) FROM User AS U WHERE U.role NOT IN('C', 'M') AND U.active NOT IN ('N')" +
             "AND U.name LIKE  %:#{#user.name}% " +
             "AND U.role LIKE %:#{#user.role}% " +
             "AND U.company.id LIKE %:#{#user.company.id}% ")

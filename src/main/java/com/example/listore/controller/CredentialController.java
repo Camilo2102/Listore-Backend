@@ -1,10 +1,10 @@
 package com.example.listore.controller;
 
+import com.auth0.jwt.interfaces.Claim;
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.constants.StatusConstants;
-import com.example.listore.dto.CredentialFilterDTO;
+import com.example.listore.dto.PasswordChangeDTO;
 import com.example.listore.dto.RegisterUserDTO;
-import com.example.listore.dto.RegisterWorkerDTO;
 import com.example.listore.models.Company;
 import com.example.listore.models.Credential;
 import com.example.listore.models.User;
@@ -13,6 +13,7 @@ import com.example.listore.service.CompanyService;
 import com.example.listore.service.CredentialService;
 import com.example.listore.utils.EmailUtil;
 import com.example.listore.utils.EncryptUtil;
+import com.example.listore.utils.IdGeneratorUtil;
 import com.example.listore.utils.TokenUtil;
 import com.example.listore.service.UserService;
 import io.swagger.v3.oas.annotations.Hidden;
@@ -35,6 +36,7 @@ public class CredentialController extends GeneralController<Credential> {
     private final CredentialService credentialService;
     private final UserService userService;
     private final CompanyService companyService;
+
     @Autowired
     public CredentialController(CredentialService credentialService, UserService userService, CompanyService companyService) {
         super(credentialService);
@@ -82,7 +84,12 @@ public class CredentialController extends GeneralController<Credential> {
     private Credential credentialWithEncryptedPassword(Credential credential) {
         String hashedPassword = EncryptUtil.encryptValue(credential.getPassword());
         credential.setPassword(hashedPassword);
+        return credential;
+    }
 
+    private Credential credentialWithEncryptedCode(Credential credential) {
+        String hashedCode = EncryptUtil.encryptValue(credential.getCode());
+        credential.setCode(hashedCode);
         return credential;
     }
 
@@ -93,27 +100,32 @@ public class CredentialController extends GeneralController<Credential> {
 
         Optional<Credential> credentialFound = credentialService.findByUserAndMail(credential.getMail());
 
-        if (credentialFound.isPresent()) {
-            boolean state = EncryptUtil.checkValues(credential.getPassword(), credentialFound.get().getPassword());
-            if (state) {
-                Credential credentialData = credentialFound.get();
-                User user = userService.getByCredential(credentialData);
-
-                Map<String, String> userData = new HashMap<>();
-                userData.put("id", user.getId());
-                userData.put("role", String.valueOf(user.getRole()));
-
-                String token = TokenUtil.generateToken(userData);
-
-                response.put(StatusConstants.STATUS, StatusConstants.AUTHORIZED);
-                response.put("token", token);
-                response.put("company", user.getCompany().getId());
-                return response;
-            }
-            throw new Exception(StatusConstants.UNAUTHORIZED);
-        } else {
+        if (credentialFound.isEmpty()) {
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
+
+        boolean state = EncryptUtil.checkValues(credential.getPassword(), credentialFound.get().getPassword());
+        if (!state) {
+            throw new Exception(StatusConstants.UNAUTHORIZED);
+        }
+
+        Credential credentialData = credentialFound.get();
+        User user = userService.getByCredential(credentialData);
+
+        if (user.getActive().equals("N")) {
+            throw new Exception(StatusConstants.UNAUTHORIZED);
+        }
+
+        Map<String, String> userData = new HashMap<>();
+        userData.put("id", user.getId());
+        userData.put("role", String.valueOf(user.getRole()));
+
+        String token = TokenUtil.generateToken(userData);
+
+        response.put(StatusConstants.STATUS, StatusConstants.AUTHORIZED);
+        response.put("token", token);
+        response.put("company", user.getCompany().getId());
+        return response;
     }
 
     @GetMapping("/validateCredential")
@@ -125,7 +137,10 @@ public class CredentialController extends GeneralController<Credential> {
     public Map<String, String> register(@RequestBody RegisterUserDTO registerUserDTO) throws Exception {
         Map<String, String> response = new HashMap<>();
 
-        Credential encryptedCredential = credentialWithEncryptedPassword(registerUserDTO.getCredential());
+        String code = IdGeneratorUtil.generateUUID(6);
+        registerUserDTO.getCredential().setCode(code);
+
+        Credential encryptedCredential = credentialWithEncryptedCode(registerUserDTO.getCredential());
         Credential createdCredential = credentialService.save(encryptedCredential);
 
         Company createdCompany = companyService.save(registerUserDTO.getCompany());
@@ -134,12 +149,12 @@ public class CredentialController extends GeneralController<Credential> {
         user.setCredential(createdCredential);
         user.setCompany(createdCompany);
 
-        Email email = new Email(createdCredential.getMail(), "Cambio de contraseña", "http://localhost:3000");
-        EmailUtil.sendEmail(email);
+        String temporalToken = EmailUtil.sendPasswordChangeMail(user, createdCredential.getMail(), code);
 
         userService.save(user);
 
         response.put("message", MessageConstants.SUCCESS_MESSAGE);
+        response.put("temporalToken", temporalToken);
         return response;
     }
 
@@ -147,7 +162,10 @@ public class CredentialController extends GeneralController<Credential> {
     public Map<String, String> registerUser(@RequestBody User user) throws Exception {
         Map<String, String> response = new HashMap<>();
 
-        Credential encryptedCredential = credentialWithEncryptedPassword(user.getCredential());
+        String code = IdGeneratorUtil.generateUUID(6);
+        user.getCredential().setCode(code);
+
+        Credential encryptedCredential = credentialWithEncryptedCode(user.getCredential());
         Credential createdCredential = credentialService.save(encryptedCredential);
 
         Company company = companyService.findById(user.getCompany().getId());
@@ -155,9 +173,73 @@ public class CredentialController extends GeneralController<Credential> {
         user.setCredential(createdCredential);
         user.setCompany(company);
 
+        EmailUtil.sendPasswordChangeMail(user, createdCredential.getMail(), code);
+
         userService.save(user);
 
         response.put("message", MessageConstants.SUCCESS_MESSAGE);
+        return response;
+    }
+
+
+
+    @GetMapping("/recoverPassword")
+    public Map<String, String> recoverPassword(@RequestParam("mail") String mail) throws Exception {
+        Map<String, String> response = new HashMap<>();
+
+        Optional<Credential> credentialFound = credentialService.findByUserAndMail(mail);
+
+        if (credentialFound.isEmpty()) {
+            throw new Exception("Mail not found");
+        }
+
+        Credential credential = credentialFound.get();
+
+        String code = IdGeneratorUtil.generateUUID(6);
+        credential.setCode(code);
+
+        Credential encryptedCredential = credentialWithEncryptedCode(credential);
+        credentialService.save(encryptedCredential);
+
+        User userFound = userService.getByCredential(credential);
+
+        EmailUtil.sendPasswordChangeMail(userFound, mail, code, true);
+
+        response.put("message", "Email send successfully");
+        return response;
+    }
+
+
+    @PostMapping("/enableUser")
+    public Map<String, String> enableUser(@RequestBody PasswordChangeDTO passwordChangeDTO) throws Exception {
+        Map<String, String> response = new HashMap<>();
+
+        Map<String, Claim> payload;
+        payload = TokenUtil.validateToken(passwordChangeDTO.getToken());
+
+        String id = payload.get("id").asString();
+
+        User userFind = userService.findById(id);
+
+        boolean isValid = EncryptUtil.checkValues(passwordChangeDTO.getCode(), userFind.getCredential().getCode());
+
+        if (!isValid) {
+            response.put("message", "invalid");
+            return response;
+        }
+
+        userFind.getCredential().setPassword(passwordChangeDTO.getPassword());
+        userFind.getCredential().setCode(null);
+
+        Credential encryptedCredential = credentialWithEncryptedPassword(userFind.getCredential());
+        userFind.setCredential(encryptedCredential);
+
+        userFind.setActive("S");
+
+        userService.save(userFind);
+
+        response.put("message", "valid");
+
         return response;
     }
 

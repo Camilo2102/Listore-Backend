@@ -1,6 +1,5 @@
 package com.example.listore.repository;
 
-import com.example.listore.dto.InventoryFilterDTO;
 import com.example.listore.models.Inventory;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;

@@ -1,6 +1,5 @@
 package com.example.listore.service;
 
-import com.example.listore.dto.InventoryFilterDTO;
 import com.example.listore.models.Inventory;
 import com.example.listore.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
