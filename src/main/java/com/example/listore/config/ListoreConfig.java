@@ -1,5 +1,6 @@
 package com.example.listore.config;
 
+import com.example.listore.interceptors.LoggerInterceptor;
 import com.example.listore.interceptors.TokenHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,10 +14,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class ListoreConfig implements WebMvcConfigurer {
 
     private final TokenHandler tokenHandler;
+    private final LoggerInterceptor loggerInterceptor;
 
     @Autowired
-    public ListoreConfig(TokenHandler tokenHandler) {
+    public ListoreConfig(TokenHandler tokenHandler, LoggerInterceptor loggerInterceptor) {
         this.tokenHandler = tokenHandler;
+        this.loggerInterceptor = loggerInterceptor;
     }
 
     /**
@@ -25,6 +28,7 @@ public class ListoreConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loggerInterceptor).addPathPatterns("/**");
         initializeAuthRoute(registry);
         initializeUserRoute(registry);
     }
