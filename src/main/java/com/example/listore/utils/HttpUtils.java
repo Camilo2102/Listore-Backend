@@ -16,13 +16,9 @@ public final class HttpUtils {
             "HTTP_FORWARDED",
             "HTTP_VIA",
             "REMOTE_ADDR"
-
-            // you can add more matching headers here ...
     };
 
-    private HttpUtils() {
-        // nothing here ...
-    }
+    private HttpUtils() {}
 
     public static String getRequestIP(HttpServletRequest request) {
         for (String header : IP_HEADERS) {

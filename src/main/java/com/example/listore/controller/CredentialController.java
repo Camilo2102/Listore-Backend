@@ -224,8 +224,7 @@ public class CredentialController extends GeneralController<Credential> {
         boolean isValid = EncryptUtil.checkValues(passwordChangeDTO.getCode(), userFind.getCredential().getCode());
 
         if (!isValid) {
-            response.put("message", "invalid");
-            return response;
+            throw new Exception(MessageConstants.FAILED_MESSAGE);
         }
 
         userFind.getCredential().setPassword(passwordChangeDTO.getPassword());

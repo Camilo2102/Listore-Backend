@@ -12,12 +12,8 @@ public class LoggerUtil {
         logger.info(msg);
     }
 
-    public static void petitionLog(String... args){
-        String log = getFromTemplate(LogConstants.LOG_TEMPLATE_PETITION, args);
+    public static void petitionLog(String... args) {
+        String log = StringUtil.getFromTemplate(LogConstants.LOG_TEMPLATE_PETITION, args);
         logger.info(log);
-    }
-
-    public static String getFromTemplate(String template, String... args) {
-        return String.format(template, args);
     }
 }

@@ -14,11 +14,11 @@ public class IdGeneratorUtil {
 
     /**
      * Genera un id unico con base en la cantidad de datos ingeresados
-     * @param n numero de caracteres del id
+     * @param length numero de caracteres del id
      * @return el id con la longitud ingresada
      */
-    public static String generateUUID(int n) {
+    public static String generateUUID(int length) {
         String uuid = UUID.randomUUID().toString();
-        return uuid.substring(0, Math.min(uuid.length(), n));
+        return uuid.substring(0, Math.min(uuid.length(), length));
     }
 }

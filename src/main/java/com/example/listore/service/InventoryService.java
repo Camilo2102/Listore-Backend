@@ -14,8 +14,5 @@ public class InventoryService extends GeneralService<Inventory> {
         super(inventoryRepository);
         this.inventoryRepository = inventoryRepository;
     }
-    //*Devuelve todos los inventraios de la base de datos
-    public Iterable<Inventory> listarTodosLosInventraios(){
-        return inventoryRepository.findAll();
-    }
+
 }
