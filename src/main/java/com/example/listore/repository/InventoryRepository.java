@@ -18,7 +18,7 @@ public interface InventoryRepository extends GeneralRepository<Inventory>{
             "AND I.name LIKE %:#{#inventory.name}%")
     List<Inventory> findByFilter(@Param("inventory") Inventory inventory, Pageable page);
 
-    @Override
+
     @Query("SELECT count(I) FROM Inventory AS I " +
             "WHERE I.category LIKE %:#{#inventory.category}% " +
             "AND I.description LIKE %:#{#inventory.description}% " +
