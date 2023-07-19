@@ -12,8 +12,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-@Getter()
-@Setter()
+@Getter
+@Setter
 public class GeneralModel {
     @Id
     @Column(length = 36)
