@@ -1,5 +1,6 @@
 package com.example.listore.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -32,6 +33,7 @@ public class Supplier extends  GeneralModel{
 
     @ManyToOne
     @JoinColumn(name = "inventory_Id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Inventory inventory;
 
     public Supplier(Supplier supplier) {
