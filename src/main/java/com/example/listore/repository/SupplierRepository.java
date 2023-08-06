@@ -1,5 +1,6 @@
 package com.example.listore.repository;
 
+import com.example.listore.models.Atributes;
 import com.example.listore.models.Supplier;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -21,6 +22,8 @@ public interface SupplierRepository extends GeneralRepository<Supplier>{
             "AND S.description LIKE %:#{#supplier.description}%" +
             "AND S.inventory.id =:#{#supplier.inventory.id}")
     long countByFilter(@Param("supplier") Supplier supplier);
+
+
 
 
 }
