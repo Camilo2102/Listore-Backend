@@ -10,14 +10,14 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends GeneralRepository<Product>{
 
-    @Query("SELECT P FROM Product AS P WHERE P.inventory.id LIKE %:#{#product.inventory.id} ")
+    @Query("SELECT P FROM Product AS P WHERE P.inventory.id = :#{#product.inventory.id} ")
 
     List<Product> findByFilter(
             @Param("product") Product product,
             Pageable page
     );
 
-    @Query("SELECT COUNT(P) FROM Product AS P WHERE P.inventory.id LIKE %:#{#product.inventory.id}")
+    @Query("SELECT COUNT(P) FROM Product AS P WHERE P.inventory.id = :#{#product.inventory.id}")
     long countByFilter(
             @Param("product") Product product);
 }
