@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
 public class Buy extends GeneralModel{
 
     @Column(nullable = false, length = 60)
@@ -34,11 +33,7 @@ public class Buy extends GeneralModel{
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
-    public Buy(Buy buy) {
-        this.buyDate = buy.buyDate;
-        this.price = buy.price;
-        this.amount = buy.amount;
-        this.product = buy.product;
-        this.user = buy.user;
+    public Buy() {
+        this.buyDate = LocalDateTime.now();
     }
 }

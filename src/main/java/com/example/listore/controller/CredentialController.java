@@ -128,6 +128,7 @@ public class CredentialController extends GeneralController<Credential> {
         response.put(StatusConstants.STATUS, StatusConstants.AUTHORIZED);
         response.put("token", token);
         response.put("company", user.getCompany().getId());
+        response.put("user", user.getId());
         return response;
     }
 

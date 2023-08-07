@@ -1,291 +1,713 @@
-2023-08-03T17:02:37.306-05:00  INFO 24324 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 24324 (C:\Users\donov\OneDrive\Escritorio\Proyectos\Trabajo de campo\Listore-Backend\target\classes started by donov in C:\Users\donov\OneDrive\Escritorio\Proyectos\Trabajo de campo\Listore-Backend)
-2023-08-03T17:02:37.316-05:00  INFO 24324 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-03T17:02:38.186-05:00  INFO 24324 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-03T17:02:38.282-05:00  INFO 24324 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 7 JPA repository interfaces.
-2023-08-03T17:02:38.792-05:00  INFO 24324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
-2023-08-03T17:02:38.804-05:00  INFO 24324 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-03T17:02:38.804-05:00  INFO 24324 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-08-03T17:02:38.918-05:00  INFO 24324 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-03T17:02:38.918-05:00  INFO 24324 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1532 ms
-2023-08-03T17:02:39.098-05:00  INFO 24324 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-03T17:02:39.160-05:00  INFO 24324 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-08-03T17:02:39.162-05:00  INFO 24324 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-08-03T17:02:39.343-05:00  INFO 24324 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-03T17:02:39.467-05:00  INFO 24324 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-03T17:02:39.482-05:00  INFO 24324 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-03T17:02:39.634-05:00  INFO 24324 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e734eee
-2023-08-03T17:02:39.637-05:00  INFO 24324 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-03T17:02:39.673-05:00  WARN 24324 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
-2023-08-03T17:02:39.894-05:00  INFO 24324 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-03T17:02:40.492-05:00  INFO 24324 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-03T17:02:40.824-05:00  INFO 24324 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-03T17:02:41.053-05:00  INFO 24324 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-08-03T17:02:41.613-05:00  WARN 24324 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-03T17:02:42.021-05:00  INFO 24324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
-2023-08-03T17:02:42.029-05:00  INFO 24324 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 5.173 seconds (process running for 6.036)
-2023-08-03T17:02:42.051-05:00  INFO 24324 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
-2023-08-03T17:02:42.053-05:00  INFO 24324 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
-2023-08-03T17:03:38.972-05:00  INFO 24324 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-03T17:03:38.973-05:00  INFO 24324 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-03T17:03:38.974-05:00  INFO 24324 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-03T17:03:39.014-05:00  INFO 24324 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
-2023-08-03T17:03:39.014-05:00  INFO 24324 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
-2023-08-03T17:03:39.351-05:00  INFO 24324 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
-2023-08-03T17:03:39.351-05:00  INFO 24324 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
-2023-08-06T19:09:58.897-05:00  INFO 18424 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 18424 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
-2023-08-06T19:09:58.942-05:00  INFO 18424 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-06T19:10:04.662-05:00  INFO 18424 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-06T19:10:04.820-05:00  INFO 18424 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135 ms. Found 8 JPA repository interfaces.
-2023-08-06T19:10:06.127-05:00  INFO 18424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
-2023-08-06T19:10:06.146-05:00  INFO 18424 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-06T19:10:06.147-05:00  INFO 18424 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-08-06T19:10:06.344-05:00  INFO 18424 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-06T19:10:06.344-05:00  INFO 18424 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7062 ms
-2023-08-06T19:10:07.188-05:00  INFO 18424 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-06T19:10:07.336-05:00  INFO 18424 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-08-06T19:10:07.340-05:00  INFO 18424 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-08-06T19:10:07.660-05:00  INFO 18424 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-06T19:10:08.287-05:00  INFO 18424 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-06T19:10:08.393-05:00  INFO 18424 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-06T19:10:10.149-05:00 ERROR 18424 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
-
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:175) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
-	at com.example.listore.ListoreApplication.main(ListoreApplication.java:38) ~[classes/:na]
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484) ~[na:na]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:62) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:150) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:166) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:945) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	... 47 common frames omitted
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:673) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:535) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:585) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:666) ~[na:na]
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	... 50 common frames omitted
-
-2023-08-06T19:10:10.159-05:00  WARN 18424 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
-
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:175) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
-	at com.example.listore.ListoreApplication.main(ListoreApplication.java:38) ~[classes/:na]
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484) ~[na:na]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:62) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:150) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:166) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:945) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	... 47 common frames omitted
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:673) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:535) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:585) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:666) ~[na:na]
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-j-8.0.33.jar:8.0.33]
-	... 50 common frames omitted
-
-2023-08-06T19:10:10.166-05:00 ERROR 18424 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-2023-08-06T19:10:10.169-05:00  WARN 18424 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-2023-08-06T19:10:10.173-05:00  INFO 18424 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-08-06T19:10:10.201-05:00  INFO 18424 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-08-06T19:10:10.220-05:00 ERROR 18424 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
-	at com.example.listore.ListoreApplication.main(ListoreApplication.java:38) ~[classes/:na]
-Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:277) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 16 common frames omitted
-Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:188) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:274) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
-	... 31 common frames omitted
-
-2023-08-06T19:11:20.325-05:00  INFO 21388 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 21388 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
-2023-08-06T19:11:20.377-05:00  INFO 21388 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-06T19:11:24.611-05:00  INFO 21388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-06T19:11:24.951-05:00  INFO 21388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 313 ms. Found 8 JPA repository interfaces.
-2023-08-06T19:11:29.659-05:00  INFO 21388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
-2023-08-06T19:11:29.759-05:00  INFO 21388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-06T19:11:29.759-05:00  INFO 21388 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-08-06T19:11:30.549-05:00  INFO 21388 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-06T19:11:30.551-05:00  INFO 21388 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9734 ms
-2023-08-06T19:11:31.811-05:00  INFO 21388 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-06T19:11:32.466-05:00  INFO 21388 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-08-06T19:11:32.482-05:00  INFO 21388 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-08-06T19:11:35.379-05:00  INFO 21388 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-06T19:11:35.735-05:00  INFO 21388 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-06T19:11:35.784-05:00  INFO 21388 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-06T19:11:36.202-05:00  INFO 21388 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43deba42
-2023-08-06T19:11:36.205-05:00  INFO 21388 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-06T19:11:36.321-05:00  WARN 21388 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
-2023-08-06T19:11:36.744-05:00  INFO 21388 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-06T19:11:38.261-05:00  INFO 21388 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-06T19:11:39.371-05:00  INFO 21388 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-06T19:11:40.960-05:00  INFO 21388 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-08-06T19:11:43.392-05:00  WARN 21388 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-06T19:11:44.188-05:00  INFO 21388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
-2023-08-06T19:11:44.211-05:00  INFO 21388 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 26.716 seconds (process running for 37.633)
-2023-08-06T19:11:44.242-05:00  INFO 21388 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
-2023-08-06T19:11:44.244-05:00  INFO 21388 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T06:37:31.022-05:00  INFO 10480 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 10480 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T06:37:31.038-05:00  INFO 10480 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T06:37:32.121-05:00  INFO 10480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T06:37:32.219-05:00  INFO 10480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 10 JPA repository interfaces.
+2023-08-07T06:37:32.807-05:00  INFO 10480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T06:37:32.820-05:00  INFO 10480 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T06:37:32.820-05:00  INFO 10480 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T06:37:32.930-05:00  INFO 10480 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T06:37:32.930-05:00  INFO 10480 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1738 ms
+2023-08-07T06:37:33.168-05:00  INFO 10480 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T06:37:33.250-05:00  INFO 10480 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T06:37:33.252-05:00  INFO 10480 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T06:37:33.439-05:00  INFO 10480 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T06:37:33.622-05:00  INFO 10480 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T06:37:33.641-05:00  INFO 10480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T06:37:33.943-05:00  INFO 10480 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@793cef95
+2023-08-07T06:37:33.945-05:00  INFO 10480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T06:37:34.021-05:00  WARN 10480 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T06:37:34.389-05:00  INFO 10480 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T06:37:35.592-05:00  INFO 10480 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T06:37:36.934-05:00  INFO 10480 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T06:37:37.240-05:00  INFO 10480 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T06:37:38.312-05:00  WARN 10480 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T06:37:38.898-05:00  INFO 10480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T06:37:38.908-05:00  INFO 10480 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 8.76 seconds (process running for 11.19)
+2023-08-07T06:37:38.932-05:00  INFO 10480 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
+2023-08-07T06:37:38.934-05:00  INFO 10480 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T06:49:28.150-05:00  INFO 10480 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T06:49:28.183-05:00  INFO 10480 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T06:49:28.368-05:00  INFO 10480 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 183 ms
+2023-08-07T06:49:28.748-05:00  INFO 10480 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:49:30.638-05:00  WARN 10480 --- [http-nio-7879-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2023-08-07T06:49:30.638-05:00 ERROR 10480 --- [http-nio-7879-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'password' cannot be null
+2023-08-07T06:49:30.735-05:00  INFO 10480 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:51:49.350-05:00  WARN 10480 --- [http-nio-7879-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2023-08-07T06:51:49.378-05:00 ERROR 10480 --- [http-nio-7879-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'password' cannot be null
+2023-08-07T06:51:49.428-05:00  INFO 10480 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:53:03.064-05:00  INFO 10480 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:53:04.813-05:00  INFO 10480 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:53:13.514-05:00  INFO 10480 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:53:50.403-05:00  INFO 10480 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:53:54.530-05:00  INFO 10480 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:53:58.163-05:00  INFO 10480 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:54:19.453-05:00  INFO 10480 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:54:23.629-05:00  INFO 10480 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:54:33.184-05:00  INFO 10480 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:54:35.463-05:00  INFO 10480 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:55:24.761-05:00  WARN 10480 --- [http-nio-7879-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2023-08-07T06:55:24.792-05:00 ERROR 10480 --- [http-nio-7879-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'password' cannot be null
+2023-08-07T06:55:24.903-05:00  INFO 10480 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:56:32.497-05:00  INFO 10480 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T06:57:03.880-05:00  INFO 10480 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T06:57:04.099-05:00  INFO 10480 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T06:57:05.124-05:00  INFO 10480 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T06:57:38.860-05:00  INFO 5336 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 5336 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T06:57:38.863-05:00  INFO 5336 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T06:57:41.248-05:00  INFO 5336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T06:57:41.455-05:00  INFO 5336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 198 ms. Found 10 JPA repository interfaces.
+2023-08-07T06:57:42.229-05:00  INFO 5336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T06:57:42.242-05:00  INFO 5336 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T06:57:42.242-05:00  INFO 5336 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T06:57:42.393-05:00  INFO 5336 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T06:57:42.395-05:00  INFO 5336 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3339 ms
+2023-08-07T06:57:42.665-05:00  INFO 5336 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T06:57:42.758-05:00  INFO 5336 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T06:57:42.761-05:00  INFO 5336 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T06:57:43.047-05:00  INFO 5336 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T06:57:43.245-05:00  INFO 5336 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T06:57:43.283-05:00  INFO 5336 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T06:57:43.623-05:00  INFO 5336 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15d65fcf
+2023-08-07T06:57:43.627-05:00  INFO 5336 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T06:57:43.724-05:00  WARN 5336 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T06:57:44.173-05:00  INFO 5336 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T06:57:47.421-05:00  INFO 5336 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T06:57:49.538-05:00  INFO 5336 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T06:57:51.271-05:00  INFO 5336 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T06:57:56.422-05:00  WARN 5336 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T06:58:00.056-05:00  INFO 5336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T06:58:00.098-05:00  INFO 5336 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 22.293 seconds (process running for 24.621)
+2023-08-07T06:58:00.219-05:00  INFO 5336 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
+2023-08-07T06:58:00.222-05:00  INFO 5336 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T07:00:18.091-05:00  INFO 5336 --- [http-nio-7879-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T07:00:18.119-05:00  INFO 5336 --- [http-nio-7879-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T07:00:18.237-05:00  INFO 5336 --- [http-nio-7879-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 117 ms
+2023-08-07T07:00:20.587-05:00  WARN 5336 --- [http-nio-7879-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2023-08-07T07:00:20.587-05:00 ERROR 5336 --- [http-nio-7879-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'password' cannot be null
+2023-08-07T07:00:20.725-05:00  INFO 5336 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:02:16.924-05:00  WARN 5336 --- [http-nio-7879-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2023-08-07T07:02:16.976-05:00 ERROR 5336 --- [http-nio-7879-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'password' cannot be null
+2023-08-07T07:02:17.274-05:00  INFO 5336 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:06:15.723-05:00  INFO 5336 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:11:51.544-05:00  INFO 5336 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:12:02.094-05:00  INFO 5336 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:12:02.094-05:00  INFO 5336 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:12:03.472-05:00  INFO 5336 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:12:03.485-05:00  INFO 5336 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:12:03.523-05:00  INFO 5336 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:12:31.872-05:00  INFO 5336 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:12:31.912-05:00  INFO 5336 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:13:01.885-05:00  INFO 5336 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:13:31.878-05:00  INFO 5336 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:14:01.879-05:00  INFO 5336 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:15:29.912-05:00  INFO 5336 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:16:29.873-05:00  INFO 5336 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:17:29.880-05:00  INFO 5336 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:18:29.876-05:00  INFO 5336 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:19:30.168-05:00  INFO 5336 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:20:29.892-05:00  INFO 5336 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:21:30.061-05:00  INFO 5336 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:22:29.873-05:00  INFO 5336 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:23:29.910-05:00  INFO 5336 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:24:29.886-05:00  INFO 5336 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:25:29.880-05:00  INFO 5336 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:26:29.888-05:00  INFO 5336 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:27:29.880-05:00  INFO 5336 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:28:29.883-05:00  INFO 5336 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:29:29.870-05:00  INFO 5336 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:30:29.855-05:00  INFO 5336 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:31:29.880-05:00  INFO 5336 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:32:29.858-05:00  INFO 5336 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:33:29.859-05:00  INFO 5336 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:34:30.037-05:00  INFO 5336 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:35:29.890-05:00  INFO 5336 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:36:29.914-05:00  INFO 5336 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:37:29.875-05:00  INFO 5336 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:37:57.585-05:00  INFO 5336 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:38:01.650-05:00  INFO 5336 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:38:31.641-05:00  INFO 5336 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:39:01.724-05:00  INFO 5336 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T07:39:21.166-05:00  INFO 5336 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T07:39:21.432-05:00  INFO 5336 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T07:39:21.568-05:00  INFO 5336 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T10:10:36.450-05:00  INFO 21092 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 21092 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T10:10:36.455-05:00  INFO 21092 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T10:10:37.788-05:00  INFO 21092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T10:10:37.951-05:00  INFO 21092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 10 JPA repository interfaces.
+2023-08-07T10:10:38.612-05:00  INFO 21092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T10:10:38.626-05:00  INFO 21092 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T10:10:38.626-05:00  INFO 21092 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T10:10:38.778-05:00  INFO 21092 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T10:10:38.780-05:00  INFO 21092 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2188 ms
+2023-08-07T10:10:39.026-05:00  INFO 21092 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T10:10:39.113-05:00  INFO 21092 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T10:10:39.115-05:00  INFO 21092 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T10:10:39.318-05:00  INFO 21092 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T10:10:39.471-05:00  INFO 21092 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T10:10:39.491-05:00  INFO 21092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T10:10:39.805-05:00  INFO 21092 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27dbaa33
+2023-08-07T10:10:39.807-05:00  INFO 21092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T10:10:39.877-05:00  WARN 21092 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T10:10:40.234-05:00  INFO 21092 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T10:10:41.242-05:00  INFO 21092 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T10:10:41.802-05:00  INFO 21092 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T10:10:42.165-05:00  INFO 21092 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T10:10:42.998-05:00  WARN 21092 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T10:10:43.480-05:00  INFO 21092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T10:10:43.489-05:00  INFO 21092 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 8.216 seconds (process running for 10.183)
+2023-08-07T10:10:43.511-05:00  INFO 21092 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
+2023-08-07T10:10:43.513-05:00  INFO 21092 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T10:11:49.301-05:00  INFO 21092 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T10:11:49.334-05:00  INFO 21092 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T10:11:49.480-05:00  INFO 21092 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 143 ms
+2023-08-07T10:11:49.778-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:11:51.578-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:11:54.894-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:11:54.895-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:11:55.151-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:11:55.157-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:11:55.204-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:12:24.852-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:12:24.868-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:12:54.876-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:13:24.875-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:13:54.884-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:14:24.884-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:15:25.870-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:16:25.880-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:17:25.876-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:18:25.898-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:19:25.888-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:20:25.870-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:21:25.881-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:22:25.881-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:23:25.854-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:24:25.869-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:25:25.872-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:26:25.862-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:27:25.871-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:28:25.868-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:29:25.879-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:30:25.868-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:31:26.014-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:32:25.878-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:33:25.870-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:34:25.884-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:35:25.875-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:36:25.891-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:37:25.893-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:38:25.879-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:39:25.873-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:40:25.849-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:41:25.854-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:42:25.864-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T10:42:26.567-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/error] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:08:30.162-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:08:41.619-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:08:41.622-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:08:41.684-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:09:10.677-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:09:36.042-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:09:36.042-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:09:36.823-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:09:36.832-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:10:06.864-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:10:36.904-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:11:06.878-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:11:36.862-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:12:06.890-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:12:36.862-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:12:36.892-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:13:25.881-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:13:37.017-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:13:44.837-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:13:44.840-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:13:45.591-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:13:45.594-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:14:04.502-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:14:04.523-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:14:34.863-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:15:04.872-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:15:34.881-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:16:04.869-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:17:25.868-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:18:25.876-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:19:25.890-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:19:36.659-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:20:05.900-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/atributes/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:20:05.900-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/atributes/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:20:07.390-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/atributes/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:20:07.393-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/atributes/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:20:36.855-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:21:06.864-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:21:36.870-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:22:06.882-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:23:25.855-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:24:25.863-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:25:25.870-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:26:25.928-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:27:25.866-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:28:25.864-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:29:25.863-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:30:25.862-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:31:25.876-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:32:25.871-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:33:25.890-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:34:25.863-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:35:05.673-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/atributes/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:35:05.673-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/atributes/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:35:14.459-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:35:14.463-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:35:44.450-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:36:14.858-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:36:44.872-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:37:14.439-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:37:44.448-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:14.432-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:44.425-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:44.514-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/error] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:54.232-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:54.673-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:57.060-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:57.073-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:57.215-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:57.219-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:38:57.293-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:39:26.520-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:39:26.537-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:39:56.725-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:40:17.682-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/atributes/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:40:17.682-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/atributes/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:40:47.676-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:41:17.753-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:41:47.861-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:42:17.866-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:42:47.880-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:43:25.861-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:44:23.776-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:44:47.673-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:45:17.669-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:45:26.858-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:45:27.547-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:45:57.021-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:45:58.104-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:46:23.669-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/inventory/create] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:46:24.020-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/inventory/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:46:24.093-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:46:26.850-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:46:39.985-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:46:39.985-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:47:09.987-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:47:39.988-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:48:09.994-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:48:39.987-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:49:09.990-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:49:39.948-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:50:09.798-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:50:40.750-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:51:10.336-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:51:39.873-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:52:25.884-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:52:59.457-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:09.906-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:13.419-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:13.426-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:39.815-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:42.344-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/product/create] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:43.129-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/product/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:50.460-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:50.530-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:59.599-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/atributes/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:53:59.600-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/atributes/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:54:20.457-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:54:50.457-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:55:20.877-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:55:50.877-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:56:26.288-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:57:26.077-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:58:25.984-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:59:25.898-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:59:50.808-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:59:50.826-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T11:59:59.925-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:00:03.589-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:00:03.608-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:00:11.665-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:00:11.666-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:00:29.642-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:00:55.423-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:00:59.379-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:00:59.389-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:01:25.908-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:01:48.804-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:01:50.969-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:01:50.972-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:01:53.906-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:01:53.910-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:02:18.665-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:02:48.974-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:03:18.868-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:03:48.860-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:04:25.855-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:05:26.005-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:02.602-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:18.869-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:42.224-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:42.235-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:46.296-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:48.544-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:48.547-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:50.162-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:50.163-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:57.803-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:06:59.074-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:07:16.867-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:07:46.860-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:08:16.852-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:08:46.866-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:09:25.935-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:09:26.102-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/error] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:31.931-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:40.557-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:40.558-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:40.600-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:53.892-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:55.825-05:00  INFO 21092 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:55.835-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:58.864-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:58.864-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:58.910-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:11:58.910-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:12:07.505-05:00  INFO 21092 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:12:23.879-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:12:53.842-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:12:53.857-05:00  INFO 21092 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:13:22.881-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:13:23.761-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:13:53.884-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:14:23.869-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:15:25.859-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:15:40.934-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:15:53.813-05:00  INFO 21092 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:16:01.264-05:00  INFO 21092 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:16:23.779-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:16:53.868-05:00  INFO 21092 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:17:26.569-05:00  INFO 21092 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:17:54.202-05:00  INFO 21092 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:18:25.876-05:00  INFO 21092 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:19:28.772-05:00  INFO 21092 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:19:46.764-05:00  INFO 21092 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:19:47.060-05:00  INFO 21092 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T12:19:47.197-05:00  INFO 21092 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T12:23:31.654-05:00  INFO 14708 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 14708 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T12:23:31.659-05:00  INFO 14708 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T12:23:33.582-05:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T12:23:33.760-05:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 167 ms. Found 10 JPA repository interfaces.
+2023-08-07T12:23:34.430-05:00  INFO 14708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T12:23:34.442-05:00  INFO 14708 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T12:23:34.442-05:00  INFO 14708 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T12:23:34.584-05:00  INFO 14708 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T12:23:34.586-05:00  INFO 14708 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2738 ms
+2023-08-07T12:23:34.878-05:00  INFO 14708 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T12:23:34.968-05:00  INFO 14708 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T12:23:34.970-05:00  INFO 14708 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T12:23:35.291-05:00  INFO 14708 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:23:35.513-05:00  INFO 14708 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T12:23:35.582-05:00  INFO 14708 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T12:23:35.955-05:00  INFO 14708 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16ea0f22
+2023-08-07T12:23:35.958-05:00  INFO 14708 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T12:23:36.059-05:00  WARN 14708 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T12:23:36.389-05:00  INFO 14708 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:23:37.443-05:00  INFO 14708 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T12:23:38.906-05:00  INFO 14708 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:23:39.400-05:00  INFO 14708 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T12:23:40.573-05:00  WARN 14708 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T12:23:41.954-05:00  INFO 14708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T12:23:41.975-05:00  INFO 14708 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 11.898 seconds (process running for 15.967)
+2023-08-07T12:23:42.012-05:00  INFO 14708 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
+2023-08-07T12:23:42.013-05:00  INFO 14708 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T12:24:27.645-05:00  INFO 14708 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T12:24:27.665-05:00  INFO 14708 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T12:24:27.777-05:00  INFO 14708 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 112 ms
+2023-08-07T12:24:28.981-05:00  INFO 14708 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:24:54.847-05:00  INFO 14708 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:26:30.427-05:00  INFO 14708 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:26:32.333-05:00  WARN 14708 --- [http-nio-7879-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2023-08-07T12:26:32.336-05:00 ERROR 14708 --- [http-nio-7879-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'password' cannot be null
+2023-08-07T12:26:32.396-05:00  INFO 14708 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:29:25.080-05:00  WARN 14708 --- [http-nio-7879-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1364, SQLState: HY000
+2023-08-07T12:29:25.091-05:00 ERROR 14708 --- [http-nio-7879-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Field 'last_name' doesn't have a default value
+2023-08-07T12:29:25.110-05:00  INFO 14708 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:30:19.486-05:00  INFO 14708 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:30:19.645-05:00  INFO 14708 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T12:30:19.840-05:00  INFO 14708 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T12:30:40.042-05:00  INFO 8412 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 8412 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T12:30:40.046-05:00  INFO 8412 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T12:30:43.340-05:00  INFO 8412 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T12:30:43.491-05:00  INFO 8412 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141 ms. Found 10 JPA repository interfaces.
+2023-08-07T12:30:44.356-05:00  INFO 8412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T12:30:44.384-05:00  INFO 8412 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T12:30:44.388-05:00  INFO 8412 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T12:30:44.532-05:00  INFO 8412 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T12:30:44.534-05:00  INFO 8412 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4274 ms
+2023-08-07T12:30:44.808-05:00  INFO 8412 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T12:30:44.902-05:00  INFO 8412 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T12:30:44.904-05:00  INFO 8412 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T12:30:45.195-05:00  INFO 8412 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:30:45.703-05:00  INFO 8412 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T12:30:45.800-05:00  INFO 8412 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T12:30:46.316-05:00  INFO 8412 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a7ebe07
+2023-08-07T12:30:46.323-05:00  INFO 8412 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T12:30:46.411-05:00  WARN 8412 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T12:30:46.866-05:00  INFO 8412 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:30:48.013-05:00  INFO 8412 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T12:30:50.560-05:00  INFO 8412 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:30:50.922-05:00  INFO 8412 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T12:30:52.501-05:00  WARN 8412 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T12:30:53.309-05:00  INFO 8412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T12:30:53.321-05:00  INFO 8412 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 15.346 seconds (process running for 18.55)
+2023-08-07T12:31:42.432-05:00  INFO 8412 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T12:31:42.450-05:00  INFO 8412 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T12:31:42.578-05:00  INFO 8412 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 127 ms
+2023-08-07T12:31:44.258-05:00  INFO 8412 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:32:40.748-05:00  INFO 8412 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:32:42.050-05:00  INFO 8412 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:32:52.581-05:00  INFO 8412 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:32:57.489-05:00  INFO 8412 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:32:57.491-05:00  INFO 8412 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:32:57.529-05:00  INFO 8412 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:21.023-05:00  INFO 8412 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:22.529-05:00  INFO 8412 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:38.272-05:00  INFO 8412 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/inventory/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:38.335-05:00  INFO 8412 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:43.491-05:00  INFO 8412 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:43.503-05:00  INFO 8412 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:43.869-05:00  INFO 8412 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:43.907-05:00  INFO 8412 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:33:50.446-05:00  INFO 8412 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:34:09.271-05:00  INFO 8412 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/product/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:34:19.770-05:00  INFO 8412 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:34:20.106-05:00  INFO 8412 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:34:32.910-05:00  INFO 8412 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:34:32.910-05:00  INFO 8412 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:34:49.494-05:00  INFO 8412 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:34:50.137-05:00  INFO 8412 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:35:07.851-05:00  INFO 8412 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:35:19.195-05:00  INFO 8412 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:35:50.615-05:00  INFO 8412 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:36:19.974-05:00  INFO 8412 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:36:53.262-05:00  INFO 8412 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:37:20.802-05:00  INFO 8412 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:37:50.682-05:00  INFO 8412 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:38:24.490-05:00  INFO 8412 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:38:50.475-05:00  INFO 8412 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:39:10.950-05:00  INFO 8412 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:39:11.087-05:00  INFO 8412 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T12:39:11.268-05:00  INFO 8412 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T12:39:47.795-05:00  INFO 20944 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 20944 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T12:39:47.800-05:00  INFO 20944 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T12:39:49.390-05:00  INFO 20944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T12:39:49.550-05:00  INFO 20944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145 ms. Found 10 JPA repository interfaces.
+2023-08-07T12:39:50.307-05:00  INFO 20944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T12:39:50.437-05:00  INFO 20944 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2511 ms
+2023-08-07T12:39:50.669-05:00  INFO 20944 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T12:39:50.764-05:00  INFO 20944 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T12:39:50.767-05:00  INFO 20944 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T12:39:51.064-05:00  INFO 20944 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:39:51.263-05:00  INFO 20944 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T12:39:51.297-05:00  INFO 20944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T12:39:51.551-05:00  INFO 20944 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64f3ca6
+2023-08-07T12:39:51.557-05:00  INFO 20944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T12:39:51.630-05:00  WARN 20944 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T12:39:51.989-05:00  INFO 20944 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:39:53.225-05:00  INFO 20944 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T12:39:55.094-05:00  INFO 20944 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:39:55.444-05:00  INFO 20944 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T12:39:56.433-05:00  WARN 20944 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T12:39:57.091-05:00  INFO 20944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T12:39:57.100-05:00  INFO 20944 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 10.93 seconds (process running for 12.943)
+2023-08-07T12:39:57.137-05:00  INFO 20944 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:39:57.139-05:00  INFO 20944 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T12:39:57.150-05:00  INFO 20944 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T12:40:17.737-05:00  INFO 17392 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 17392 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T12:40:17.743-05:00  INFO 17392 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T12:40:19.079-05:00  INFO 17392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T12:40:19.192-05:00  INFO 17392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103 ms. Found 10 JPA repository interfaces.
+2023-08-07T12:40:21.190-05:00  INFO 17392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T12:40:21.209-05:00  INFO 17392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T12:40:21.210-05:00  INFO 17392 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T12:40:21.373-05:00  INFO 17392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T12:40:21.373-05:00  INFO 17392 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3428 ms
+2023-08-07T12:40:21.644-05:00  INFO 17392 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T12:40:21.756-05:00  INFO 17392 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T12:40:21.759-05:00  INFO 17392 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T12:40:22.043-05:00  INFO 17392 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:40:22.247-05:00  INFO 17392 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T12:40:22.277-05:00  INFO 17392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T12:40:22.541-05:00  INFO 17392 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7996d0d4
+2023-08-07T12:40:22.544-05:00  INFO 17392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T12:40:22.620-05:00  WARN 17392 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T12:40:22.999-05:00  INFO 17392 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:40:24.417-05:00  INFO 17392 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T12:40:25.351-05:00  INFO 17392 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:40:25.745-05:00  INFO 17392 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T12:40:26.902-05:00  WARN 17392 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T12:40:27.676-05:00  INFO 17392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T12:40:27.688-05:00  INFO 17392 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 10.773 seconds (process running for 14.281)
+2023-08-07T12:40:27.730-05:00  INFO 17392 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
+2023-08-07T12:40:27.732-05:00  INFO 17392 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T12:40:49.547-05:00  INFO 17392 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T12:40:49.555-05:00  INFO 17392 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T12:40:49.563-05:00  INFO 17392 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2023-08-07T12:40:51.099-05:00  INFO 17392 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:40:51.648-05:00  INFO 17392 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/error] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:42:29.443-05:00  INFO 17392 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/register] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:42:58.194-05:00  INFO 17392 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/enableUser] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:05.894-05:00  INFO 17392 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:06.539-05:00  INFO 17392 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:08.863-05:00  INFO 17392 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:08.898-05:00  INFO 17392 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:09.704-05:00  INFO 17392 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:09.732-05:00  INFO 17392 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:09.801-05:00  INFO 17392 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:20.484-05:00  INFO 17392 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:21.816-05:00  INFO 17392 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:33.519-05:00  INFO 17392 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/inventory/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:33.587-05:00  INFO 17392 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:36.114-05:00  INFO 17392 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:36.114-05:00  INFO 17392 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:50.409-05:00  INFO 17392 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:51.092-05:00  INFO 17392 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/product/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:55.281-05:00  INFO 17392 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:55.323-05:00  INFO 17392 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:58.869-05:00  INFO 17392 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:43:58.876-05:00  INFO 17392 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:44:06.960-05:00  INFO 17392 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:44:18.490-05:00  INFO 17392 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:44:25.246-05:00  INFO 17392 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:44:55.881-05:00  INFO 17392 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:45:28.546-05:00  INFO 17392 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:45:57.150-05:00  INFO 17392 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:46:13.580-05:00  INFO 17392 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:46:13.782-05:00  INFO 17392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T12:46:13.974-05:00  INFO 17392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T12:46:35.072-05:00  INFO 14800 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 14800 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T12:46:35.074-05:00  INFO 14800 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T12:46:36.459-05:00  INFO 14800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T12:46:36.602-05:00  INFO 14800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 132 ms. Found 10 JPA repository interfaces.
+2023-08-07T12:46:37.498-05:00  INFO 14800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T12:46:37.510-05:00  INFO 14800 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T12:46:37.510-05:00  INFO 14800 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T12:46:37.651-05:00  INFO 14800 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T12:46:37.652-05:00  INFO 14800 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2483 ms
+2023-08-07T12:46:38.030-05:00  INFO 14800 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T12:46:38.197-05:00  INFO 14800 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T12:46:38.205-05:00  INFO 14800 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T12:46:38.501-05:00  INFO 14800 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:46:38.773-05:00  INFO 14800 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T12:46:38.807-05:00  INFO 14800 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T12:46:39.145-05:00  INFO 14800 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5a51336a
+2023-08-07T12:46:39.149-05:00  INFO 14800 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T12:46:39.228-05:00  WARN 14800 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T12:46:39.612-05:00  INFO 14800 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:46:41.054-05:00  INFO 14800 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T12:46:43.302-05:00  INFO 14800 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:46:43.684-05:00  INFO 14800 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T12:46:54.258-05:00  WARN 14800 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T12:46:55.832-05:00  INFO 14800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T12:46:55.859-05:00  INFO 14800 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 22.221 seconds (process running for 27.317)
+2023-08-07T12:46:55.938-05:00  INFO 14800 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
+2023-08-07T12:46:55.941-05:00  INFO 14800 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T12:47:12.032-05:00  INFO 14800 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T12:47:12.048-05:00  INFO 14800 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T12:47:12.112-05:00  INFO 14800 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 60 ms
+2023-08-07T12:47:14.822-05:00  INFO 14800 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:47:33.268-05:00  INFO 14800 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:47:33.268-05:00  INFO 14800 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:49:13.730-05:00  WARN 14800 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m34s353ms117µs400ns).
+2023-08-07T12:49:14.512-05:00  INFO 14800 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:49:14.512-05:00  INFO 14800 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:49:14.804-05:00  INFO 14800 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:50:09.467-05:00  WARN 14800 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=55s761ms720µs).
+2023-08-07T12:50:42.516-05:00  INFO 14800 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:50:42.576-05:00  INFO 14800 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:50:42.577-05:00  INFO 14800 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [500] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:51:11.936-05:00  WARN 14800 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m2s494ms916µs900ns).
+2023-08-07T12:51:27.858-05:00  INFO 14800 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:51:59.664-05:00  INFO 14800 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:51:59.788-05:00  INFO 14800 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T12:52:00.032-05:00  INFO 14800 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T12:53:16.228-05:00  INFO 6296 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 6296 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T12:53:16.232-05:00  INFO 6296 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T12:53:19.121-05:00  INFO 6296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T12:53:19.546-05:00  INFO 6296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 403 ms. Found 10 JPA repository interfaces.
+2023-08-07T12:53:21.339-05:00  INFO 6296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T12:53:21.354-05:00  INFO 6296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T12:53:21.354-05:00  INFO 6296 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T12:53:21.611-05:00  INFO 6296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T12:53:21.611-05:00  INFO 6296 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5115 ms
+2023-08-07T12:53:22.048-05:00  INFO 6296 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T12:53:22.217-05:00  INFO 6296 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T12:53:22.222-05:00  INFO 6296 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T12:53:22.735-05:00  INFO 6296 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:53:23.219-05:00  INFO 6296 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T12:53:23.267-05:00  INFO 6296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T12:53:23.649-05:00  INFO 6296 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@368424db
+2023-08-07T12:53:23.675-05:00  INFO 6296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T12:53:24.051-05:00  WARN 6296 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T12:53:24.699-05:00  INFO 6296 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T12:53:25.831-05:00  INFO 6296 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T12:53:28.251-05:00  INFO 6296 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T12:53:28.700-05:00  INFO 6296 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T12:53:29.655-05:00  WARN 6296 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T12:53:30.258-05:00  INFO 6296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T12:53:30.269-05:00  INFO 6296 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 15.595 seconds (process running for 17.796)
+2023-08-07T12:53:30.299-05:00  INFO 6296 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
+2023-08-07T12:53:30.302-05:00  INFO 6296 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T12:53:38.876-05:00  INFO 6296 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T12:53:38.879-05:00  INFO 6296 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T12:53:38.888-05:00  INFO 6296 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2023-08-07T12:53:39.688-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:53:51.080-05:00  INFO 6296 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:53:51.089-05:00  INFO 6296 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:54:05.214-05:00  INFO 6296 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:54:20.995-05:00  INFO 6296 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:54:50.860-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:55:20.873-05:00  INFO 6296 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:55:50.888-05:00  INFO 6296 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:56:25.875-05:00  INFO 6296 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:57:26.074-05:00  INFO 6296 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:58:25.914-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:58:51.605-05:00  INFO 6296 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:58:51.637-05:00  INFO 6296 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:59:18.002-05:00  INFO 6296 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T12:59:47.871-05:00  INFO 6296 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:00:17.877-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:00:47.860-05:00  INFO 6296 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:01:18.402-05:00  INFO 6296 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:01:48.111-05:00  INFO 6296 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:02:17.939-05:00  INFO 6296 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:02:49.405-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:02:59.736-05:00  INFO 6296 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/buy/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:02:59.974-05:00  INFO 6296 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/buy/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:03:10.629-05:00  INFO 6296 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/buy/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:03:17.945-05:00  INFO 6296 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:03:48.127-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:04:17.882-05:00  INFO 6296 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:04:47.873-05:00  INFO 6296 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:05:17.879-05:00  INFO 6296 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:05:47.867-05:00  INFO 6296 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:06:17.865-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:06:47.893-05:00  INFO 6296 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:07:17.853-05:00  INFO 6296 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:07:47.866-05:00  INFO 6296 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:08:17.854-05:00  INFO 6296 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:08:47.853-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:09:17.867-05:00  INFO 6296 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:10:25.863-05:00  INFO 6296 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:11:25.868-05:00  INFO 6296 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:12:25.852-05:00  INFO 6296 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:13:26.239-05:00  INFO 6296 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:13:27.024-05:00  INFO 6296 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:13:28.045-05:00  INFO 6296 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/error] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T13:25:23.236-05:00  WARN 6296 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m58s800ms567µs800ns).
