@@ -24,7 +24,7 @@ import java.util.Map;
 @Component
 public class TokenUtil {
 
-    private static final long EXPIRATION_TIME = 86400000;
+    private static final long EXPIRATION_TIME = 60000;
     private static final int KEY_SIZE = 2048;
 
     private static Algorithm algorithm;
@@ -51,8 +51,8 @@ public class TokenUtil {
      * @param payload data que va a ser almacenada en el jwt
      * @return jwt creado a partir de la data y el algoritmo establecido
      */
-    public static String generateToken(Map<String, String> payload) {
-        return JWT.create().withPayload(payload).withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME)).sign(algorithm);
+    public static String generateToken(Map<String, String> payload, int time) {
+        return JWT.create().withPayload(payload).withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME * time)).sign(algorithm);
     }
 
     /**

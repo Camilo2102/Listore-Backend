@@ -19,6 +19,9 @@ import com.example.listore.service.UserService;
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -120,7 +123,7 @@ public class CredentialController extends GeneralController<Credential> {
         userData.put("id", user.getId());
         userData.put("role", String.valueOf(user.getRole()));
 
-        String token = TokenUtil.generateToken(userData);
+        String token = TokenUtil.generateToken(userData, 30);
 
         response.put(StatusConstants.STATUS, StatusConstants.AUTHORIZED);
         response.put("token", token);
@@ -250,6 +253,13 @@ public class CredentialController extends GeneralController<Credential> {
 
         Map<String, String> response = new HashMap<>();
         response.put("message", MessageConstants.SUCCESS_MESSAGE);
+        return response;
+    }
+
+    @GetMapping("/validateToken")
+    public Map<String, String> validateToken(){
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "valid");
         return response;
     }
 }

@@ -95,7 +95,7 @@ public class EmailUtil {
         Map<String, String> tokenData = new HashMap<>();
         tokenData.put("id", user.getId());
 
-        String temporalToken = TokenUtil.generateToken(tokenData);
+        String temporalToken = TokenUtil.generateToken(tokenData, 60 * 24);
 
         Email email = new Email(mail, "Completa tu registro", EmailUtil.getUserRegisterTemplate(temporalToken, code));
         EmailUtil.sendEmail(email);
@@ -115,7 +115,7 @@ public class EmailUtil {
         Map<String, String> tokenData = new HashMap<>();
         tokenData.put("id", user.getId());
 
-        String temporalToken = TokenUtil.generateToken(tokenData);
+        String temporalToken = TokenUtil.generateToken(tokenData, 60 * 24);
 
         Email email = new Email(mail, "Recupera tu contraseña: ", EmailUtil.getUserRecoveryTemplate(temporalToken, code));
         EmailUtil.sendEmail(email);
