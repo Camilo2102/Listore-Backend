@@ -711,3 +711,347 @@
 2023-08-07T13:13:27.024-05:00  INFO 6296 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
 2023-08-07T13:13:28.045-05:00  INFO 6296 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/error] Method: [GET] Status: [401] Ip: [0:0:0:0:0:0:0:1]
 2023-08-07T13:25:23.236-05:00  WARN 6296 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m58s800ms567µs800ns).
+2023-08-07T13:31:57.948-05:00  INFO 6296 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T13:31:58.202-05:00  INFO 6296 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T13:31:58.300-05:00  INFO 6296 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T14:46:54.243-05:00  INFO 19924 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 19924 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T14:46:54.246-05:00  INFO 19924 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T14:46:55.639-05:00  INFO 19924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T14:46:55.739-05:00  INFO 19924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 10 JPA repository interfaces.
+2023-08-07T14:46:56.464-05:00  INFO 19924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T14:46:56.478-05:00  INFO 19924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T14:46:56.478-05:00  INFO 19924 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T14:46:56.615-05:00  INFO 19924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T14:46:56.616-05:00  INFO 19924 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2264 ms
+2023-08-07T14:46:56.858-05:00  INFO 19924 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T14:46:56.938-05:00  INFO 19924 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T14:46:56.941-05:00  INFO 19924 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T14:46:57.173-05:00  INFO 19924 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:46:57.331-05:00  INFO 19924 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T14:46:57.348-05:00  INFO 19924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T14:46:58.517-05:00 ERROR 19924 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:175) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
+	at com.example.listore.ListoreApplication.main(ListoreApplication.java:38) ~[classes/:na]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:62) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:150) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:166) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:945) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	... 47 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:673) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:535) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:585) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:666) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	... 50 common frames omitted
+
+2023-08-07T14:46:58.535-05:00  WARN 19924 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:175) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
+	at com.example.listore.ListoreApplication.main(ListoreApplication.java:38) ~[classes/:na]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:62) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:150) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:166) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:945) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	... 47 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:673) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:535) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:585) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:666) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	... 50 common frames omitted
+
+2023-08-07T14:46:58.537-05:00 ERROR 19924 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
+2023-08-07T14:46:58.538-05:00  WARN 19924 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
+2023-08-07T14:46:58.541-05:00  INFO 19924 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-08-07T14:46:58.556-05:00  INFO 19924 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-08-07T14:46:58.573-05:00 ERROR 19924 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
+	at com.example.listore.ListoreApplication.main(ListoreApplication.java:38) ~[classes/:na]
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:277) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.10.jar:6.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.10.jar:6.0.10]
+	... 16 common frames omitted
+Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:188) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:274) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264) ~[hibernate-core-6.2.5.Final.jar:6.2.5.Final]
+	... 31 common frames omitted
+
+2023-08-07T14:50:45.528-05:00  INFO 9428 --- [main] com.example.listore.ListoreApplication   : Starting ListoreApplication using Java 20 with PID 9428 (C:\Users\juanc\Escritorio\Listore\Listore-Backend\target\classes started by juanc in C:\Users\juanc\Escritorio\Listore\Listore-Backend)
+2023-08-07T14:50:45.530-05:00  INFO 9428 --- [main] com.example.listore.ListoreApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T14:50:46.790-05:00  INFO 9428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T14:50:46.906-05:00  INFO 9428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 10 JPA repository interfaces.
+2023-08-07T14:50:47.484-05:00  INFO 9428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-07T14:50:47.497-05:00  INFO 9428 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T14:50:47.497-05:00  INFO 9428 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T14:50:47.596-05:00  INFO 9428 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T14:50:47.597-05:00  INFO 9428 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1991 ms
+2023-08-07T14:50:47.805-05:00  INFO 9428 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T14:50:47.919-05:00  INFO 9428 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T14:50:47.924-05:00  INFO 9428 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T14:50:48.229-05:00  INFO 9428 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:50:48.374-05:00  INFO 9428 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T14:50:48.392-05:00  INFO 9428 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T14:50:48.699-05:00  INFO 9428 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e0986c9
+2023-08-07T14:50:48.704-05:00  INFO 9428 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T14:50:48.783-05:00  WARN 9428 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-08-07T14:50:49.448-05:00  INFO 9428 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:50:50.315-05:00  INFO 9428 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T14:50:51.464-05:00  INFO 9428 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:50:51.836-05:00  INFO 9428 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-07T14:50:52.795-05:00  WARN 9428 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T14:50:53.278-05:00  INFO 9428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-07T14:50:53.286-05:00  INFO 9428 --- [main] com.example.listore.ListoreApplication   : Started ListoreApplication in 8.562 seconds (process running for 10.935)
+2023-08-07T14:50:53.309-05:00  INFO 9428 --- [main] com.example.listore.utils.LoggerUtil     : Trigger role validator already exist
+2023-08-07T14:50:53.310-05:00  INFO 9428 --- [main] com.example.listore.utils.LoggerUtil     : Trigger status validator already exist
+2023-08-07T14:51:56.628-05:00  INFO 9428 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T14:51:56.653-05:00  INFO 9428 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T14:51:56.843-05:00  INFO 9428 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 187 ms
+2023-08-07T14:51:57.072-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:51:58.775-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:06.413-05:00  INFO 9428 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:06.417-05:00  INFO 9428 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:06.413-05:00  INFO 9428 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:06.901-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:06.907-05:00  INFO 9428 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:06.931-05:00  INFO 9428 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:06.933-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:36.253-05:00  INFO 9428 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:36.280-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:53.524-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:52:53.525-05:00  INFO 9428 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:53:00.639-05:00  INFO 9428 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:53:00.639-05:00  INFO 9428 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:53:00.761-05:00  INFO 9428 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:53:00.799-05:00  INFO 9428 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:53:23.533-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:53:53.866-05:00  INFO 9428 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:54:23.868-05:00  INFO 9428 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:54:53.848-05:00  INFO 9428 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:55:25.840-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:56:24.099-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:56:53.879-05:00  INFO 9428 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:57:23.861-05:00  INFO 9428 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:58:24.866-05:00  INFO 9428 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:59:25.925-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:59:42.455-05:00  INFO 9428 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/atributes/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:59:42.455-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/atributes/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:59:43.707-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/atributes/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:59:43.711-05:00  INFO 9428 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/atributes/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:59:45.139-05:00  INFO 9428 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:59:45.150-05:00  INFO 9428 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T14:59:53.523-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:00:23.849-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:00:53.841-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:01:23.860-05:00  INFO 9428 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:01:53.848-05:00  INFO 9428 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:02:25.855-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:03:25.878-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:04:25.889-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:05:25.943-05:00  INFO 9428 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:06:25.851-05:00  INFO 9428 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:07:25.855-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:08:25.862-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:09:25.844-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:10:25.838-05:00  INFO 9428 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:33:50.360-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:33:51.835-05:00  INFO 9428 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:33:51.835-05:00  INFO 9428 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:33:52.853-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/error] Method: [POST] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:04.783-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:04.790-05:00  INFO 9428 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:04.790-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/error] Method: [POST] Status: [401] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:04.810-05:00  INFO 9428 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:17.014-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:19.623-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:19.627-05:00  INFO 9428 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/user/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:19.653-05:00  INFO 9428 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:19.683-05:00  INFO 9428 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/user/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:27.784-05:00  INFO 9428 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:27.791-05:00  INFO 9428 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:31.592-05:00  INFO 9428 --- [http-nio-7879-exec-4] com.example.listore.utils.LoggerUtil     : Url: [/product/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:31.601-05:00  INFO 9428 --- [http-nio-7879-exec-9] com.example.listore.utils.LoggerUtil     : Url: [/product/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:41.828-05:00  INFO 9428 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:41.830-05:00  INFO 9428 --- [http-nio-7879-exec-10] com.example.listore.utils.LoggerUtil     : Url: [/sale/getAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:41.844-05:00  INFO 9428 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/sale/countAllByFilters] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:42.798-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/sale/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:42.800-05:00  INFO 9428 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/sale/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:56.866-05:00  INFO 9428 --- [http-nio-7879-exec-3] com.example.listore.utils.LoggerUtil     : Url: [/sale/create] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:57.619-05:00  INFO 9428 --- [http-nio-7879-exec-2] com.example.listore.utils.LoggerUtil     : Url: [/sale/create] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:34:57.744-05:00  INFO 9428 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:35:05.312-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/sale/countAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:35:05.315-05:00  INFO 9428 --- [http-nio-7879-exec-5] com.example.listore.utils.LoggerUtil     : Url: [/sale/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:35:05.330-05:00  INFO 9428 --- [http-nio-7879-exec-7] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:35:05.331-05:00  INFO 9428 --- [http-nio-7879-exec-1] com.example.listore.utils.LoggerUtil     : Url: [/inventory/getAllByFilters] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:35:35.206-05:00  INFO 9428 --- [http-nio-7879-exec-6] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:36:05.846-05:00  INFO 9428 --- [http-nio-7879-exec-8] com.example.listore.utils.LoggerUtil     : Url: [/auth/validateToken] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-07T15:36:20.407-05:00  INFO 9428 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T15:36:20.466-05:00  INFO 9428 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T15:36:20.488-05:00  INFO 9428 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

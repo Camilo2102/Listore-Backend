@@ -6,7 +6,7 @@ import com.example.listore.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("Service")
+@Service("SaleService")
 public class SaleService extends GeneralService<Sale>{
 
     private final SaleRepository saleRepository;
