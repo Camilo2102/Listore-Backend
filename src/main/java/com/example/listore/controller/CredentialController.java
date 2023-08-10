@@ -107,6 +107,7 @@ public class CredentialController extends GeneralController<Credential> {
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
 
+
         boolean state = EncryptUtil.checkValues(credential.getPassword(), credentialFound.get().getPassword());
         if (!state) {
             throw new Exception(StatusConstants.UNAUTHORIZED);
