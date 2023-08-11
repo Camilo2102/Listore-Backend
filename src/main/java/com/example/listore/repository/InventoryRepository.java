@@ -15,14 +15,16 @@ public interface InventoryRepository extends GeneralRepository<Inventory>{
     @Query("SELECT I FROM Inventory AS I " +
             "WHERE I.category LIKE %:#{#inventory.category}% " +
             "AND I.description LIKE %:#{#inventory.description}% " +
-            "AND I.name LIKE %:#{#inventory.name}%")
+            "AND I.name LIKE %:#{#inventory.name}% " +
+            "AND I.company.id LIKE %:#{#inventory.company.id}%")
     List<Inventory> findByFilter(@Param("inventory") Inventory inventory, Pageable page);
 
 
     @Query("SELECT count(I) FROM Inventory AS I " +
             "WHERE I.category LIKE %:#{#inventory.category}% " +
             "AND I.description LIKE %:#{#inventory.description}% " +
-            "AND I.name LIKE %:#{#inventory.name}%")
+            "AND I.name LIKE %:#{#inventory.name}%" +
+            "AND I.company.id LIKE %:#{#inventory.company.id}%")
     long countByFilter(
             @Param("inventory") Inventory inventory);
 
