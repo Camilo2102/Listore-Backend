@@ -107,6 +107,7 @@ public class CredentialController extends GeneralController<Credential> {
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
 
+
         boolean state = EncryptUtil.checkValues(credential.getPassword(), credentialFound.get().getPassword());
         if (!state) {
             throw new Exception(StatusConstants.UNAUTHORIZED);
@@ -128,6 +129,7 @@ public class CredentialController extends GeneralController<Credential> {
         response.put(StatusConstants.STATUS, StatusConstants.AUTHORIZED);
         response.put("token", token);
         response.put("company", user.getCompany().getId());
+        response.put("user", user.getId());
         return response;
     }
 

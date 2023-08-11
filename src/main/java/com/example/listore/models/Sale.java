@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
 public class Sale extends GeneralModel{
 
     @Column(nullable = false, length = 60)
@@ -37,11 +36,7 @@ public class Sale extends GeneralModel{
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
-    public Sale(Sale sale) {
-        this.saleDate = sale.saleDate;
-        this.unitaryValue = sale.unitaryValue;
-        this.amount = sale.amount;
-        this.product = sale.product;
-        this.user = sale.user;
+    public Sale() {
+        this.saleDate = LocalDateTime.now();
     }
 }
