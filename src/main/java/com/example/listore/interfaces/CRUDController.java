@@ -95,4 +95,12 @@ public interface CRUDController<T> {
     @DeleteMapping(RoutesConstants.DELETE_ROUTE)
     public Map<String, String> delete(@RequestParam("id") String id) throws Exception;
 
+    /**
+     *
+     * @param t
+     * @return
+     * @throws Exception
+     */
+    @PostMapping(RoutesConstants.SAVEALL_ROUTE)
+    public Map<String, String> saveAll(@RequestBody List<T> t) throws  Exception;
 }

@@ -71,4 +71,10 @@ public interface CRUDService<T> {
      */
     public long count();
 
+    /**
+     *
+     * @param t
+     */
+    public void saveAll(List<T> t);
 }
+

@@ -123,4 +123,14 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
     public long count() {
         return generalRepository.count();
     }
+
+
+    /**
+     *
+     * @param t
+     */
+    @Override
+    public void saveAll(List<T> t) {
+        generalRepository.saveAll(t);
+    }
 }

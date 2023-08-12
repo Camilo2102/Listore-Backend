@@ -28,12 +28,10 @@ public class Sale extends GeneralModel{
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JoinColumn(name = "user_id") 
     private User user;
 
     public Sale() {

@@ -144,4 +144,20 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
 
         return response;
     }
+
+
+    @Override
+    public Map<String, String> saveAll(List<T> t) throws Exception {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", MessageConstants.FAILED_MESSAGE);
+
+        try {
+            generalService.saveAll(t);
+            response.put("message", MessageConstants.SUCCESS_MESSAGE);
+        } catch (Exception e) {
+            throw new Exception(MessageConstants.FAILED_MESSAGE);
+        }
+
+        return response;
+    }
 }

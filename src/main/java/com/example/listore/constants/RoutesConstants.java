@@ -21,5 +21,8 @@ public abstract class RoutesConstants {
     public static final String DELETE_ROUTE = "/delete";
 
 
+    public static final  String SAVEALL_ROUTE = "/createAll";
+
+
 
 }
