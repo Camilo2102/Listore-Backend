@@ -26,14 +26,14 @@ public class Product extends GeneralModel{
     private BigDecimal wholeSalePrice;
 
     @ManyToOne
-    @JoinColumn(name="supplier_Id ")
+    @JoinColumn(name="supplier_id")
     private Supplier supplier;
 
     @Column(nullable = false, length = 60)
     private String category;
 
     @ManyToOne
-    @JoinColumn(name = "inventory_Id")
+    @JoinColumn(name = "inventory_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Inventory inventory;
 

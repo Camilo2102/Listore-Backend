@@ -18,17 +18,13 @@ public class Atributes extends GeneralModel{
     @Column(nullable = false, length = 60)
     private String name;
 
-    @Column(nullable = false, length = 60)
-    private String value;
-
     @ManyToOne
     @JoinColumn(name = "product_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Product product;
 
-    public Atributes(String name, String value, Product product) {
+    public Atributes(String name, Product product) {
         this.name = name;
-        this.value = value;
         this.product = product;
     }
 }
