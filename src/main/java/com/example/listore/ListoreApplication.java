@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -25,6 +27,8 @@ import java.security.spec.InvalidKeySpecException;
                 contact = @Contact(url = "http://listore.com", name = "Listore", email = "listore@mail.com")
         )
 )
+@ComponentScan(basePackages = "com.example.listore.repository")
+@ComponentScan(basePackages = "com.example.listore.models.triggers")
 public class ListoreApplication implements CommandLineRunner {
 
     private final TriggerCreator triggerCreator;

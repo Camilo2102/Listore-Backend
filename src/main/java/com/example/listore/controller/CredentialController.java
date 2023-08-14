@@ -11,10 +11,8 @@ import com.example.listore.models.User;
 import com.example.listore.models.utils.Email;
 import com.example.listore.service.CompanyService;
 import com.example.listore.service.CredentialService;
-import com.example.listore.utils.EmailUtil;
-import com.example.listore.utils.EncryptUtil;
-import com.example.listore.utils.IdGeneratorUtil;
-import com.example.listore.utils.TokenUtil;
+import com.example.listore.service.GeneralService;
+import com.example.listore.utils.*;
 import com.example.listore.service.UserService;
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.transaction.Transactional;
@@ -148,7 +146,7 @@ public class CredentialController extends GeneralController<Credential> {
         Credential encryptedCredential = credentialWithEncryptedCode(registerUserDTO.getCredential());
         Credential createdCredential = credentialService.save(encryptedCredential);
 
-        Company createdCompany = companyService.save(registerUserDTO.getCompany());
+        Company createdCompany = companyService.save((Company) registerUserDTO.getCompany());
 
         User user = registerUserDTO.getUser();
         user.setCredential(createdCredential);

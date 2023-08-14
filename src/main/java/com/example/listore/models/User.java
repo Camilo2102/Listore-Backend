@@ -39,4 +39,15 @@ public class User extends GeneralModel  {
         this.role = user.role;
         this.company = user.company;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", role='" + role + '\'' +
+                ", active='" + active + '\'' +
+                ", credential=" + credential +
+                ", company=" + company +
+                '}';
+    }
 }

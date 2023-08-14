@@ -1,6 +1,7 @@
 package com.example.listore.models;
 
 import com.example.listore.utils.IdGeneratorUtil;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
@@ -21,9 +22,11 @@ public class GeneralModel {
 
     @CreationTimestamp
     @Column(updatable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private LocalDateTime updatedAt;
 
     public GeneralModel() {

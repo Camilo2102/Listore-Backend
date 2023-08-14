@@ -1,6 +1,8 @@
 package com.example.listore.interfaces;
 
 import com.example.listore.constants.RoutesConstants;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -17,7 +17,7 @@ import java.util.Optional;
  * @param <T> Clase que extienda de general model y que sea una entity para poder establecer el repositorio
  */
 @Service
-public abstract class GeneralService<T extends GeneralModel> implements CRUDService<T> {
+public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
 
     /**
      * Repositorio general, para tener los datos basicos del crud

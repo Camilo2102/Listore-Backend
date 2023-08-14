@@ -1,6 +1,5 @@
 package com.example.listore.repository;
 
-import com.example.listore.dto.UserFilterDTO;
 import com.example.listore.models.Credential;
 import com.example.listore.models.User;
 import org.springframework.data.domain.Pageable;
