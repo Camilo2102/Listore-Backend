@@ -13,18 +13,19 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
-public class Atributes extends GeneralModel{
+public class Pattern extends GeneralModel {
 
     @Column(nullable = false, length = 60)
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "pattern_id")
+    @JoinColumn(name = "inventory_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Pattern pattern;
+    private Inventory inventory;
 
-    public Atributes(String name, Pattern pattern) {
+    public Pattern(String name, Inventory inventory) {
         this.name = name;
-        this.pattern = pattern;
+        this.inventory = inventory;
     }
+
 }

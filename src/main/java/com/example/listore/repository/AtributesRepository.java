@@ -12,11 +12,11 @@ import java.util.List;
 public interface AtributesRepository extends GeneralRepository<Atributes>{
     @Query("SELECT A FROM Atributes As A " +
             "WHERE A.name LIKE %:#{#atributes.name}%" +
-            "AND A.product.id =:#{#atributes.product.id}")
+            "AND A.pattern.id =:#{#atributes.pattern.id}")
     List<Atributes> findByFilter(@Param("atributes") Atributes atributes, Pageable page);
 
     @Query("SELECT COUNT(A) FROM Atributes As A " +
             "WHERE A.name LIKE %:#{#atributes.name}%" +
-            "AND A.product.id =:#{#atributes.product.id}")
+            "AND A.pattern.id =:#{#atributes.pattern.id}")
     long countByFilter(@Param("atributes") Atributes atributes);
 }
