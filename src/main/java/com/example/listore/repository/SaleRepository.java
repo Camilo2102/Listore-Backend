@@ -11,7 +11,7 @@ import java.util.List;
 public interface SaleRepository extends GeneralRepository<Sale>{
 
     @Query("SELECT S FROM Sale AS S " +
-            "WHERE S.saleDate < :#{#sale.saleDate} " +
+            "WHERE S.saleDate > :#{#sale.saleDate} " +
             "AND S.user.id = :#{#sale.user.id} ")
     List<Sale> findByFilter(Sale sale, Pageable page);
 
