@@ -39,6 +39,7 @@ public class TokenHandler implements HandlerInterceptor {
         }
 
         String route = RequestUtil.getPartFromURI(request.getRequestURI(), 1);
+        route += "/" + RequestUtil.getPartFromURI(request.getRequestURI(), 2);
         char[] permissions = permissionsListByRoute.get(route);
 
         Map<String, Claim> payload;

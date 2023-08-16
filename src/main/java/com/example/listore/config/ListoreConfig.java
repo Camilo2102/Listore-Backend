@@ -51,13 +51,13 @@ public class ListoreConfig implements WebMvcConfigurer {
     }
 
     private void initializeUserRoute(InterceptorRegistry registry) {
-        this.tokenHandler.addToPermissionListByPath("user", new char[]{'C', 'M'});
-        registry.addInterceptor(tokenHandler).addPathPatterns("/user/**");
+        this.tokenHandler.addToPermissionListByPath("api/user", new char[]{'C', 'M'});
+        registry.addInterceptor(tokenHandler).addPathPatterns("/api/user/**");
     }
 
     private void initializeInventoryRoute(InterceptorRegistry registry){
-        this.tokenHandler.addToPermissionListByPath("inventory", new char[]{'C', 'M'});
-        registry.addInterceptor(tokenHandler).addPathPatterns("/inventory/**");
+        this.tokenHandler.addToPermissionListByPath("api/inventory", new char[]{'C', 'M'});
+        registry.addInterceptor(tokenHandler).addPathPatterns("/api/inventory/**");
     }
 
 
