@@ -1,16 +1,10 @@
 package com.example.listore.service;
 
-import com.example.listore.constants.MessageConstants;
-import com.example.listore.interfaces.CRUDService;
 import com.example.listore.models.Credential;
 import com.example.listore.repository.CredentialRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 //Definir anotacion @Service para poder usar el autowired

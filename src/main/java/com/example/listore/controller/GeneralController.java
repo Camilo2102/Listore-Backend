@@ -1,29 +1,43 @@
 package com.example.listore.controller;
 
 import com.example.listore.constants.MessageConstants;
+import com.example.listore.constants.RoutesConstants;
 import com.example.listore.interfaces.CRUDController;
-import com.example.listore.models.Credential;
 import com.example.listore.models.GeneralModel;
 import com.example.listore.service.GeneralService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.listore.utils.RequestUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.Setter;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Controlador general que provee al controllador la funcionalidad basicad el crud, y las rutas establecidas en el crudController, en caso de necesitar personalizar el metodo usar @Override
  * @param <T>
  */
-public abstract class GeneralController <T extends GeneralModel> implements CRUDController<T> {
+@Component
+public class GeneralController <T extends GeneralModel> implements CRUDController<T> {
 
     protected final GeneralService<T> generalService;
+    private final ObjectMapper mapper;
 
-    @Autowired
+    @Setter
+    private Class<?> aClass;
+
     public GeneralController(GeneralService<T> generalService) {
         this.generalService = generalService;
+        this.mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule()); // Importante para manejar fechas de Java 8+
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
 
     /**
@@ -74,6 +88,31 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
     }
 
     /**
+     * Permite btener todos los registros segun el filtro aplicado
+     * @param t el filtro a aplicar
+     * @param pageNumber el nuimero de la pagina
+     * @param pageSize el tamaño de la pagina
+     * @return los registros segun el filtro
+     * @throws Exception en caso de no ser implementado
+     */
+    @Override
+    public List<T> getAllByFilters(T t, int pageNumber, int pageSize) throws Exception {
+        Pageable page = PageRequest.of(pageNumber, pageSize);
+        return generalService.getAllByFilter(t, page);
+    }
+
+    /**
+     * Cuenta los registros segun el filtro
+     * @param t el filtro a aplicar
+     * @return el nuimero de registrso con ese filtro
+     * @throws Exception en caso de no ser implementado
+     */
+    @Override
+    public long countAllByFilters(T t) throws Exception {
+        return generalService.countByFilter(t);
+    }
+
+    /**
      * Crea un nuevo elemento en la entidad.
      *
      * @param t El elemento a crear.
@@ -95,7 +134,7 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
     @Override
     public T update(T t) throws Exception {
         T tFound = generalService.findById(t.getId());
-        return generalService.save(tFound);
+        return generalService.save(t);
     }
 
     /**
@@ -119,4 +158,89 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
 
         return response;
     }
+
+
+    @Override
+    public Map<String, String> saveAll(List<T> t) throws Exception {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", MessageConstants.FAILED_MESSAGE);
+
+        try {
+            generalService.saveAll(t);
+            response.put("message", MessageConstants.SUCCESS_MESSAGE);
+        } catch (Exception e) {
+            throw new Exception(MessageConstants.FAILED_MESSAGE);
+        }
+
+        return response;
+    }
+
+    public ResponseEntity<?> handleRequest(HttpServletRequest request, List<?> dataList, int pageNumber, int pageSize, String id) {
+        try {
+            String operation = "/" + RequestUtil.getPartFromURI(request.getRequestURI(), 3);
+            if(dataList == null){
+                dataList = new ArrayList<>();
+            }
+            List<? extends GeneralModel> parsedDataList = parseDataList(dataList);
+              return switch (operation) {
+                case RoutesConstants.GET_ALL_ROUTE -> {
+                    validateRequestMethod(request, HttpMethod.GET);
+                    yield ResponseEntity.ok(getAll());
+                }
+                case RoutesConstants.GET_ALL_COUNT_ROUTE -> {
+                    validateRequestMethod(request, HttpMethod.GET);
+                    yield ResponseEntity.ok(getAllCount());
+                }
+                case RoutesConstants.GET_BY_ID_ROUTE -> {
+                    validateRequestMethod(request, HttpMethod.GET);
+                    yield ResponseEntity.ok(getByID(id));
+                }
+                case RoutesConstants.GET_ALL_BY_FILTERS -> {
+                    validateRequestMethod(request, HttpMethod.POST);
+                    yield ResponseEntity.ok(getAllByFilters((T) parsedDataList.get(0), pageNumber, pageSize));
+                }
+                case RoutesConstants.COUNT_ALL_BY_FILTERS -> {
+                    validateRequestMethod(request, HttpMethod.POST);
+                    yield ResponseEntity.ok(countAllByFilters((T) parsedDataList.get(0)));
+                }
+                case RoutesConstants.CREATE_ROUTE -> {
+                    validateRequestMethod(request, HttpMethod.POST);
+                    yield ResponseEntity.ok(create((T) parsedDataList.get(0)));
+                }
+                case RoutesConstants.UPDATE_ROUTE -> {
+                    validateRequestMethod(request, HttpMethod.PUT);
+                    yield ResponseEntity.ok(update((T) parsedDataList.get(0)));
+                }
+                case RoutesConstants.DELETE_ROUTE -> {
+                    validateRequestMethod(request, HttpMethod.DELETE);
+                    yield ResponseEntity.ok(delete(id));
+                }
+                case RoutesConstants.SAVEALL_ROUTE -> {
+                    validateRequestMethod(request, HttpMethod.POST);
+                    yield ResponseEntity.ok(saveAll((List<T>) parsedDataList));
+                }
+                default -> ResponseEntity.badRequest().body("Invalid operation");
+            };
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
+
+    private void validateRequestMethod(HttpServletRequest request, HttpMethod expectedMethod) {
+        if (!request.getMethod().equals(expectedMethod.toString())) {
+            throw new IllegalArgumentException("Invalid request method");
+        }
+    }
+    private List<T> parseDataList(List<?> dataList){
+        List<T> result = new ArrayList<>();
+
+        for (Object data : dataList) {
+            Object instance = this.mapper.convertValue(data, aClass);
+            result.add((T) instance);
+        }
+
+        return result;
+    }
+
+
 }

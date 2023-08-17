@@ -1,6 +1,8 @@
 package com.example.listore.interfaces;
 
 import com.example.listore.constants.RoutesConstants;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,6 +41,25 @@ public interface CRUDController<T> {
     @GetMapping(RoutesConstants.GET_ALL_BY_PAGE_ROUTE)
     public List<T> getAll(@RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws Exception;
 
+    /**
+     * RUta que permite obtener todos los registros paginados y con el filtro arreglado
+     * @param k el filtro a aplicar
+     * @param pageNumber el nuimero de la pagina
+     * @param pageSize el tamaño de la pagina
+     * @return la lista con los datos
+     * @throws Exception tira execpcion en lugar de no ser implementado
+     */
+    @PostMapping(RoutesConstants.GET_ALL_BY_FILTERS)
+    public List<T> getAllByFilters(@RequestBody T t, @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws Exception;
+
+    /**
+     * RUta que permite obtener la cantidad de  registros paginados y con el filtro arreglado
+     * @param k el filtro a aplicar
+     * @return la cantidad de registros
+     * @throws Exception tira execpcion en lugar de no ser implementado
+     */
+    @PostMapping(RoutesConstants.COUNT_ALL_BY_FILTERS)
+    public long countAllByFilters(@RequestBody T t) throws Exception;
 
     /**
      * Obtiene un elemento por id
@@ -76,4 +97,12 @@ public interface CRUDController<T> {
     @DeleteMapping(RoutesConstants.DELETE_ROUTE)
     public Map<String, String> delete(@RequestParam("id") String id) throws Exception;
 
+    /**
+     *
+     * @param t
+     * @return
+     * @throws Exception
+     */
+    @PostMapping(RoutesConstants.SAVEALL_ROUTE)
+    public Map<String, String> saveAll(@RequestBody List<T> t) throws  Exception;
 }

@@ -3,6 +3,7 @@ package com.example.listore.service;
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.interfaces.CRUDService;
 import com.example.listore.models.GeneralModel;
+import com.example.listore.models.User;
 import com.example.listore.repository.GeneralRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +17,7 @@ import java.util.Optional;
  * @param <T> Clase que extienda de general model y que sea una entity para poder establecer el repositorio
  */
 @Service
-public abstract class GeneralService<T extends GeneralModel> implements CRUDService<T> {
+public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
 
     /**
      * Repositorio general, para tener los datos basicos del crud
@@ -46,6 +47,27 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
     @Override
     public List<T> getAllPageable(Pageable page) throws Exception {
         return generalRepository.findAll(page);
+    }
+
+    /**
+     * Obtiene todos los registros segun el filtro
+     * @param t el filtro a aplicar
+     * @param page la cantidad de registros
+     * @return la lista de los filtrso
+     */
+    @Override
+    public List<T> getAllByFilter(T t, Pageable page) {
+        return generalRepository.findByFilter(t, page);
+    }
+
+    /**
+     * Obtiene la cantidad de registros apra un filtro
+     * @param t el filtro a aplicar
+     * @return el nuymero ed registrsos del filtro
+     */
+    @Override
+    public long countByFilter(T t) {
+        return generalRepository.countByFilter(t);
     }
 
     /**
@@ -100,5 +122,15 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
     @Override
     public long count() {
         return generalRepository.count();
+    }
+
+
+    /**
+     *
+     * @param t
+     */
+    @Override
+    public void saveAll(List<T> t) {
+        generalRepository.saveAll(t);
     }
 }

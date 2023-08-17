@@ -1,10 +1,8 @@
 package com.example.listore.config;
 
-import com.example.listore.interceptores.TokenHandler;
-import com.example.listore.models.Credential;
-import com.example.listore.service.GeneralService;
+import com.example.listore.interceptors.LoggerInterceptor;
+import com.example.listore.interceptors.TokenHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -16,10 +14,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class ListoreConfig implements WebMvcConfigurer {
 
     private final TokenHandler tokenHandler;
+    private final LoggerInterceptor loggerInterceptor;
 
     @Autowired
-    public ListoreConfig(TokenHandler tokenHandler) {
+    public ListoreConfig(TokenHandler tokenHandler, LoggerInterceptor loggerInterceptor) {
         this.tokenHandler = tokenHandler;
+        this.loggerInterceptor = loggerInterceptor;
     }
 
     /**
@@ -28,8 +28,10 @@ public class ListoreConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        initializeAuthRoute(registry);
-        initializeUserRoute(registry);
+        registry.addInterceptor(loggerInterceptor).addPathPatterns("/**");
+        this.initializeAuthRoute(registry);
+        this.initializeUserRoute(registry);
+        this.initializeInventoryRoute(registry);
     }
 
 
@@ -38,13 +40,24 @@ public class ListoreConfig implements WebMvcConfigurer {
      * @param registry recibe el registru para asignarle los parametros de la ruta
      */
     private void initializeAuthRoute(InterceptorRegistry registry) {
-        this.tokenHandler.addToPermissionListByPath("auth", new char[]{'A', 'B'});
-        registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns("/auth/login");
+        this.tokenHandler.addToPermissionListByPath("auth", new char[]{'C', 'M', 'D', 'P', 'G'});
+        registry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns(
+                "/auth/login",
+                "/auth/register",
+                "/auth/validateCredential",
+                "/auth/enableUser",
+                "/auth/recoverPassword"
+        );
     }
 
     private void initializeUserRoute(InterceptorRegistry registry) {
-        this.tokenHandler.addToPermissionListByPath("user", new char[]{'X', 'Z'});
-        registry.addInterceptor(tokenHandler).addPathPatterns("/user/**");
+        this.tokenHandler.addToPermissionListByPath("api/user", new char[]{'C', 'M'});
+        registry.addInterceptor(tokenHandler).addPathPatterns("/api/user/**");
+    }
+
+    private void initializeInventoryRoute(InterceptorRegistry registry){
+        this.tokenHandler.addToPermissionListByPath("api/inventory", new char[]{'C', 'M'});
+        registry.addInterceptor(tokenHandler).addPathPatterns("/api/inventory/**");
     }
 
 
@@ -55,9 +68,11 @@ public class ListoreConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000/")
-                .allowedMethods("PUT", "DELETE", "POST", "GET")
-                .allowCredentials(true).maxAge(3600);
+                .allowedOrigins("http://localhost:3000")
+                .allowedMethods("PUT", "DELETE", "POST", "GET", "OPTIONS")
+                .allowedHeaders("Authorization", "Content-Type")
+                .allowCredentials(true)
+                .maxAge(3600);
     }
 
 

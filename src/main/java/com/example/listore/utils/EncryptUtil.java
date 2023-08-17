@@ -2,6 +2,8 @@ package com.example.listore.utils;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
+import java.util.Arrays;
+
 public class EncryptUtil {
 
     /**
