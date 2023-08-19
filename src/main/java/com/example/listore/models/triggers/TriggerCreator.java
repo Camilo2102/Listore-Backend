@@ -18,6 +18,16 @@ public class TriggerCreator {
     public void initializeTriggers() {
         createCheckRoleTrigger();
         createCheckStatusTrigger();
+        createSaleTrigger();
+    }
+
+    private void createSaleTrigger(){
+        try {
+            String sql = "CREATE TRIGGER `create_sale` BEFORE INSERT ON `sale` FOR EACH ROW UPDATE product SET amount = amount - NEW.amount WHERE id = NEW.product_id;";
+            jdbcTemplate.execute(sql);
+        }catch (Exception e) {
+            LoggerUtil.info("Trigger for sale validator already exist");
+        }
     }
 
     private void createCheckRoleTrigger() {
