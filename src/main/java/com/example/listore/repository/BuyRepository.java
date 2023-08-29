@@ -12,7 +12,10 @@ import java.util.List;
 @Repository
 public interface BuyRepository extends GeneralRepository<Buy>{
 
-    @Query("SELECT B FROM Buy AS B ")
+    @Query("SELECT B FROM Buy AS B "
+    +"WHERE (B.user.id LIKE %:#{#buy.user.id}%) " +
+            "AND (:#{#buy.initialDate} is null or B.buyDate > :#{#buy.initialDate}) " +
+            "AND (:#{#buy.finalDate} is null or B.buyDate < :#{#buy.finalDate})  ")
     List<Buy> findByFilter(Buy buy, Pageable page);
 
     @Query("SELECT COUNT(B) FROM Buy AS B ")
