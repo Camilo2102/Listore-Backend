@@ -40,6 +40,10 @@ public class Product extends GeneralModel{
     @Column(nullable = false, length = 60)
     private BigDecimal amount;
 
+    @ManyToOne
+    @JoinColumn(name="pattern_id")
+    private Pattern pattern;
+
 
     @Override
     public String toString() {
@@ -51,6 +55,7 @@ public class Product extends GeneralModel{
                 ", category='" + category + '\'' +
                 ", inventory=" + inventory +
                 ", amount=" + amount +
+                ", pattern=" + pattern +
                 '}';
     }
 }
