@@ -38,9 +38,7 @@ public class TokenHandler implements HandlerInterceptor {
             return true;
         }
 
-        String route = RequestUtil.getPartFromURI(request.getRequestURI(), 1);
-        route += "/" + RequestUtil.getPartFromURI(request.getRequestURI(), 2);
-        char[] permissions = permissionsListByRoute.get(route);
+        char[] permissions = findPermissions(request.getRequestURI());
 
         Map<String, Claim> payload;
         try {
@@ -59,6 +57,25 @@ public class TokenHandler implements HandlerInterceptor {
         }
     }
 
+
+    /**
+     * Metodo encargado de buscar dentro de los permisos especiales y los devuelve
+     * @param URI la url de la peticion
+     * @return lista con los permisos o null en caso de no tener
+     */
+    private char[] findPermissions(String URI) {
+        int parts = URI.split("/").length;
+        for (int i = parts; i > 0 ; i--) {
+            String route = RequestUtil.getPartFromURIUntil(URI, i);
+
+            char[] permissions = permissionsListByRoute.get(route);
+
+            if(permissions != null){
+                return  permissions;
+            }
+        }
+        return null;
+    }
 
 
 
