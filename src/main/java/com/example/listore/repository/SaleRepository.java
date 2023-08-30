@@ -11,7 +11,7 @@ import java.util.List;
 public interface SaleRepository extends GeneralRepository<Sale>{
 
     @Query("SELECT S FROM Sale AS S " +
-            "WHERE (S.user.id LIKE %:#{#sale.user.id}%) " +
+            "WHERE (:#{#sale.user.id} is null or S.user.id = :#{#sale.user.id}) " +
             "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) " +
             "AND (:#{#sale.finalDate} is null or S.saleDate < :#{#sale.finalDate})  " +
             "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) ")

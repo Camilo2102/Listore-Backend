@@ -20,6 +20,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+import static com.example.listore.utils.IdGeneratorUtil.generateUUID;
+
 /**
  * Controlador general que provee al controllador la funcionalidad basicad el crud, y las rutas establecidas en el crudController, en caso de necesitar personalizar el metodo usar @Override
  * @param <T>
@@ -30,6 +32,8 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
     protected final GeneralService<T> generalService;
     private final ObjectMapper mapper;
 
+    private String[] requieredIDRoutes;
+
     @Setter
     private Class<?> aClass;
 
@@ -38,6 +42,11 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
         this.mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule()); // Importante para manejar fechas de Java 8+
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        this.requieredIDRoutes = new String[]{
+                RoutesConstants.CREATE_ROUTE,
+                RoutesConstants.UPDATE_ROUTE,
+                RoutesConstants.SAVEALL_ROUTE
+        };
     }
 
     /**
@@ -181,7 +190,7 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
             if(dataList == null){
                 dataList = new ArrayList<>();
             }
-            List<? extends GeneralModel> parsedDataList = parseDataList(dataList);
+            List<? extends GeneralModel> parsedDataList = parseDataList(dataList, requireId(operation));
               return switch (operation) {
                 case RoutesConstants.GET_ALL_ROUTE -> {
                     validateRequestMethod(request, HttpMethod.GET);
@@ -231,12 +240,24 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
             throw new IllegalArgumentException("Invalid request method");
         }
     }
-    private List<T> parseDataList(List<?> dataList){
+
+    private boolean requireId(String route) {
+        for (String r : this.requieredIDRoutes) {
+            if (route.equals(r)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private List<T> parseDataList(List<?> dataList, boolean requireId){
         List<T> result = new ArrayList<>();
 
         for (Object data : dataList) {
-            Object instance = this.mapper.convertValue(data, aClass);
-            result.add((T) instance);
+            T instance = (T) this.mapper.convertValue(data, aClass);
+            if(requireId){
+                instance.setId(generateUUID());
+            }
+            result.add(instance);
         }
 
         return result;

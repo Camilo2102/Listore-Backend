@@ -58,4 +58,6 @@ public class Product extends GeneralModel{
                 ", pattern=" + pattern +
                 '}';
     }
+
+
 }

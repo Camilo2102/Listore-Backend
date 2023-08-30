@@ -10,7 +10,9 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends GeneralRepository<Product>{
 
-    @Query("SELECT P FROM Product AS P WHERE P.inventory.id = :#{#product.inventory.id} ")
+    @Query("SELECT P FROM Product AS P " +
+            "WHERE P.inventory.id = :#{#product.inventory.id} " +
+            "AND (:#{#product.supplier.id} is null or P.supplier.id = :#{#product.supplier.id})")
 
     List<Product> findByFilter(
             @Param("product") Product product,
