@@ -33,6 +33,12 @@ public class Buy extends GeneralModel{
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
+    @Transient
+    private LocalDateTime initialDate;
+
+    @Transient
+    private LocalDateTime finalDate;
+
     public Buy() {
         this.buyDate = LocalDateTime.now();
     }
