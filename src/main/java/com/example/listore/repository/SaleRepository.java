@@ -14,7 +14,8 @@ public interface SaleRepository extends GeneralRepository<Sale>{
             "WHERE (:#{#sale.user.id} is null or S.user.id = :#{#sale.user.id}) " +
             "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) " +
             "AND (:#{#sale.finalDate} is null or S.saleDate < :#{#sale.finalDate})  " +
-            "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) ")
+            "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) " +
+            "ORDER BY S.saleDate DESC ")
     List<Sale> findByFilter(Sale sale, Pageable page);
 
 
