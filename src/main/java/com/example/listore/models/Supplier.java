@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
 public class Supplier extends  GeneralModel{
     @Column(nullable = false, length = 60)
     private String name;
@@ -35,12 +34,4 @@ public class Supplier extends  GeneralModel{
     @JoinColumn(name = "inventory_Id")
     private Inventory inventory;
 
-    public Supplier(Supplier supplier) {
-        this.name = supplier.name;
-        this.phone = supplier.phone;
-        this.mail = supplier.mail;
-        this.address = supplier.address;
-        this.description = supplier.description;
-        this.inventory = supplier.inventory;
-    }
 }

@@ -40,7 +40,7 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
     public GeneralController(GeneralService<T> generalService) {
         this.generalService = generalService;
         this.mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule()); // Importante para manejar fechas de Java 8+
+        mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         this.requieredIDRoutes = new String[]{
                 RoutesConstants.CREATE_ROUTE,
