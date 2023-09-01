@@ -44,7 +44,6 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         this.requieredIDRoutes = new String[]{
                 RoutesConstants.CREATE_ROUTE,
-                RoutesConstants.UPDATE_ROUTE,
                 RoutesConstants.SAVEALL_ROUTE
         };
     }
@@ -255,7 +254,9 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
         for (Object data : dataList) {
             T instance = (T) this.mapper.convertValue(data, aClass);
             if(requireId){
-                instance.setId(generateUUID());
+                if(instance.getId() == null) {
+                    instance.setId(generateUUID());
+                }
             }
             result.add(instance);
         }
