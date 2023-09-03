@@ -126,11 +126,22 @@ public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
 
 
     /**
+     * Guarda una lista de elementos de tipo T en el repositorio.
      *
-     * @param t
+     * @param t Lista de elementos de tipo T que se desea guardar.
      */
     @Override
     public void saveAll(List<T> t) {
         generalRepository.saveAll(t);
+    }
+
+    /**
+     * Elimina todos los elementos relacionados con el identificador especificado.
+     *
+     * @param id Identificador que se utiliza para identificar y eliminar los elementos relacionados.
+     */
+    @Override
+    public void deleteAll(String id) {
+        generalRepository.deleteAllById(id);
     }
 }
