@@ -6,6 +6,7 @@ import com.example.listore.models.GeneralModel;
 import com.example.listore.models.User;
 import com.example.listore.repository.GeneralRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,7 @@ public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
      * @throws Exception error en caso de que falle la peticion
      */
     @Override
+    @Deprecated
     public List<T> getAll() throws Exception {
         return (List<T>) generalRepository.findAll();
     }
@@ -56,6 +58,7 @@ public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
      * @return la lista de los filtrso
      */
     @Override
+    @Cacheable(value = "getAllByFilter", cacheManager = "cacheManager")
     public List<T> getAllByFilter(T t, Pageable page) {
         return generalRepository.findByFilter(t, page);
     }
@@ -66,6 +69,7 @@ public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
      * @return el nuymero ed registrsos del filtro
      */
     @Override
+    @Cacheable(value = "countByFilter")
     public long countByFilter(T t) {
         return generalRepository.countByFilter(t);
     }
@@ -77,6 +81,7 @@ public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
      * @throws Exception en caso de no encontrarse tira un error para indicar que no se econtró
      */
     @Override
+    @Cacheable(value = "findById", key = "#id")
     public T findById(String id) throws Exception {
         Optional<T> t = generalRepository.findById(id);
         if(t.isEmpty()){
