@@ -43,7 +43,7 @@ public interface CRUDController<T> {
 
     /**
      * RUta que permite obtener todos los registros paginados y con el filtro arreglado
-     * @param k el filtro a aplicar
+     * @param t el filtro a aplicar
      * @param pageNumber el nuimero de la pagina
      * @param pageSize el tamaño de la pagina
      * @return la lista con los datos
@@ -54,7 +54,7 @@ public interface CRUDController<T> {
 
     /**
      * RUta que permite obtener la cantidad de  registros paginados y con el filtro arreglado
-     * @param k el filtro a aplicar
+     * @param t el filtro a aplicar
      * @return la cantidad de registros
      * @throws Exception tira execpcion en lugar de no ser implementado
      */
@@ -99,10 +99,19 @@ public interface CRUDController<T> {
 
     /**
      *
-     * @param t
-     * @return
-     * @throws Exception
+     * @param t lista de objetos a registrar
+     * @return el estado de la peticion que se realizo con exito
+     * @throws Exception controla cualquier error al registrar multiples programas
      */
     @PostMapping(RoutesConstants.SAVEALL_ROUTE)
     public Map<String, String> saveAll(@RequestBody List<T> t) throws  Exception;
+
+    /**
+     * Metodo encargado de eliminar multiples regitros
+     * @param id el id por el que se van a eliminar (usar llaves foraneas)
+     * @return el estado de la eliminacion
+     * @throws Exception Excepcion en caso de error al registrar el programa
+     */
+    @DeleteMapping(RoutesConstants.DELETEALL_ROUTE)
+    public Map<String, String> deleteAll(@RequestParam("id") String id) throws  Exception;
 }

@@ -38,8 +38,4 @@ public class Product extends GeneralModel{
 
     @Column(nullable = false, length = 60)
     private BigDecimal amount;
-
-    @ManyToOne
-    @JoinColumn(name="pattern_id")
-    private Pattern pattern;
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 
@@ -29,6 +30,7 @@ import java.security.spec.InvalidKeySpecException;
 )
 @ComponentScan(basePackages = "com.example.listore.repository")
 @ComponentScan(basePackages = "com.example.listore.models.triggers")
+@EnableCaching
 public class ListoreApplication implements CommandLineRunner {
 
     private final TriggerCreator triggerCreator;

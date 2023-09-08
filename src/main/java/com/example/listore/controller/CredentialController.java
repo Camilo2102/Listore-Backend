@@ -142,6 +142,12 @@ public class CredentialController extends GeneralController<Credential> {
         Map<String, String> response = new HashMap<>();
 
         String code = IdGeneratorUtil.generateUUID(6);
+        registerUserDTO.getUser().setId(IdGeneratorUtil.generateUUID());
+        registerUserDTO.getUser().setId(IdGeneratorUtil.generateUUID());
+
+        registerUserDTO.getCredential().setId(IdGeneratorUtil.generateUUID());
+        registerUserDTO.getCompany().setId(IdGeneratorUtil.generateUUID());
+
         registerUserDTO.getCredential().setCode(code);
 
         Credential encryptedCredential = credentialWithEncryptedCode(registerUserDTO.getCredential());
@@ -165,6 +171,9 @@ public class CredentialController extends GeneralController<Credential> {
     @PostMapping("/registerUser")
     public Map<String, String> registerUser(@RequestBody User user) throws Exception {
         Map<String, String> response = new HashMap<>();
+
+        user.setId(IdGeneratorUtil.generateUUID());
+        user.getCredential().setId(IdGeneratorUtil.generateUUID());
 
         String code = IdGeneratorUtil.generateUUID(6);
         user.getCredential().setCode(code);

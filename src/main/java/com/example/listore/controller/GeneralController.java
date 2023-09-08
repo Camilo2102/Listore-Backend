@@ -11,6 +11,10 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpMethod;
@@ -24,10 +28,11 @@ import static com.example.listore.utils.IdGeneratorUtil.generateUUID;
 
 /**
  * Controlador general que provee al controllador la funcionalidad basicad el crud, y las rutas establecidas en el crudController, en caso de necesitar personalizar el metodo usar @Override
+ *
  * @param <T>
  */
 @Component
-public class GeneralController <T extends GeneralModel> implements CRUDController<T> {
+public class GeneralController<T extends GeneralModel> implements CRUDController<T> {
 
     protected final GeneralService<T> generalService;
     private final ObjectMapper mapper;
@@ -44,13 +49,13 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         this.requieredIDRoutes = new String[]{
                 RoutesConstants.CREATE_ROUTE,
-                RoutesConstants.UPDATE_ROUTE,
                 RoutesConstants.SAVEALL_ROUTE
         };
     }
 
     /**
      * Obtiene todos los registros para una entity T
+     *
      * @return Lista con todos los registros
      * @throws Exception error en caso de fallo en la consulta
      */
@@ -98,9 +103,10 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
 
     /**
      * Permite btener todos los registros segun el filtro aplicado
-     * @param t el filtro a aplicar
+     *
+     * @param t          el filtro a aplicar
      * @param pageNumber el nuimero de la pagina
-     * @param pageSize el tamaño de la pagina
+     * @param pageSize   el tamaño de la pagina
      * @return los registros segun el filtro
      * @throws Exception en caso de no ser implementado
      */
@@ -112,6 +118,7 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
 
     /**
      * Cuenta los registros segun el filtro
+     *
      * @param t el filtro a aplicar
      * @return el nuimero de registrso con ese filtro
      * @throws Exception en caso de no ser implementado
@@ -169,6 +176,13 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
     }
 
 
+    /**
+     * Controlador de reigstro de multiples valores
+     *
+     * @param t lista de objetos a registrar
+     * @return el estado de la respuesta del ingreso de multiples elementos
+     * @throws Exception En caso de generar algun error en el multiple ingreso
+     */
     @Override
     public Map<String, String> saveAll(List<T> t) throws Exception {
         Map<String, String> response = new HashMap<>();
@@ -184,14 +198,30 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
         return response;
     }
 
+
+    @Override
+    public Map<String, String> deleteAll(String id) throws Exception {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", MessageConstants.FAILED_MESSAGE);
+
+        try {
+            generalService.deleteAll(id);
+            response.put("message", MessageConstants.SUCCESS_MESSAGE);
+        } catch (Exception e) {
+            throw new Exception(MessageConstants.FAILED_MESSAGE);
+        }
+
+        return response;
+    }
+
     public ResponseEntity<?> handleRequest(HttpServletRequest request, List<?> dataList, int pageNumber, int pageSize, String id) {
         try {
             String operation = "/" + RequestUtil.getPartFromURI(request.getRequestURI(), 3);
-            if(dataList == null){
+            if (dataList == null) {
                 dataList = new ArrayList<>();
             }
             List<? extends GeneralModel> parsedDataList = parseDataList(dataList, requireId(operation));
-              return switch (operation) {
+            return switch (operation) {
                 case RoutesConstants.GET_ALL_ROUTE -> {
                     validateRequestMethod(request, HttpMethod.GET);
                     yield ResponseEntity.ok(getAll());
@@ -228,6 +258,10 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
                     validateRequestMethod(request, HttpMethod.POST);
                     yield ResponseEntity.ok(saveAll((List<T>) parsedDataList));
                 }
+                case RoutesConstants.DELETEALL_ROUTE -> {
+                    validateRequestMethod(request, HttpMethod.DELETE);
+                    yield ResponseEntity.ok(deleteAll(id));
+                }
                 default -> ResponseEntity.badRequest().body("Invalid operation");
             };
         } catch (Exception e) {
@@ -249,13 +283,16 @@ public class GeneralController <T extends GeneralModel> implements CRUDControlle
         }
         return false;
     }
-    private List<T> parseDataList(List<?> dataList, boolean requireId){
+
+    private List<T> parseDataList(List<?> dataList, boolean requireId) {
         List<T> result = new ArrayList<>();
 
         for (Object data : dataList) {
             T instance = (T) this.mapper.convertValue(data, aClass);
-            if(requireId){
-                instance.setId(generateUUID());
+            if (requireId) {
+                if (instance.getId() == null) {
+                    instance.setId(generateUUID());
+                }
             }
             result.add(instance);
         }

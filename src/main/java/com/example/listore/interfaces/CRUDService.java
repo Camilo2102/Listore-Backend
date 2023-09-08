@@ -44,7 +44,7 @@ public interface CRUDService<T> {
 
     /**
      * Obtiene los registros que segun el filtro que se aplica
-     * @param k el filtro a aplicar
+     * @param t el filtro a aplicar
      * @param page la cantidad de registros
      * @return los registros filtrados
      */
@@ -52,7 +52,7 @@ public interface CRUDService<T> {
 
     /**
      * Obtiene la cantidad de registros que se tienen segun el filtro aplicado
-     * @param k el filtro a aplicar
+     * @param t el filtro a aplicar
      * @return la cantidad de registros
      */
     public long countByFilter(T t);
@@ -72,9 +72,17 @@ public interface CRUDService<T> {
     public long count();
 
     /**
+     * Guarda una lista de elementos de tipo T en el repositorio.
      *
-     * @param t
+     * @param t Lista de elementos de tipo T que se desea guardar.
      */
     public void saveAll(List<T> t);
+
+    /**
+     * Elimina todos los elementos relacionados con el identificador especificado.
+     *
+     * @param id Identificador que se utiliza para identificar y eliminar los elementos relacionados.
+     */
+    public void deleteAll(String id);
 }
 

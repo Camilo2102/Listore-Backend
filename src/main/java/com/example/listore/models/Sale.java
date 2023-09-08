@@ -32,7 +32,6 @@ public class Sale extends GeneralModel{
     @JoinColumn(name = "user_id") 
     private User user;
 
-
     // No persistence fields
     @Transient
     private LocalDateTime initialDate;

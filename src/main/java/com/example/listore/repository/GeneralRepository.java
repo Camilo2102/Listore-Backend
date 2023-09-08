@@ -22,5 +22,8 @@ public interface GeneralRepository<T extends GeneralModel> extends CrudRepositor
     public List<T> findByFilter(T t, Pageable page);
     @Query("select 1")
     public long countByFilter(T t);
+
+    @Query("select 1")
+    public void deleteAllById(String id);
     public List<T> findAll(Pageable page);
 }
