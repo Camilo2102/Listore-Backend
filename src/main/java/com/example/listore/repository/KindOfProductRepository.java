@@ -11,7 +11,8 @@ import java.util.List;
 public interface KindOfProductRepository extends GeneralRepository<KindOfProduct> {
 
     @Override
-    @Query("SELECT K FROM KindOfProduct K")
+    @Query("SELECT K FROM KindOfProduct K " +
+            "WHERE ( :#{#kindOfProduct.product.id} is null or K.product.id = :#{#kindOfProduct.product.id} )")
     List<KindOfProduct> findByFilter(KindOfProduct kindOfProduct, Pageable page);
 
     @Override
