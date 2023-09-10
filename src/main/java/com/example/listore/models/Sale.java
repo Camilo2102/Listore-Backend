@@ -1,10 +1,7 @@
 package com.example.listore.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -30,7 +27,7 @@ public class Sale extends GeneralModel{
 
     @ManyToOne
     @JoinColumn(name = "user_id") 
-    private User user;
+    private ListoreUser user;
 
     // No persistence fields
     @Transient

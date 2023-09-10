@@ -3,7 +3,6 @@ package com.example.listore.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -30,7 +29,7 @@ public class Buy extends GeneralModel{
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private User user;
+    private ListoreUser user;
 
     @Transient
     private LocalDateTime initialDate;

@@ -3,7 +3,6 @@ package com.example.listore.service;
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.interfaces.CRUDService;
 import com.example.listore.models.GeneralModel;
-import com.example.listore.models.User;
 import com.example.listore.repository.GeneralRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

@@ -1,7 +1,7 @@
 package com.example.listore.utils;
 
 
-import com.example.listore.models.User;
+import com.example.listore.models.ListoreUser;
 import com.example.listore.models.utils.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -91,7 +91,7 @@ public class EmailUtil {
      * @param code el codigo para ingresar
      * @return el tokentemporal generado
      */
-    public static String sendPasswordChangeMail(User user, String mail, String code) {
+    public static String sendPasswordChangeMail(ListoreUser user, String mail, String code) {
         Map<String, String> tokenData = new HashMap<>();
         tokenData.put("id", user.getId());
 
@@ -111,7 +111,7 @@ public class EmailUtil {
      * @param recovery indica si es un correo de recuperacion
      * @return el tokentemporal generado
      */
-    public static String sendPasswordChangeMail(User user, String mail, String code, boolean recovery) {
+    public static String sendPasswordChangeMail(ListoreUser user, String mail, String code, boolean recovery) {
         Map<String, String> tokenData = new HashMap<>();
         tokenData.put("id", user.getId());
 
