@@ -22,10 +22,4 @@ public class Pattern extends GeneralModel {
     @JoinColumn(name = "inventory_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Inventory inventory;
-
-    public Pattern(String name, Inventory inventory) {
-        this.name = name;
-        this.inventory = inventory;
-    }
-
 }

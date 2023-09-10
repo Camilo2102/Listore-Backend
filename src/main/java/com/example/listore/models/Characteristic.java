@@ -6,32 +6,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
-public class Spent extends GeneralModel{
+public class Characteristic extends GeneralModel{
 
     @Column(nullable = false, length = 60)
-    private LocalDateTime spentDate;
+    private String name;
 
     @Column(nullable = false, length = 60)
-    private BigDecimal price;
-
-    @Column(nullable = false, length = 180)
-    private String description;
+    private String value;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "kind_of_product_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private ListoreUser user;
-
-    public Spent() {
-        this.spentDate = LocalDateTime.now();
-    }
-
+    private KindOfProduct kindOfProduct;
 }

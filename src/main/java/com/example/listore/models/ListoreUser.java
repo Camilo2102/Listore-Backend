@@ -1,19 +1,16 @@
 package com.example.listore.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Check;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class User extends GeneralModel  {
+public class ListoreUser extends GeneralModel  {
 
     @Column(nullable = false, length = 60)
     private String name;
@@ -32,13 +29,6 @@ public class User extends GeneralModel  {
     @JoinColumn(name = "company_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Company company;
-
-    public User(User user) {
-        this.name = user.name;
-        this.credential = user.credential;
-        this.role = user.role;
-        this.company = user.company;
-    }
 
     @Override
     public String toString() {

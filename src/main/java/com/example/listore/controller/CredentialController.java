@@ -7,19 +7,14 @@ import com.example.listore.dto.PasswordChangeDTO;
 import com.example.listore.dto.RegisterUserDTO;
 import com.example.listore.models.Company;
 import com.example.listore.models.Credential;
-import com.example.listore.models.User;
-import com.example.listore.models.utils.Email;
+import com.example.listore.models.ListoreUser;
 import com.example.listore.service.CompanyService;
 import com.example.listore.service.CredentialService;
-import com.example.listore.service.GeneralService;
 import com.example.listore.utils.*;
 import com.example.listore.service.UserService;
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -112,7 +107,7 @@ public class CredentialController extends GeneralController<Credential> {
         }
 
         Credential credentialData = credentialFound.get();
-        User user = userService.getByCredential(credentialData);
+        ListoreUser user = userService.getByCredential(credentialData);
 
         if (user.getActive().equals("N")) {
             throw new Exception(StatusConstants.UNAUTHORIZED);
@@ -128,6 +123,7 @@ public class CredentialController extends GeneralController<Credential> {
         response.put("token", token);
         response.put("company", user.getCompany().getId());
         response.put("user", user.getId());
+        response.put("role", user.getRole());
         return response;
     }
 
@@ -141,6 +137,12 @@ public class CredentialController extends GeneralController<Credential> {
         Map<String, String> response = new HashMap<>();
 
         String code = IdGeneratorUtil.generateUUID(6);
+        registerUserDTO.getUser().setId(IdGeneratorUtil.generateUUID());
+        registerUserDTO.getUser().setId(IdGeneratorUtil.generateUUID());
+
+        registerUserDTO.getCredential().setId(IdGeneratorUtil.generateUUID());
+        registerUserDTO.getCompany().setId(IdGeneratorUtil.generateUUID());
+
         registerUserDTO.getCredential().setCode(code);
 
         Credential encryptedCredential = credentialWithEncryptedCode(registerUserDTO.getCredential());
@@ -148,7 +150,7 @@ public class CredentialController extends GeneralController<Credential> {
 
         Company createdCompany = companyService.save((Company) registerUserDTO.getCompany());
 
-        User user = registerUserDTO.getUser();
+        ListoreUser user = registerUserDTO.getUser();
         user.setCredential(createdCredential);
         user.setCompany(createdCompany);
 
@@ -162,8 +164,11 @@ public class CredentialController extends GeneralController<Credential> {
     }
 
     @PostMapping("/registerUser")
-    public Map<String, String> registerUser(@RequestBody User user) throws Exception {
+    public Map<String, String> registerUser(@RequestBody ListoreUser user) throws Exception {
         Map<String, String> response = new HashMap<>();
+
+        user.setId(IdGeneratorUtil.generateUUID());
+        user.getCredential().setId(IdGeneratorUtil.generateUUID());
 
         String code = IdGeneratorUtil.generateUUID(6);
         user.getCredential().setCode(code);
@@ -204,7 +209,7 @@ public class CredentialController extends GeneralController<Credential> {
         Credential encryptedCredential = credentialWithEncryptedCode(credential);
         credentialService.save(encryptedCredential);
 
-        User userFound = userService.getByCredential(credential);
+        ListoreUser userFound = userService.getByCredential(credential);
 
         EmailUtil.sendPasswordChangeMail(userFound, mail, code, true);
 
@@ -222,7 +227,7 @@ public class CredentialController extends GeneralController<Credential> {
 
         String id = payload.get("id").asString();
 
-        User userFind = userService.findById(id);
+        ListoreUser userFind = userService.findById(id);
 
         boolean isValid = EncryptUtil.checkValues(passwordChangeDTO.getCode(), userFind.getCredential().getCode());
 
@@ -247,7 +252,7 @@ public class CredentialController extends GeneralController<Credential> {
 
     @DeleteMapping("/disableUser")
     public Map<String, String> deleteUser(@RequestParam("id") String id) throws Exception {
-        User findUser = userService.findById(id);
+        ListoreUser findUser = userService.findById(id);
         findUser.setActive("N");
         userService.save(findUser);
 

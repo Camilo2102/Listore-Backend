@@ -22,9 +22,4 @@ public class Atributes extends GeneralModel{
     @JoinColumn(name = "pattern_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Pattern pattern;
-
-    public Atributes(String name, Pattern pattern) {
-        this.name = name;
-        this.pattern = pattern;
-    }
 }

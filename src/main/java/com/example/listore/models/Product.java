@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
 public class Product extends GeneralModel{
     @Column(nullable = false, length = 60)
     private String name;
@@ -39,18 +38,4 @@ public class Product extends GeneralModel{
 
     @Column(nullable = false, length = 60)
     private BigDecimal amount;
-
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", unitaryValue=" + unitaryValue +
-                ", wholeSalePrice=" + wholeSalePrice +
-                ", supplier=" + supplier +
-                ", category='" + category + '\'' +
-                ", inventory=" + inventory +
-                ", amount=" + amount +
-                '}';
-    }
 }

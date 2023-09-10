@@ -29,7 +29,5 @@ public class GeneralModel {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private LocalDateTime updatedAt;
 
-    public GeneralModel() {
-        this.id = IdGeneratorUtil.generateUUID();
-    }
+    public GeneralModel() {}
 }

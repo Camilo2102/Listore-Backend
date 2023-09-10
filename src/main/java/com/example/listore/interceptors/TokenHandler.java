@@ -2,7 +2,7 @@ package com.example.listore.interceptors;
 
 import com.auth0.jwt.interfaces.Claim;
 import com.example.listore.constants.MessageConstants;
-import com.example.listore.models.User;
+import com.example.listore.models.ListoreUser;
 import com.example.listore.service.UserService;
 import com.example.listore.utils.RequestUtil;
 import com.example.listore.utils.TokenUtil;
@@ -38,9 +38,7 @@ public class TokenHandler implements HandlerInterceptor {
             return true;
         }
 
-        String route = RequestUtil.getPartFromURI(request.getRequestURI(), 1);
-        route += "/" + RequestUtil.getPartFromURI(request.getRequestURI(), 2);
-        char[] permissions = permissionsListByRoute.get(route);
+        char[] permissions = findPermissions(request.getRequestURI());
 
         Map<String, Claim> payload;
         try {
@@ -60,6 +58,25 @@ public class TokenHandler implements HandlerInterceptor {
     }
 
 
+    /**
+     * Metodo encargado de buscar dentro de los permisos especiales y los devuelve
+     * @param URI la url de la peticion
+     * @return lista con los permisos o null en caso de no tener
+     */
+    private char[] findPermissions(String URI) {
+        int parts = URI.split("/").length;
+        for (int i = parts; i > 0 ; i--) {
+            String route = RequestUtil.getPartFromURIUntil(URI, i);
+
+            char[] permissions = permissionsListByRoute.get(route);
+
+            if(permissions != null){
+                return  permissions;
+            }
+        }
+        return null;
+    }
+
 
 
     /**
@@ -71,7 +88,7 @@ public class TokenHandler implements HandlerInterceptor {
      * @throws Exception error en caso de no encontrarlo en el sistema
      */
     private boolean isValidInUserList(String id, char role) throws Exception {
-        User userFind = userService.findById(id);
+        ListoreUser userFind = userService.findById(id);
         return userFind.getRole().charAt(0) == role;
     }
 
