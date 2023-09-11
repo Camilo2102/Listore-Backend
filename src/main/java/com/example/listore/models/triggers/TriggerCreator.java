@@ -19,6 +19,9 @@ public class TriggerCreator {
         createCheckRoleTrigger();
         createCheckStatusTrigger();
         createSaleTrigger();
+        createAfterBuyTrigger();
+        createUpdateProductAmountTrigger();
+        createAfterUpdateKindOfProductAmountTrigger();
     }
 
     private void createSaleTrigger(){
@@ -47,4 +50,32 @@ public class TriggerCreator {
             LoggerUtil.info("Trigger status validator already exist");
         }
     }
+
+    private void createUpdateProductAmountTrigger() {
+        try {
+            String sql = "CREATE TRIGGER `update_product_amount_trigger` AFTER INSERT ON kind_of_product FOR EACH ROW BEGIN DECLARE total_amount DECIMAL(38,2); SET total_amount = (SELECT SUM(amount) FROM kind_of_product WHERE product_id = NEW.product_id); UPDATE product SET amount = total_amount WHERE id = NEW.product_id; END;";
+            jdbcTemplate.execute(sql);
+        }catch (Exception e) {
+            LoggerUtil.info("Trigger update product amount already exist");
+        }
+    }
+
+    private void createAfterUpdateKindOfProductAmountTrigger() {
+        try {
+            String sql = "CREATE TRIGGER `after_update_kind_of_product_amount_trigger` AFTER UPDATE ON kind_of_product FOR EACH ROW BEGIN DECLARE total_amount DECIMAL(38,2); SET total_amount = (SELECT SUM(amount) FROM kind_of_product WHERE product_id = OLD.product_id); UPDATE product SET amount = total_amount WHERE id = OLD.product_id; END;";
+            jdbcTemplate.execute(sql);
+        }catch (Exception e) {
+            LoggerUtil.info("Trigger after update kindOfProduct amount already exist 1");
+        }
+    }
+
+    private void createAfterBuyTrigger() {
+        try {
+            String sql = "CREATE TRIGGER `after_buy_trigger` AFTER INSERT ON buy FOR EACH ROW BEGIN UPDATE kind_of_product SET amount = amount + NEW.amount WHERE id = NEW.kind_of_product_id; END;";
+            jdbcTemplate.execute(sql);
+        }catch (Exception e) {
+            LoggerUtil.info("Trigger after buy already exist");
+        }
+    }
+
 }
