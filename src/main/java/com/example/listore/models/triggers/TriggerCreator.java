@@ -18,19 +18,11 @@ public class TriggerCreator {
     public void initializeTriggers() {
         createCheckRoleTrigger();
         createCheckStatusTrigger();
-        createSaleTrigger();
         createAfterBuyTrigger();
         createUpdateProductAmountTrigger();
         createAfterUpdateKindOfProductAmountTrigger();
-    }
-
-    private void createSaleTrigger(){
-        try {
-            String sql = "CREATE TRIGGER `create_sale` BEFORE INSERT ON `sale` FOR EACH ROW UPDATE product SET amount = amount - NEW.amount WHERE id = NEW.product_id;";
-            jdbcTemplate.execute(sql);
-        }catch (Exception e) {
-            LoggerUtil.info("Trigger for sale validator already exist");
-        }
+        createAfterSaleTrigger();
+        validateKindOfProductAmountBeforeSaleTrigger();
     }
 
     private void createCheckRoleTrigger() {
@@ -65,7 +57,7 @@ public class TriggerCreator {
             String sql = "CREATE TRIGGER `after_update_kind_of_product_amount_trigger` AFTER UPDATE ON kind_of_product FOR EACH ROW BEGIN DECLARE total_amount DECIMAL(38,2); SET total_amount = (SELECT SUM(amount) FROM kind_of_product WHERE product_id = OLD.product_id); UPDATE product SET amount = total_amount WHERE id = OLD.product_id; END;";
             jdbcTemplate.execute(sql);
         }catch (Exception e) {
-            LoggerUtil.info("Trigger after update kindOfProduct amount already exist 1");
+            LoggerUtil.info("Trigger after update kindOfProduct amount already exist");
         }
     }
 
@@ -75,6 +67,24 @@ public class TriggerCreator {
             jdbcTemplate.execute(sql);
         }catch (Exception e) {
             LoggerUtil.info("Trigger after buy already exist");
+        }
+    }
+
+    private void createAfterSaleTrigger() {
+        try {
+            String sql = "CREATE TRIGGER `after_sale_trigger` AFTER INSERT ON sale FOR EACH ROW BEGIN UPDATE kind_of_product SET amount = amount - NEW.amount WHERE id = NEW.kind_of_product_id; END;";
+            jdbcTemplate.execute(sql);
+        }catch (Exception e) {
+            LoggerUtil.info("Trigger after sale already exist");
+        }
+    }
+
+    private void validateKindOfProductAmountBeforeSaleTrigger() {
+        try {
+            String sql = "CREATE TRIGGER validate_kind_of_product_amount_before_sale BEFORE INSERT ON sale FOR EACH ROW BEGIN DECLARE available_quantity DECIMAL(38,2); SET available_quantity=(SELECT amount FROM kind_of_product WHERE id = NEW.kind_of_product_id); IF available_quantity < NEW.amount THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se puede vender el producto, la cantidad es insuficiente en kind_of_product'; END IF; END;";
+            jdbcTemplate.execute(sql);
+        }catch (Exception e) {
+            LoggerUtil.info("Trigger validate kindOfProduct amount before sale already exist");
         }
     }
 
