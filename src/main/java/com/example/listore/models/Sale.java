@@ -26,8 +26,12 @@ public class Sale extends GeneralModel{
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "user_id") 
+    @JoinColumn(name = "user_id")
     private ListoreUser user;
+
+    @ManyToOne
+    @JoinColumn(name = "kind_of_product_id")
+    private KindOfProduct kindOfProduct;
 
     // No persistence fields
     @Transient
