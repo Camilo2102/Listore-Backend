@@ -2,7 +2,7 @@ package com.example.listore.interceptors;
 
 import com.auth0.jwt.interfaces.Claim;
 import com.example.listore.constants.MessageConstants;
-import com.example.listore.models.User;
+import com.example.listore.models.ListoreUser;
 import com.example.listore.service.UserService;
 import com.example.listore.utils.RequestUtil;
 import com.example.listore.utils.TokenUtil;
@@ -88,7 +88,7 @@ public class TokenHandler implements HandlerInterceptor {
      * @throws Exception error en caso de no encontrarlo en el sistema
      */
     private boolean isValidInUserList(String id, char role) throws Exception {
-        User userFind = userService.findById(id);
+        ListoreUser userFind = userService.findById(id);
         return userFind.getRole().charAt(0) == role;
     }
 

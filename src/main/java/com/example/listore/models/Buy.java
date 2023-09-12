@@ -3,7 +3,6 @@ package com.example.listore.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -24,14 +23,13 @@ public class Buy extends GeneralModel{
     private BigDecimal amount;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Product product;
+    @JoinColumn(name = "kind_of_product_id")
+    private KindOfProduct kindOfProduct;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private User user;
+    private ListoreUser user;
 
     @Transient
     private LocalDateTime initialDate;

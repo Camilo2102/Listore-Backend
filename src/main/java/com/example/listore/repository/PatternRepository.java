@@ -8,9 +8,11 @@ import java.util.List;
 
 public interface PatternRepository extends GeneralRepository<Pattern> {
 
-    @Query("SELECT P FROM Pattern AS P")
+    @Query("SELECT P FROM Pattern AS P " +
+            "WHERE ( :#{#pattern.inventory.id} is null or P.inventory.id = :#{#pattern.inventory.id} )")
     List<Pattern> findByFilter(Pattern pattern, Pageable page);
 
-    @Query("SELECT COUNT(P) FROM Pattern AS P ")
+    @Query("SELECT count(P) from Pattern AS P " +
+            "WHERE ( :#{#pattern.inventory.id} is null or P.inventory.id = :#{#pattern.inventory.id} )")
     long countByFilter(Pattern pattern);
 }

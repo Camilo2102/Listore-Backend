@@ -28,7 +28,7 @@ public class Spent extends GeneralModel{
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private User user;
+    private ListoreUser user;
 
     public Spent() {
         this.spentDate = LocalDateTime.now();
