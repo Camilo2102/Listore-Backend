@@ -11,12 +11,17 @@ import java.util.List;
 public interface SaleRepository extends GeneralRepository<Sale>{
 
     @Query("SELECT S FROM Sale AS S " +
-            "WHERE (:#{#sale.user.id} is null or S.user.id = :#{#sale.user.id}) " +
+            "INNER JOIN S.user AS U " +
+            "INNER JOIN U.company AS C " +
+            "WHERE (:#{#sale.user.id} is null or U.id = :#{#sale.user.id}) " +
+            "AND (:#{#sale.user.company.id} is null or C.id = :#{#sale.user.company.id}) " +
             "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) " +
-            "AND (:#{#sale.finalDate} is null or S.saleDate < :#{#sale.finalDate})  " +
+            "AND (:#{#sale.finalDate} is null or S.saleDate < :#{#sale.finalDate}) " +
             "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) " +
             "ORDER BY S.saleDate DESC ")
     List<Sale> findByFilter(Sale sale, Pageable page);
+
+
 
 
     @Query("SELECT COUNT(S) FROM Sale AS S ")
