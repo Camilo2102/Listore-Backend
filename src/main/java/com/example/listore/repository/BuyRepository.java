@@ -12,8 +12,13 @@ import java.util.List;
 @Repository
 public interface BuyRepository extends GeneralRepository<Buy>{
 
-    @Query("SELECT B FROM Buy AS B "
-    +"WHERE (B.user.id LIKE %:#{#buy.user.id}%) " +
+    @Query("SELECT B FROM Buy AS B " +
+            "INNER JOIN B.user AS U " +
+            "INNER JOIN U.company AS C " +
+            "WHERE (:#{#buy.user.id} is null or U.id = :#{#buy.user.id}) " +
+            "AND (:#{#buy.amount} is null or B.amount = :#{#buy.amount}) " +
+            "AND (:#{#buy.price} is null or B.price = :#{#buy.price}) " +
+            "AND (:#{#buy.user.company.id} is null or C.id = :#{#buy.user.company.id}) " +
             "AND (:#{#buy.initialDate} is null or B.buyDate > :#{#buy.initialDate}) " +
             "AND (:#{#buy.finalDate} is null or B.buyDate < :#{#buy.finalDate})  ")
     List<Buy> findByFilter(Buy buy, Pageable page);

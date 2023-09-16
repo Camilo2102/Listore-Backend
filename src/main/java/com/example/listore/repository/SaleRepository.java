@@ -15,6 +15,8 @@ public interface SaleRepository extends GeneralRepository<Sale>{
             "INNER JOIN U.company AS C " +
             "WHERE (:#{#sale.user.id} is null or U.id = :#{#sale.user.id}) " +
             "AND (:#{#sale.user.company.id} is null or C.id = :#{#sale.user.company.id}) " +
+            "AND (:#{#sale.unitaryValue} is null or S.unitaryValue = :#{#sale.unitaryValue}) " +
+            "AND (:#{#sale.amount} is null or S.amount = :#{#sale.amount}) " +
             "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) " +
             "AND (:#{#sale.finalDate} is null or S.saleDate < :#{#sale.finalDate}) " +
             "AND (:#{#sale.initialDate} is null or S.saleDate > :#{#sale.initialDate}) " +
