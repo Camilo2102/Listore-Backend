@@ -28,7 +28,7 @@ public class Buy extends GeneralModel{
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private ListoreUser user;
 
     @Transient

@@ -13,8 +13,8 @@ import java.util.List;
 public interface ListoreUserRepository extends GeneralRepository<ListoreUser> {
 
     @Query("SELECT U FROM ListoreUser AS U WHERE U.role NOT IN('C', 'M') AND U.active NOT IN ('N')" +
-            "AND U.name LIKE  %:#{#user.name}% " +
-            "AND U.role LIKE %:#{#user.role}% " +
+            "AND (:#{#user.name} is null or U.name LIKE  %:#{#user.name}%) " +
+            "AND (:#{#user.role} is null or U.role LIKE %:#{#user.role}%) " +
             "AND U.company.id LIKE %:#{#user.company.id}% ")
     List<ListoreUser> findByFilter(
             @Param("user") ListoreUser user,

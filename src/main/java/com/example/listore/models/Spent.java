@@ -27,7 +27,6 @@ public class Spent extends GeneralModel{
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private ListoreUser user;
 
     public Spent() {
