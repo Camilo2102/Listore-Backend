@@ -218,7 +218,7 @@ public class GeneralController<T extends GeneralModel> implements ICRUDControlle
             List<? extends GeneralModel> parsedDataList = parseDataList(dataList, requireId(operation));
             return switch (operation) {
                 case RoutesConstants.GET_ALL_BY_FILTER -> {
-                    validateRequestMethod(request, HttpMethod.GET);
+                    validateRequestMethod(request, HttpMethod.POST);
                     yield ResponseEntity.ok(getAll((T) parsedDataList.get(0)));
                 }
                 case RoutesConstants.GET_ALL_COUNT_ROUTE -> {
