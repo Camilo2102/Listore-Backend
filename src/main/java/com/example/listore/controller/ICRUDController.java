@@ -1,27 +1,24 @@
-package com.example.listore.interfaces;
+package com.example.listore.controller;
 
 import com.example.listore.constants.RoutesConstants;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * Interface que genera los metodos basicos del crud y sus respectivas rutas
  * @param <T> Clase a la cual se le va a generar el crud
  */
 @RestController
-public interface CRUDController<T> {
+public interface ICRUDController<T> {
     /**
      * Ruta para obtener todos los registros de una tabla
      * @return lista con todos los registros
      * @throws Exception en caso de no ser necesario agregar thorws new exeption para controlar su uso
      */
-    @GetMapping(RoutesConstants.GET_ALL_ROUTE)
-    public List<T> getAll() throws Exception;
+    @PostMapping(RoutesConstants.GET_ALL_BY_FILTER)
+    public List<T> getAll(T t) throws Exception;
 
     /**
      * Ruta para obtener la cantidad de registros total de una tabla
@@ -49,7 +46,7 @@ public interface CRUDController<T> {
      * @return la lista con los datos
      * @throws Exception tira execpcion en lugar de no ser implementado
      */
-    @PostMapping(RoutesConstants.GET_ALL_BY_FILTERS)
+    @PostMapping(RoutesConstants.GET_ALL_BY_FILTERS_PAGED)
     public List<T> getAllByFilters(@RequestBody T t, @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws Exception;
 
     /**

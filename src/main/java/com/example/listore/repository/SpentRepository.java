@@ -10,7 +10,13 @@ import java.util.List;
 @Repository
 public interface SpentRepository extends GeneralRepository<Spent>{
 
-    @Query("SELECT S FROM Spent AS S ")
+    @Query("SELECT S FROM Spent AS S "+
+            "INNER JOIN S.user AS U " +
+            "INNER JOIN U.company AS C " +
+            "WHERE (:#{#spent.user.id} is null or U.id = :#{#spent.user.id}) " +
+            "AND (:#{#spent.price} is null or S.price = :#{#spent.price}) " +
+            "AND (:#{#spent.user.company.id} is null or C.id = :#{#spent.user.company.id}) "
+    )
     List<Spent> findByFilter(Spent spent, Pageable page);
 
     @Query("SELECT COUNT(S) FROM Spent AS S ")

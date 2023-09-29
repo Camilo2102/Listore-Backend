@@ -1,5 +1,6 @@
 package com.example.listore.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,9 +36,11 @@ public class Sale extends GeneralModel{
 
     // No persistence fields
     @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private LocalDateTime initialDate;
 
     @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private LocalDateTime finalDate;
 
     public Sale() {

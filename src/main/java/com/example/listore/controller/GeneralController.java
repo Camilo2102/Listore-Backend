@@ -2,7 +2,6 @@ package com.example.listore.controller;
 
 import com.example.listore.constants.MessageConstants;
 import com.example.listore.constants.RoutesConstants;
-import com.example.listore.interfaces.CRUDController;
 import com.example.listore.models.GeneralModel;
 import com.example.listore.service.GeneralService;
 import com.example.listore.utils.RequestUtil;
@@ -11,10 +10,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpMethod;
@@ -32,7 +27,7 @@ import static com.example.listore.utils.IdGeneratorUtil.generateUUID;
  * @param <T>
  */
 @Component
-public class GeneralController<T extends GeneralModel> implements CRUDController<T> {
+public class GeneralController<T extends GeneralModel> implements ICRUDController<T> {
 
     protected final GeneralService<T> generalService;
     private final ObjectMapper mapper;
@@ -60,8 +55,8 @@ public class GeneralController<T extends GeneralModel> implements CRUDController
      * @throws Exception error en caso de fallo en la consulta
      */
     @Override
-    public List<T> getAll() throws Exception {
-        return generalService.getAll();
+    public List<T> getAll(T t) throws Exception {
+        return generalService.getAll(t);
     }
 
     /**
@@ -222,9 +217,9 @@ public class GeneralController<T extends GeneralModel> implements CRUDController
             }
             List<? extends GeneralModel> parsedDataList = parseDataList(dataList, requireId(operation));
             return switch (operation) {
-                case RoutesConstants.GET_ALL_ROUTE -> {
-                    validateRequestMethod(request, HttpMethod.GET);
-                    yield ResponseEntity.ok(getAll());
+                case RoutesConstants.GET_ALL_BY_FILTER -> {
+                    validateRequestMethod(request, HttpMethod.POST);
+                    yield ResponseEntity.ok(getAll((T) parsedDataList.get(0)));
                 }
                 case RoutesConstants.GET_ALL_COUNT_ROUTE -> {
                     validateRequestMethod(request, HttpMethod.GET);
@@ -234,7 +229,7 @@ public class GeneralController<T extends GeneralModel> implements CRUDController
                     validateRequestMethod(request, HttpMethod.GET);
                     yield ResponseEntity.ok(getByID(id));
                 }
-                case RoutesConstants.GET_ALL_BY_FILTERS -> {
+                case RoutesConstants.GET_ALL_BY_FILTERS_PAGED -> {
                     validateRequestMethod(request, HttpMethod.POST);
                     yield ResponseEntity.ok(getAllByFilters((T) parsedDataList.get(0), pageNumber, pageSize));
                 }

@@ -43,7 +43,7 @@ public class CredentialController extends GeneralController<Credential> {
 
     @Override
     @Hidden
-    public List<Credential> getAll() throws Exception {
+    public List<Credential> getAll(Credential credential) throws Exception {
         throw new Exception(MessageConstants.NOT_IMPLEMENTED_ROUTE);
     }
 

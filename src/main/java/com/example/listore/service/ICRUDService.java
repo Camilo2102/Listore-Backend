@@ -1,17 +1,17 @@
-package com.example.listore.interfaces;
+package com.example.listore.service;
 
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-public interface CRUDService<T> {
+public interface ICRUDService<T> {
 
     /**
      * Obtener todos los registros
      * @return lista con todos los registros
      * @throws Exception en caso de obtener algun error
      */
-    public List<T> getAll() throws Exception;
+    public List<T> getAll(T t) throws Exception;
 
     /**
      * Obtiene todos los registros a partir de un paginador

@@ -1,7 +1,6 @@
 package com.example.listore.service;
 
 import com.example.listore.constants.MessageConstants;
-import com.example.listore.interfaces.CRUDService;
 import com.example.listore.models.GeneralModel;
 import com.example.listore.repository.GeneralRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ import java.util.Optional;
  * @param <T> Clase que extienda de general model y que sea una entity para poder establecer el repositorio
  */
 @Service
-public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
+public class GeneralService<T extends GeneralModel> implements ICRUDService<T> {
 
     /**
      * Repositorio general, para tener los datos basicos del crud
@@ -35,9 +34,8 @@ public class GeneralService<T extends GeneralModel> implements CRUDService<T> {
      * @throws Exception error en caso de que falle la peticion
      */
     @Override
-    @Deprecated
-    public List<T> getAll() throws Exception {
-        return (List<T>) generalRepository.findAll();
+    public List<T> getAll(T t) throws Exception {
+        return (List<T>) generalRepository.findByFilter(t, Pageable.unpaged());
     }
 
     /**

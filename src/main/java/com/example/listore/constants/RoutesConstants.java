@@ -2,13 +2,13 @@ package com.example.listore.constants;
 
 public abstract class RoutesConstants {
 
-    public static final String GET_ALL_ROUTE = "/getAll";
+    public static final String GET_ALL_BY_FILTER = "/getAllByFilters";
 
     public static final String GET_ALL_COUNT_ROUTE = "/getAllCount";
 
     public static final String GET_ALL_BY_PAGE_ROUTE = "/getAllByPage";
 
-    public static final String GET_ALL_BY_FILTERS = "/getAllByFilters";
+    public static final String GET_ALL_BY_FILTERS_PAGED = "/getAllByFiltersPaged";
 
     public static final String COUNT_ALL_BY_FILTERS = "/countAllByFilters";
 
