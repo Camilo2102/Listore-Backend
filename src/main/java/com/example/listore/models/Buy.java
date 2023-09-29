@@ -32,9 +32,11 @@ public class Buy extends GeneralModel{
     private ListoreUser user;
 
     @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private LocalDateTime initialDate;
 
     @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private LocalDateTime finalDate;
 
     public Buy() {

@@ -1,10 +1,7 @@
 package com.example.listore.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +25,14 @@ public class Spent extends GeneralModel{
     @ManyToOne
     @JoinColumn(name = "user_id")
     private ListoreUser user;
+
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private LocalDateTime initialDate;
+
+    @Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private LocalDateTime finalDate;
 
     public Spent() {
         this.spentDate = LocalDateTime.now();
