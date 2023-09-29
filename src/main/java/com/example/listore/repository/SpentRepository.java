@@ -15,7 +15,9 @@ public interface SpentRepository extends GeneralRepository<Spent>{
             "INNER JOIN U.company AS C " +
             "WHERE (:#{#spent.user.id} is null or U.id = :#{#spent.user.id}) " +
             "AND (:#{#spent.price} is null or S.price = :#{#spent.price}) " +
-            "AND (:#{#spent.user.company.id} is null or C.id = :#{#spent.user.company.id}) "
+            "AND (:#{#spent.user.company.id} is null or C.id = :#{#spent.user.company.id}) " +
+            "AND (cast(:#{#spent.initialDate}  as date) is null or S.spentDate > :#{#spent.initialDate}) " +
+            "AND (cast(:#{#spent.finalDate}  as date) is null or S.spentDate < :#{#spent.finalDate})  "
     )
     List<Spent> findByFilter(Spent spent, Pageable page);
 

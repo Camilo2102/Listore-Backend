@@ -19,8 +19,8 @@ public interface BuyRepository extends GeneralRepository<Buy>{
             "AND (:#{#buy.amount} is null or B.amount = :#{#buy.amount}) " +
             "AND (:#{#buy.price} is null or B.price = :#{#buy.price}) " +
             "AND (:#{#buy.user.company.id} is null or C.id = :#{#buy.user.company.id}) " +
-            "AND (:#{#buy.initialDate} is null or B.buyDate > :#{#buy.initialDate}) " +
-            "AND (:#{#buy.finalDate} is null or B.buyDate < :#{#buy.finalDate})  ")
+            "AND ( cast(:#{#buy.initialDate} as date) is null or B.buyDate > :#{#buy.initialDate}) " +
+            "AND ( cast(:#{#buy.finalDate} as date) is null or B.buyDate < :#{#buy.finalDate})  ")
     List<Buy> findByFilter(Buy buy, Pageable page);
 
     @Query("SELECT COUNT(B) FROM Buy AS B ")
