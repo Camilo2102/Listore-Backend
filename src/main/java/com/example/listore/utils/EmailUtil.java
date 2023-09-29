@@ -70,7 +70,7 @@ public class EmailUtil {
      * @return un string con el codigo html para enviar al correo
      */
     public static String getUserRegisterTemplate(String token, String code) {
-        return "<h3>Completa tu registro en el siguiente <a href=\"http://localhost:3000/pages/auth/passwordChange?token="+token+"\"> enlace</a></h3> <h3>Tu código es: " + code + "</h3>";
+        return "<h3>Completa tu registro en el siguiente <a href=\"https://listore-nine.vercel.app/pages/auth/passwordChange?token="+token+"\"> enlace</a></h3> <h3>Tu código es: " + code + "</h3>";
     }
 
     /**
@@ -80,7 +80,7 @@ public class EmailUtil {
      * @return un string con el codigo html para enviar al correo
      */
     public static String getUserRecoveryTemplate(String token, String code) {
-        return "<h3>Recupera tu contraseña en el siguiente <a href=\"http://localhost:3000/pages/auth/passwordChange?token="+token+"\"> enlace</a></h3> <h3>Tu código es: " + code + "</h3>";
+        return "<h3>Recupera tu contraseña en el siguiente <a href=\"https://listore-nine.vercel.app/pages/auth/passwordChange?token="+token+"\"> enlace</a></h3> <h3>Tu código es: " + code + "</h3>";
     }
 
     /**
